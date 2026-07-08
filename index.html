@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -15,19 +14,19 @@ HTML
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: #f0f4f8; /* ปรับพื้นหลังเป็นสีฟ้าอมเทาอ่อนๆ */
+            color: #334e68; /* ปรับสีตัวอักษรให้อ่อนลง ไม่ดำสนิท */
             line-height: 1.6;
         }
 
         /* แถบเมนูด้านบน (Navigation Bar) */
         nav {
-            background-color: #1e293b;
+            background-color: #102a43; /* สีน้ำเงินเข้มหรูหรา */
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(16, 42, 67, 0.15);
         }
         nav ul {
             list-style: none;
@@ -38,20 +37,20 @@ HTML
         }
         nav li a {
             display: block;
-            color: #f1f5f9;
+            color: #f0f4f8;
             text-decoration: none;
-            padding: 15px 20px;
-            font-weight: bold;
-            transition: 0.3s;
+            padding: 18px 22px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         nav li a:hover {
-            background-color: #334155;
-            color: #38bdf8;
+            background-color: #243b53; /* เปลี่ยนสีเมื่อเอาเมาส์วาง */
+            color: #9fb3c8;
         }
 
         /* ส่วนหน้าแรก (Hero Section) */
         .hero {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            background: linear-gradient(135deg, #102a43 0%, #243b53 100%); /* ไล่เฉดสีน้ำเงินลึก */
             color: white;
             height: 100vh;
             display: flex;
@@ -62,36 +61,42 @@ HTML
             padding: 0 20px;
         }
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         .hero p {
-            font-size: 1.5rem;
-            color: #94a3b8;
+            font-size: 1.6rem;
+            color: #bcccdc; /* สีฟ้าพาสเทลอ่อน */
+            font-weight: 300;
         }
 
         /* ส่วนเนื้อหาหลัก */
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
-            padding: 80px 20px 40px 20px;
+            padding: 60px 20px 40px 20px;
         }
         section {
-            padding: 60px 0;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 60px 30px;
+            background: white; /* เปลี่ยนให้ทุก Section เป็นกล่องสีขาวสะอาด */
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
         }
         h2 {
-            color: #0f172a;
-            font-size: 2rem;
-            border-left: 5px solid #38bdf8;
+            color: #102a43;
+            font-size: 2.2rem;
+            border-left: 6px solid #48bb78; /* ใช้สีเขียวพาสเทลตัดเพื่อความเด่น */
             padding-left: 15px;
+            margin-top: 0;
             margin-bottom: 30px;
         }
 
         /* ตกแต่งส่วนประวัติส่วนตัว */
         .profile-box {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -99,14 +104,14 @@ HTML
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background-color: #cbd5e1;
+            background-color: #d9e2ec;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 0.9rem;
-            color: #64748b;
-            border: 5px solid white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            color: #627d98;
+            border: 6px solid #f0f4f8;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
         /* ตกแต่งส่วนประวัติการศึกษา (Timeline) */
@@ -115,63 +120,68 @@ HTML
             padding: 0;
         }
         .education-item {
-            margin-bottom: 20px;
-            padding-left: 20px;
-            border-left: 2px solid #38bdf8;
+            margin-bottom: 25px;
+            padding-left: 25px;
+            border-left: 3px solid #48bb78;
         }
         .education-year {
             font-weight: bold;
-            color: #38bdf8;
+            color: #48bb78;
+            font-size: 1.1rem;
         }
 
         /* ตกแต่งส่วนผลงาน (Grid) */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
         .card {
-            background: white;
-            border-radius: 8px;
+            background: #f0f4f8; /* พื้นหลังการ์ดสีฟ้าอ่อน */
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
+            border: none;
+            transition: all 0.3s ease;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(16, 42, 67, 0.1);
+            background: #e1e8ed;
         }
         .card-img {
-            height: 150px;
-            background-color: #cbd5e1;
+            height: 160px;
+            background-color: #bcccdc;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #64748b;
+            color: #486581;
+            font-weight: bold;
         }
         .card-content {
-            padding: 15px;
+            padding: 20px;
         }
         .card-content h3 {
             margin: 0 0 10px 0;
-            color: #1e293b;
+            color: #102a43;
         }
 
         /* ส่วนท้ายเว็บ */
         footer {
             text-align: center;
-            padding: 30px;
-            background-color: #0f172a;
-            color: #94a3b8;
+            padding: 40px;
+            background-color: #102a43;
+            color: #9fb3c8;
             font-size: 0.9rem;
         }
 
         /* รองรับหน้าจอมือถือ */
         @media (max-width: 600px) {
             nav ul { flex-direction: column; text-align: center; }
-            .hero h1 { font-size: 2rem; }
+            nav li a { padding: 12px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.2rem; }
             .profile-box { flex-direction: column; text-align: center; }
+            section { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -197,7 +207,7 @@ HTML
         <section id="about">
             <h2>ประวัติส่วนตัว</h2>
             <div class="profile-box">
-                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23cbd5e1'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%2364748b' text-anchor='middle'>ใส่รูปภาพที่นี่</text></svg>" alt="รูปโปรไฟล์">
+                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23bcccdc'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%23486581' text-anchor='middle'>ใส่รูปภาพที่นี่</text></svg>" alt="รูปโปรไฟล์">
                 <div>
                     <h3>ชื่อ-นามสกุล ของคุณ</h3>
                     <p><strong>ชื่อเล่น:</strong> ชื่อเล่นของคุณ | <strong>วันเกิด:</strong> วัน/เดือน/ปีเกิด</p>
@@ -250,7 +260,7 @@ HTML
             </div>
         </section>
 
-        <section id="contact" style="border-bottom: none;">
+        <section id="contact">
             <h2>ช่องทางการติดต่อ</h2>
             <p>📧 <strong>อีเมล:</strong> your.email@example.com</p>
             <p>📞 <strong>เบอร์โทรศัพท์:</strong> 0xx-xxx-xxxx</p>
