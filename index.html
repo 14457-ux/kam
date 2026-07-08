@@ -7,7 +7,7 @@ HTML
     <title>Engineering Portfolio | ม.6</title>
     <style>
         /* ==========================================
-           ENGINEERING THEME CONFIGURATION (CSS)
+           CYBER NEON TECH THEME (CSS)
            ========================================== */
         * {
             box-sizing: border-box;
@@ -17,26 +17,25 @@ HTML
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0b132b; /* สีน้ำเงินเข้มสไตล์ดาร์กโหมด/เทคโนโลยี */
-            
-            /* สร้างพื้นหลังลายตาข่าย Grid แบบแผ่นพิมพ์เขียว (Blueprint) ของวิศวกร */
+            background-color: #060913; 
             background-image: 
-                linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
-            background-size: 25px 25px;
+                linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 127, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
             color: #e2e8f0;
             line-height: 1.6;
         }
 
-        /* แถบเมนูนำทาง (Navigation Bar) */
+        /* แถบเมนูนำทาง */
         nav {
-            background-color: rgba(28, 37, 65, 0.95); 
+            background-color: rgba(6, 9, 19, 0.85); 
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 2px solid #f97316; /* เส้นใต้แถบเมนู สีส้มวิศวะ */
-            backdrop-filter: blur(5px);
+            border-bottom: 2px solid #ff007f; 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
         }
         nav ul {
             list-style: none;
@@ -51,17 +50,15 @@ HTML
             text-decoration: none;
             padding: 18px 22px;
             font-weight: 700;
-            text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
         }
         nav li a:hover {
-            color: #f97316;
-            text-shadow: 0 0 10px rgba(249, 115, 22, 0.6); /* เอฟเฟกต์ตัวอักษรเรืองแสง */
-            background-color: #0b132b;
+            color: #00f2fe; 
+            text-shadow: 0 0 10px #00f2fe;
         }
 
-        /* ส่วนหน้าแรก (Hero Section) */
+        /* 1. หน้าแรก (Hero Section) */
         .hero {
             height: 100vh;
             display: flex;
@@ -70,23 +67,25 @@ HTML
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle, rgba(28,37,65,0.4) 0%, rgba(11,19,43,0.9) 100%);
+            background: radial-gradient(circle at center, rgba(255,0,127,0.15) 0%, rgba(0,242,254,0.05) 50%, rgba(6,9,19,1) 100%);
         }
         .hero h1 {
-            font-size: 3.8rem;
+            font-size: 4rem;
             margin-bottom: 10px;
             color: #ffffff;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 800;
         }
         .hero h1 span {
-            color: #f97316; /* เน้นคำว่า PORTFOLIO ด้วยสีส้มประจำคณะ */
-            text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+            background: linear-gradient(45deg, #ff007f, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.5));
         }
         .hero p {
-            font-size: 1.5rem;
-            color: #38bdf8; /* สีฟ้าสว่างแนว Sci-Fi Tech */
-            font-family: 'Courier New', Courier, monospace; /* ฟอนต์แนวพิมพ์คำสั่งคอมพิวเตอร์ */
+            font-size: 1.4rem;
+            color: #94a3b8;
+            font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
         }
 
@@ -98,23 +97,23 @@ HTML
         }
         section {
             padding: 50px 35px;
-            background: #1c2541; /* กล่องข้อความสีน้ำเงินเหล็ก ทรงเหลี่ยมคมแข็งแรง */
+            background: rgba(18, 24, 41, 0.75); 
             margin-bottom: 40px;
-            border-radius: 4px; /* ขอบเหลี่ยมสะท้อนความมั่นคงทางวิศวกรรม */
-            border: 1px solid #3a506b;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 16px; 
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         h2 {
             color: #ffffff;
             font-size: 2.2rem;
-            border-left: 6px solid #f97316; /* เส้นหนาหน้าหัวข้อสีส้ม */
+            border-left: 6px solid #00f2fe; 
             padding-left: 15px;
             margin-top: 0;
             margin-bottom: 35px;
-            letter-spacing: 1px;
         }
 
-        /* ประวัติส่วนตัว */
+        /* 2. ประวัติส่วนตัว */
         .profile-box {
             display: flex;
             gap: 40px;
@@ -122,19 +121,19 @@ HTML
             flex-wrap: wrap;
         }
         .profile-img {
-            width: 210px;
-            height: 210px;
-            border-radius: 4px; /* ทรงสี่เหลี่ยมบล็อกมั่นคง */
-            background-color: #0b132b;
+            width: 200px;
+            height: 200px;
+            border-radius: 20px; 
+            background-color: #060913;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #38bdf8;
-            border: 2px solid #f97316;
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.25);
+            color: #00f2fe;
+            border: 3px solid #ff007f; 
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
         }
 
-        /* ประวัติการศึกษาแบบเส้นวงจรไทม์ไลน์ */
+        /* 3. ประวัติการศึกษา */
         .education-list {
             list-style: none;
             padding: 0;
@@ -142,56 +141,53 @@ HTML
         .education-item {
             margin-bottom: 30px;
             padding-left: 30px;
-            border-left: 3px solid #38bdf8; /* เส้นไทม์ไลน์สีฟ้า */
+            border-left: 3px solid #ff007f;
             position: relative;
         }
-        /* ใส่ไอคอนฟันเฟืองขนาดเล็กตรงจุดเชื่อมต่อประวัติการศึกษา */
         .education-item::before {
-            content: '⚙️';
+            content: '🧬';
             position: absolute;
-            left: -11px;
+            left: -13px;
             top: 2px;
-            font-size: 14px;
-            background: #1c2541;
+            font-size: 16px;
+            background: #121829;
             padding: 2px 0;
         }
         .education-year {
             font-weight: bold;
-            color: #f97316;
+            color: #00f2fe;
             font-size: 1.2rem;
-            font-family: 'Courier New', Courier, monospace;
         }
 
-        /* การจัดวางกล่องผลงาน (Grid System) */
+        /* 4. ผลงานและการจัดวางกล่องผลงาน */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
         }
         .card {
-            background: #0b132b;
-            border-radius: 4px;
+            background: #060913;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #3a506b;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
-        /* เมื่อเอาเมาส์มาวางบนผลงาน กล่องจะลอยขึ้นและขอบเรืองแสงสีส้ม */
         .card:hover {
-            transform: translateY(-8px);
-            border-color: #f97316;
-            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            border-color: #00f2fe;
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
         }
         .card-img {
             height: 160px;
-            background-color: #1c2541;
+            background: linear-gradient(135deg, #ff007f, #00f2fe);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #38bdf8;
+            color: white;
             font-weight: bold;
-            border-bottom: 1px solid #3a506b;
             font-size: 1.1rem;
-            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .card-content {
             padding: 20px;
@@ -199,38 +195,77 @@ HTML
         .card-content h3 {
             margin: 0 0 10px 0;
             color: #ffffff;
-            font-size: 1.2rem;
         }
-        .card-content p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            margin: 0;
+        .view-btn {
+            background: transparent;
+            border: 1px solid #00f2fe;
+            color: #00f2fe;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .view-btn:hover {
+            background: #00f2fe;
+            color: #060913;
+            box-shadow: 0 0 10px #00f2fe;
         }
 
-        /* ช่องทางการติดต่อ */
+        /* 5. ช่องทางการติดต่อ */
         .contact-info p {
             font-size: 1.1rem;
             margin: 15px 0;
         }
 
-        /* ส่วนท้ายเว็บไซต์ */
+        /* ระบบป๊อปอัพ (Modal Popup) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(6, 9, 19, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            background-color: #121829;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #ff007f;
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.4);
+            position: relative;
+            text-align: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 30px;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-btn:hover { color: #ff007f; }
+
+        /* ส่วนท้ายเว็บ */
         footer {
             text-align: center;
             padding: 40px;
-            background-color: #0b132b;
+            background-color: #060913;
             color: #475569;
             font-size: 0.9rem;
-            border-top: 1px solid #1c2541;
+            border-top: 1px solid rgba(0, 242, 254, 0.1);
         }
 
-        /* ปรับแต่งให้รองรับหน้าจอมือถือได้อย่างสวยงาม */
         @media (max-width: 600px) {
             nav ul { flex-direction: column; text-align: center; }
-            nav li a { padding: 12px; }
             .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.2rem; }
             .profile-box { flex-direction: column; text-align: center; }
-            section { padding: 35px 20px; }
         }
     </style>
 </head>
@@ -247,35 +282,35 @@ HTML
     </nav>
 
     <div id="home" class="hero">
-        <h1>ENGINEERING <span>PORTFOLIO</span></h1>
-        <p>[ System.Initialize / มัธยมศึกษาปีที่ 6 ]</p>
+        <h1>FEMALE IN <span>ENGINEERING</span></h1>
+        <p>&lt; ความคิดสร้างสรรค์ x เทคโนโลยีไร้ขีดจำกัด /&gt;</p>
     </div>
 
     <div class="container">
 
         <section id="about">
-            <h2>DEVELOPMENT PROFILE | ข้อมูลผู้พัฒนา</h2>
+            <h2>ABOUT ME | ประวัติส่วนตัว</h2>
             <div class="profile-box">
-                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%230b132b'/><text x='50%' y='55%' font-family='sans-serif' font-size='7' fill='%2338bdf8' text-anchor='middle'>[ อัปโหลดรูปภาพที่นี่ ]</text></svg>" alt="รูปภาพโปรไฟล์">
+                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23060913'/><text x='50%' y='55%' font-family='sans-serif' font-size='8' fill='%23ff007f' text-anchor='middle'>[ รูปภาพโปรไฟล์ ]</text></svg>" alt="รูปโปรไฟล์">
                 <div>
-                    <h3>นาย / นางสาว (ใส่ชื่อ-นามสกุลของคุณ)</h3>
+                    <h3>นางสาว (ใส่ชื่อ-นามสกุลของคุณ)</h3>
                     <p><strong>ชื่อเล่น:</strong> (ชื่อเล่น) | <strong>วันเกิด:</strong> (วัน/เดือน/ปีเกิด)</p>
-                    <p><strong>ความสนใจพิเศษ:</strong> วิศวกรรมหุ่นยนต์และระบบอัตโนมัติ / เทคโนโลยีปัญญาประดิษฐ์ (AI) / การเขียนโค้ดและวงจรไฟฟ้า</p>
-                    <p><strong>เป้าหมาย TCAS:</strong> มุ่งมั่นเข้าศึกษาต่อใน คณะวิศวกรรมศาสตร์ สาขาวิชา...</p>
+                    <p><strong>ความสนใจ:</strong> วิศวกรรมคอมพิวเตอร์ / เคมี / ชีวการแพทย์ / การออกแบบเทคโนโลยีที่ตอบโจทย์ผู้ใช้</p>
+                    <p><strong>เป้าหมายการศึกษา:</strong> มุ่งมั่นขับเคลื่อนอนาคตด้วย คณะวิศวกรรมศาสตร์</p>
                 </div>
             </div>
         </section>
 
         <section id="education">
-            <h2>EDUCATION SYSTEM | ประวัติการศึกษา</h2>
+            <h2>EDUCATION | ประวัติการศึกษา</h2>
             <ul class="education-list">
                 <li class="education-item">
-                    <div class="education-year">&gt;&gt; พ.ศ. 2567 - ปัจจุบัน</div>
+                    <div class="education-year">พ.ศ. 2567 - ปัจจุบัน</div>
                     <strong>ระดับมัธยมศึกษาตอนปลาย (ม.4 - ม.6)</strong><br>
                     โรงเรียนของคุณ | แผนการเรียนวิทยาศาสตร์ - คณิตศาสตร์
                 </li>
                 <li class="education-item">
-                    <div class="education-year">&gt;&gt; พ.ศ. 2564 - 2566</div>
+                    <div class="education-year">พ.ศ. 2564 - 2566</div>
                     <strong>ระดับมัธยมศึกษาตอนต้น (ม.1 - ม.3)</strong><br>
                     โรงเรียนของคุณ
                 </li>
@@ -283,34 +318,37 @@ HTML
         </section>
 
         <section id="projects">
-            <h2>INNOVATIONS & PROJECTS | ผลงานและการทดลอง</h2>
+            <h2>PROJECTS & ACTIVITIES | ผลงานสร้างสรรค์</h2>
             <div class="grid">
-                <div class="card">
-                    <div class="card-img">⚙️ MECHANICAL / STEM</div>
+                <div class="card" onclick="openModal('โครงงานนวัตกรรม', 'นี่คือรายละเอียดเชิงลึกของโครงงานสิ่งประดิษฐ์หรือ STEM ที่คุณเคยทำ สามารถอธิบายขั้นตอน วิธีการแก้ปัญหา และผลลัพธ์ของโครงงานชิ้นนี้อย่างละเอียดในหน้าป๊อปอัพนี้ เพื่อความน่าสนใจค่ะ!')">
+                    <div class="card-img">⚙️ INNOVATION PROJECT</div>
                     <div class="card-content">
-                        <h3>โครงงานและสิ่งประดิษฐ์</h3>
-                        <p>อธิบายโครงงานวิทยาศาสตร์ ชิ้นงาน หรือโครงงานสิ่งประดิษฐ์แนวคิดแก้ปัญหาที่เคยทำในชั้นเรียน</p>
+                        <h3>โครงงานสิ่งประดิษฐ์ / STEM</h3>
+                        <p>คลิกเพื่อดูรายละเอียดเพิ่มเติม...</p>
+                        <button class="view-btn">View Details</button>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-img">🤖 ROBOTICS / CAMP</div>
+                <div class="card" onclick="openModal('ค่ายวิชาการวิศวะ', 'เล่าถึงประสบการณ์การเข้าค่ายวิศวกรรมศาสตร์ที่ประทับใจของมหาวิทยาลัยต่างๆ สิ่งที่ได้เรียนรู้จากการทำเวิร์กช็อป หรือการแข่งขันตอบปัญหาวิชาการที่ผ่านมาค่ะ')">
+                    <div class="card-img">🔬 ENGINEERING CAMP</div>
                     <div class="card-content">
-                        <h3>การแข่งขันและค่ายวิชาการ</h3>
-                        <p>เขียนเล่าประสบการณ์การไปเข้าค่ายวิศวะของมหาวิทยาลัยต่างๆ หรือการแข่งขันตอบปัญหาวิชาการ</p>
+                        <h3>ค่ายและกิจกรรมวิชาการ</h3>
+                        <p>คลิกเพื่อดูรายละเอียดเพิ่มเติม...</p>
+                        <button class="view-btn">View Details</button>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-img">🛠️ TECHNICAL SKILLS</div>
+                <div class="card" onclick="openModal('ทักษะเชิงดิจิทัล', 'เขียนอธิบายทักษะที่พร้อมใช้งาน เช่น การเขียนโค้ด (Python/HTML/CSS), การเขียนบอร์ดไมโครคอนโทรลเลอร์ หรือโปรแกรมออกแบบทางวิศวกรรมที่คุณชื่นชอบ')">
+                    <div class="card-img">💻 TECH & DIGITAL SKILLS</div>
                     <div class="card-content">
-                        <h3>ทักษะเชิงเทคนิค</h3>
-                        <p>ระบุความสามารถทางเทคนิค เช่น การเขียนโค้ด Python/C++, การใช้บอร์ด Arduino, การใช้งานโปรแกรมออกแบบ 3D (CAD)</p>
+                        <h3>ทักษะและความสามารถ</h3>
+                        <p>คลิกเพื่อดูรายละเอียดเพิ่มเติม...</p>
+                        <button class="view-btn">View Details</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" style="border-bottom: 1px solid #3a506b;">
-            <h2>SYSTEM TERMINAL | ช่องทางการติดต่อ</h2>
+        <section id="contact" style="border-bottom: 1px solid rgba(0, 242, 254, 0.2);">
+            <h2>CONTACT TERMINAL | ช่องทางการติดต่อ</h2>
             <div class="contact-info">
                 <p>📧 <strong>EMAIL:</strong> your.email@example.com</p>
                 <p>📞 <strong>PHONE:</strong> 0xx-xxx-xxxx</p>
@@ -320,9 +358,36 @@ HTML
 
     </div>
 
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="border: none; color: #ff007f; margin-bottom: 15px;">ชื่อผลงาน</h2>
+            <p id="modalDescription" style="color: #e2e8f0; text-align: left;"></p>
+        </div>
+    </div>
+
     <footer>
-        <p>© 2026 Engineering Portfolio | ม.6 พัฒนาขึ้นระบบผ่าน GitHub Pages สำหรับยื่น TCAS</p>
+        <p>© 2026 Engineering Portfolio | ม.6 พัฒนาด้วยใจเพื่อยื่นระบบ TCAS</p>
     </footer>
+
+    <script>
+        function openModal(title, description) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('projectModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>
