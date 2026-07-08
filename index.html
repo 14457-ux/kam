@@ -7,7 +7,7 @@ HTML
     <title>Engineering Portfolio | ม.6</title>
     <style>
         /* ==========================================
-           CYBER NEON TECH THEME (CSS)
+           BRIGHT & MODERN PORTFOLIO THEME (CSS)
            ========================================== */
         * {
             box-sizing: border-box;
@@ -17,25 +17,26 @@ HTML
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #060913; 
+            background-color: #f0f7ff; /* พื้นหลังสีฟ้าพาสเทลอ่อน สดใส ไม่มืด */
+            /* ลายกริดจาง ๆ แบบสมุดกราฟเขียนแบบวิศวะ */
             background-image: 
-                linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 0, 127, 0.02) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: #e2e8f0;
+                linear-gradient(rgba(0, 150, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 150, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #2d3748;
             line-height: 1.6;
         }
 
         /* แถบเมนูนำทาง */
         nav {
-            background-color: rgba(6, 9, 19, 0.85); 
+            background-color: rgba(255, 255, 255, 0.9); 
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 2px solid #ff007f; 
+            border-bottom: 3px solid #ff007f; /* เส้นใต้ชมพูสดใส */
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
         nav ul {
             list-style: none;
@@ -46,19 +47,19 @@ HTML
         }
         nav li a {
             display: block;
-            color: #94a3b8;
+            color: #4a5568;
             text-decoration: none;
             padding: 18px 22px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
         }
         nav li a:hover {
-            color: #00f2fe; 
-            text-shadow: 0 0 10px #00f2fe;
+            color: #ff007f; 
+            text-shadow: 0 0 5px rgba(255, 0, 127, 0.2);
         }
 
-        /* 1. หน้าแรก (Hero Section) */
+        /* ส่วนหน้าแรก (Hero / หน้าปกพอร์ต) */
         .hero {
             height: 100vh;
             display: flex;
@@ -67,53 +68,85 @@ HTML
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle at center, rgba(255,0,127,0.15) 0%, rgba(0,242,254,0.05) 50%, rgba(6,9,19,1) 100%);
+            background: radial-gradient(circle at center, #ffffff 0%, #e6f2ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ลูกเล่นฟันเฟืองหมุนสไตล์วิศวะ (สดใส) */
+        .gear-bg {
+            position: absolute;
+            font-size: 120px;
+            color: rgba(0, 242, 254, 0.15);
+            animation: spin 10s linear infinite;
+            z-index: 1;
+        }
+        .gear-1 { top: 10%; left: 10%; }
+        .gear-2 { bottom: 15%; right: 10%; color: rgba(255, 0, 127, 0.1); animation-direction: reverse; font-size: 150px; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.8rem;
             margin-bottom: 10px;
-            color: #ffffff;
-            letter-spacing: 2px;
+            color: #0056b3;
+            letter-spacing: 1px;
             font-weight: 800;
         }
         .hero h1 span {
-            background: linear-gradient(45deg, #ff007f, #00f2fe);
+            background: linear-gradient(45deg, #ff007f, #00c6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.5));
         }
         .hero p {
             font-size: 1.4rem;
-            color: #94a3b8;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
+            color: #4a5568;
+            font-weight: 600;
         }
 
-        /* ส่วนเนื้อหาหลัก */
+        /* การจัดหน้ากระดาษให้เหมือนเล่มพอร์ตจริง ๆ (Multi-page Look) */
         .container {
-            max-width: 950px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px 40px 20px;
+            padding: 40px 20px;
         }
-        section {
-            padding: 50px 35px;
-            background: rgba(18, 24, 41, 0.75); 
-            margin-bottom: 40px;
-            border-radius: 16px; 
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        h2 {
-            color: #ffffff;
-            font-size: 2.2rem;
-            border-left: 6px solid #00f2fe; 
-            padding-left: 15px;
-            margin-top: 0;
-            margin-bottom: 35px;
+        
+        /* ตกแต่งแต่ละหน้า (Section) ให้เหมือนแผ่นกระดาษในเล่มพอร์ต */
+        .portfolio-page {
+            padding: 60px 45px;
+            background: #ffffff; /* หน้ากระดาษสีขาวสะอาด */
+            margin-bottom: 60px;
+            border-radius: 24px; /* ขอบมนสวยงามซอฟต์ ๆ */
+            border: 1px solid #e1e8ed;
+            box-shadow: 0 15px 35px rgba(0, 86, 179, 0.06); /* เงาละมุนมีมิติ */
+            position: relative;
+            overflow: hidden;
         }
 
-        /* 2. ประวัติส่วนตัว */
+        /* หัวข้อหน้าสไตล์วิศวะน่ารัก */
+        h2 {
+            color: #0056b3;
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 3px dashed #e2e8f0;
+            padding-bottom: 15px;
+        }
+        h2 .icon {
+            color: #ff007f;
+        }
+
+        /* หน้าประวัติส่วนตัว */
         .profile-box {
             display: flex;
             gap: 40px;
@@ -121,86 +154,86 @@ HTML
             flex-wrap: wrap;
         }
         .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 20px; 
-            background-color: #060913;
+            width: 220px;
+            height: 220px;
+            border-radius: 24px; 
+            background-color: #f0f7ff;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #00f2fe;
-            border: 3px solid #ff007f; 
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+            color: #0056b3;
+            border: 4px solid #00c6ff; 
+            box-shadow: 0 8px 20px rgba(0, 198, 255, 0.2);
         }
 
-        /* 3. ประวัติการศึกษา */
+        /* หน้าประวัติการศึกษา */
         .education-list {
             list-style: none;
             padding: 0;
         }
         .education-item {
-            margin-bottom: 30px;
-            padding-left: 30px;
-            border-left: 3px solid #ff007f;
+            margin-bottom: 35px;
+            padding-left: 35px;
+            border-left: 3px solid #00c6ff;
             position: relative;
         }
         .education-item::before {
-            content: '🧬';
+            content: '⚙️'; /* ใช้ฟันเฟืองเป็นจุดไทม์ไลน์ */
             position: absolute;
-            left: -13px;
+            left: -11px;
             top: 2px;
             font-size: 16px;
-            background: #121829;
+            background: #ffffff;
             padding: 2px 0;
         }
         .education-year {
             font-weight: bold;
-            color: #00f2fe;
+            color: #ff007f;
             font-size: 1.2rem;
         }
 
-        /* 4. ผลงานและการจัดวางกล่องผลงาน */
+        /* หน้าผลงาน (Grid System) */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
         .card {
-            background: #060913;
-            border-radius: 12px;
+            background: #f8fbc0;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255, 0, 127, 0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e1e8ed;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
         .card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: #00f2fe;
-            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+            transform: translateY(-8px);
+            border-color: #ff007f;
+            box-shadow: 0 12px 24px rgba(255, 0, 127, 0.15);
         }
         .card-img {
             height: 160px;
-            background: linear-gradient(135deg, #ff007f, #00f2fe);
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             font-weight: bold;
             font-size: 1.1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .card-content {
             padding: 20px;
         }
         .card-content h3 {
             margin: 0 0 10px 0;
-            color: #ffffff;
+            color: #0056b3;
         }
         .view-btn {
             background: transparent;
-            border: 1px solid #00f2fe;
-            color: #00f2fe;
-            padding: 8px 15px;
+            border: 1px solid #ff007f;
+            color: #ff007f;
+            padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
@@ -208,15 +241,17 @@ HTML
             margin-top: 10px;
         }
         .view-btn:hover {
-            background: #00f2fe;
-            color: #060913;
-            box-shadow: 0 0 10px #00f2fe;
+            background: #ff007f;
+            color: white;
         }
 
-        /* 5. ช่องทางการติดต่อ */
+        /* ช่องทางการติดต่อ */
         .contact-info p {
             font-size: 1.1rem;
-            margin: 15px 0;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         /* ระบบป๊อปอัพ (Modal Popup) */
@@ -225,20 +260,20 @@ HTML
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(6, 9, 19, 0.9);
+            background-color: rgba(0, 56, 179, 0.3);
             z-index: 2000;
             justify-content: center;
             align-items: center;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
         }
         .modal-content {
-            background-color: #121829;
+            background-color: #ffffff;
             padding: 40px;
-            border-radius: 16px;
+            border-radius: 24px;
             max-width: 500px;
             width: 90%;
-            border: 2px solid #ff007f;
-            box-shadow: 0 0 30px rgba(255, 0, 127, 0.4);
+            border: 3px solid #ff007f;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             position: relative;
             text-align: center;
         }
@@ -246,26 +281,26 @@ HTML
             position: absolute;
             top: 15px; right: 20px;
             font-size: 30px;
-            color: #94a3b8;
+            color: #a0aec0;
             cursor: pointer;
-            transition: 0.3s;
         }
         .close-btn:hover { color: #ff007f; }
 
-        /* ส่วนท้ายเว็บ */
+        /* ส่วนท้ายเล่มพอร์ต */
         footer {
             text-align: center;
             padding: 40px;
-            background-color: #060913;
-            color: #475569;
+            background-color: #ffffff;
+            color: #718096;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(0, 242, 254, 0.1);
+            border-top: 1px solid #e2e8f0;
         }
 
         @media (max-width: 600px) {
             nav ul { flex-direction: column; text-align: center; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.6rem; }
             .profile-box { flex-direction: column; text-align: center; }
+            .portfolio-page { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -273,41 +308,47 @@ HTML
 
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Profile</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#about">ประวัติส่วนตัว</a></li>
+            <li><a href="#education">ประวัติการศึกษา</a></li>
+            <li><a href="#projects">ผลงาน</a></li>
+            <li><a href="#contact">ช่องทางติดต่อ</a></li>
         </ul>
     </nav>
 
     <div id="home" class="hero">
-        <h1>FEMALE IN <span>ENGINEERING</span></h1>
-        <p>&lt; ความคิดสร้างสรรค์ x เทคโนโลยีไร้ขีดจำกัด /&gt;</p>
+        <div class="gear-bg gear-1">⚙️</div>
+        <div class="gear-bg gear-2">⚙️</div>
+        
+        <div class="hero-content">
+            <h1>ENGINEERING <span>PORTFOLIO</span></h1>
+            <p>แฟ้มสะสมผลงานนักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
+        </div>
     </div>
 
     <div class="container">
 
-        <section id="about">
-            <h2>ABOUT ME | ประวัติส่วนตัว</h2>
+        <section id="about" class="portfolio-page">
+            <h2><span class="icon">⚙️</span> PROFILE | ประวัติส่วนตัว</h2>
             <div class="profile-box">
-                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23060913'/><text x='50%' y='55%' font-family='sans-serif' font-size='8' fill='%23ff007f' text-anchor='middle'>[ รูปภาพโปรไฟล์ ]</text></svg>" alt="รูปโปรไฟล์">
+                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23e6f2ff'/><text x='50%' y='55%' font-family='sans-serif' font-size='8' fill='%230056b3' text-anchor='middle'>[ วางรูปโปรไฟล์ที่นี่ ]</text></svg>" alt="รูปโปรไฟล์">
                 <div>
                     <h3>นางสาว (ใส่ชื่อ-นามสกุลของคุณ)</h3>
                     <p><strong>ชื่อเล่น:</strong> (ชื่อเล่น) | <strong>วันเกิด:</strong> (วัน/เดือน/ปีเกิด)</p>
-                    <p><strong>ความสนใจ:</strong> วิศวกรรมคอมพิวเตอร์ / เคมี / ชีวการแพทย์ / การออกแบบเทคโนโลยีที่ตอบโจทย์ผู้ใช้</p>
-                    <p><strong>เป้าหมายการศึกษา:</strong> มุ่งมั่นขับเคลื่อนอนาคตด้วย คณะวิศวกรรมศาสตร์</p>
+                    <p><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</p>
+                    <p><strong>ความสนใจ:</strong> วิศวกรรมคอมพิวเตอร์ / วิศวกรรมไฟฟ้า / เทคโนโลยีและนวัตกรรมสร้างสรรค์</p>
+                    <p><strong>เป้าหมาย:</strong> มุ่งมั่นศึกษาต่อในคณะวิศวกรรมศาสตร์เพื่อพัฒนาเทคโนโลยีแห่งอนาคต</p>
                 </div>
             </div>
         </section>
 
-        <section id="education">
-            <h2>EDUCATION | ประวัติการศึกษา</h2>
+        <section id="education" class="portfolio-page">
+            <h2><span class="icon">⚙️</span> EDUCATION | ประวัติการศึกษา</h2>
             <ul class="education-list">
                 <li class="education-item">
                     <div class="education-year">พ.ศ. 2567 - ปัจจุบัน</div>
                     <strong>ระดับมัธยมศึกษาตอนปลาย (ม.4 - ม.6)</strong><br>
-                    โรงเรียนของคุณ | แผนการเรียนวิทยาศาสตร์ - คณิตศาสตร์
+                    โรงเรียนของคุณ | เกรดเฉลี่ยสะสม (GPAX): X.XX
                 </li>
                 <li class="education-item">
                     <div class="education-year">พ.ศ. 2564 - 2566</div>
@@ -317,42 +358,42 @@ HTML
             </ul>
         </section>
 
-        <section id="projects">
-            <h2>PROJECTS & ACTIVITIES | ผลงานสร้างสรรค์</h2>
+        <section id="projects" class="portfolio-page">
+            <h2><span class="icon">⚙️</span> PROJECTS & ACTIVITIES | ผลงานและกิจกรรม</h2>
             <div class="grid">
-                <div class="card" onclick="openModal('โครงงานนวัตกรรม', 'นี่คือรายละเอียดเชิงลึกของโครงงานสิ่งประดิษฐ์หรือ STEM ที่คุณเคยทำ สามารถอธิบายขั้นตอน วิธีการแก้ปัญหา และผลลัพธ์ของโครงงานชิ้นนี้อย่างละเอียดในหน้าป๊อปอัพนี้ เพื่อความน่าสนใจค่ะ!')">
-                    <div class="card-img">⚙️ INNOVATION PROJECT</div>
+                <div class="card" onclick="openModal('โครงงานนวัตกรรม & STEM', 'เขียนอธิบายรายละเอียดโครงงานที่เคยทำ สิ่งประดิษฐ์ หรือการทดลองวิจัยทางวิทยาศาสตร์ที่โดดเด่นของคุณที่นี่ค่ะ')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #ff007f, #ff758c);">🛠️ INNOVATION</div>
                     <div class="card-content">
                         <h3>โครงงานสิ่งประดิษฐ์ / STEM</h3>
-                        <p>คลิกเพื่อดูรายละเอียดเพิ่มเติม...</p>
-                        <button class="view-btn">View Details</button>
+                        <p>คลิกเพื่อดูรายละเอียดโครงงาน...</p>
+                        <button class="view-btn">ดูรายละเอียด</button>
                     </div>
                 </div>
-                <div class="card" onclick="openModal('ค่ายวิชาการวิศวะ', 'เล่าถึงประสบการณ์การเข้าค่ายวิศวกรรมศาสตร์ที่ประทับใจของมหาวิทยาลัยต่างๆ สิ่งที่ได้เรียนรู้จากการทำเวิร์กช็อป หรือการแข่งขันตอบปัญหาวิชาการที่ผ่านมาค่ะ')">
-                    <div class="card-img">🔬 ENGINEERING CAMP</div>
+                <div class="card" onclick="openModal('ค่ายอัจฉริยภาพวิศวกรรม', 'เล่าประสบการณ์ที่ได้ไปร่วมค่ายเวิร์กช็อปวิศวะของมหาวิทยาลัยต่าง ๆ กิจกรรมแลกเปลี่ยน หรือเกียรติบัตรที่ได้รับมาค่ะ')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #00c6ff, #0072ff);">🤖 CAMPS & COMPETITIONS</div>
                     <div class="card-content">
                         <h3>ค่ายและกิจกรรมวิชาการ</h3>
-                        <p>คลิกเพื่อดูรายละเอียดเพิ่มเติม...</p>
-                        <button class="view-btn">View Details</button>
+                        <p>คลิกเพื่อดูรายละเอียดกิจกรรม...</p>
+                        <button class="view-btn">ดูรายละเอียด</button>
                     </div>
                 </div>
-                <div class="card" onclick="openModal('ทักษะเชิงดิจิทัล', 'เขียนอธิบายทักษะที่พร้อมใช้งาน เช่น การเขียนโค้ด (Python/HTML/CSS), การเขียนบอร์ดไมโครคอนโทรลเลอร์ หรือโปรแกรมออกแบบทางวิศวกรรมที่คุณชื่นชอบ')">
-                    <div class="card-img">💻 TECH & DIGITAL SKILLS</div>
+                <div class="card" onclick="openModal('ทักษะความสามารถทางวิศวะ', 'ระบุทักษะคอมพิวเตอร์ การเขียนโค้ดภาษาต่างๆ (เช่น Python, C++) หรือโปรแกรมคำนวณ/ออกแบบที่คุณทำได้')">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f761a1, #8c1eff);">💻 SKILLS & WORKSHOP</div>
                     <div class="card-content">
-                        <h3>ทักษะและความสามารถ</h3>
-                        <p>คลิกเพื่อดูรายละเอียดเพิ่มเติม...</p>
-                        <button class="view-btn">View Details</button>
+                        <h3>ทักษะเชิงเทคนิค (Skills)</h3>
+                        <p>คลิกเพื่อดูรายละเอียดทักษะ...</p>
+                        <button class="view-btn">ดูรายละเอียด</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" style="border-bottom: 1px solid rgba(0, 242, 254, 0.2);">
-            <h2>CONTACT TERMINAL | ช่องทางการติดต่อ</h2>
+        <section id="contact" class="portfolio-page" style="margin-bottom: 0;">
+            <h2><span class="icon">⚙️</span> CONTACT | ช่องทางการติดต่อ</h2>
             <div class="contact-info">
-                <p>📧 <strong>EMAIL:</strong> your.email@example.com</p>
-                <p>📞 <strong>PHONE:</strong> 0xx-xxx-xxxx</p>
-                <p>🌐 <strong>GITHUB:</strong> github.com/yourusername</p>
+                <p>📧 <strong>อีเมล:</strong> your.email@example.com</p>
+                <p>📞 <strong>เบอร์โทรศัพท์:</strong> 0xx-xxx-xxxx</p>
+                <p>🌐 <strong>GitHub:</strong> github.com/yourusername</p>
             </div>
         </section>
 
@@ -361,13 +402,13 @@ HTML
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle" style="border: none; color: #ff007f; margin-bottom: 15px;">ชื่อผลงาน</h2>
-            <p id="modalDescription" style="color: #e2e8f0; text-align: left;"></p>
+            <h2 id="modalTitle" style="border: none; color: #ff007f; margin-bottom: 15px; justify-content: center;">ชื่อผลงาน</h2>
+            <p id="modalDescription" style="color: #4a5568; text-align: left;"></p>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Engineering Portfolio | ม.6 พัฒนาด้วยใจเพื่อยื่นระบบ TCAS</p>
+        <p>© 2026 Engineering Portfolio | พัฒนาด้วย GitHub Pages เพื่อยื่นระบบ TCAS</p>
     </footer>
 
     <script>
