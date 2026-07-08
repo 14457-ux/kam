@@ -1,28 +1,268 @@
+HTML
 <!DOCTYPE html>
-
-<html>
-
+<html lang="th">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พอร์ตฟอลิโอของฉัน | ม.6</title>
+    <style>
+        /* ตั้งค่าพื้นฐาน */
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
 
-    <title>Portfolioนางสาวจิราพัชร แก้วหาญ</title>
+        /* แถบเมนูด้านบน (Navigation Bar) */
+        nav {
+            background-color: #1e293b;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li a {
+            display: block;
+            color: #f1f5f9;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav li a:hover {
+            background-color: #334155;
+            color: #38bdf8;
+        }
 
+        /* ส่วนหน้าแรก (Hero Section) */
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: #94a3b8;
+        }
+
+        /* ส่วนเนื้อหาหลัก */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px 40px 20px;
+        }
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        h2 {
+            color: #0f172a;
+            font-size: 2rem;
+            border-left: 5px solid #38bdf8;
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* ตกแต่งส่วนประวัติส่วนตัว */
+        .profile-box {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            border: 5px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ตกแต่งส่วนประวัติการศึกษา (Timeline) */
+        .education-list {
+            list-style: none;
+            padding: 0;
+        }
+        .education-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 2px solid #38bdf8;
+        }
+        .education-year {
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        /* ตกแต่งส่วนผลงาน (Grid) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        .card-img {
+            height: 150px;
+            background-color: #cbd5e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #64748b;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: #1e293b;
+        }
+
+        /* ส่วนท้ายเว็บ */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* รองรับหน้าจอมือถือ */
+        @media (max-width: 600px) {
+            nav ul { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2rem; }
+            .profile-box { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
+<body>
 
-<body bgcolor="#996699">
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">ประวัติการศึกษา</a>
-<a href="award.html">ผลงาน</a>
-<a href="contact.html">=ช่องทางการติดต่อ</a>
-<img src="images/c6.jpg">
+    <nav>
+        <ul>
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#about">ประวัติส่วนตัว</a></li>
+            <li><a href="#education">ประวัติการศึกษา</a></li>
+            <li><a href="#projects">ผลงาน</a></li>
+            <li><a href="#contact">ช่องทางการติดต่อ</a></li>
+        </ul>
+    </nav>
 
-<p>นางสาวจิราพัชร แก้วหาญ<br>
+    <div id="home" class="hero">
+        <h1>สวัสดีครับ/ค่ะ ยินดีต้อนรับสู่พอร์ตฟอลิโอ</h1>
+        <p>เว็บไซต์รวบรวมข้อมูลและผลงานของนักเรียนชั้น ม.6</p>
+    </div>
 
-นักเรียนโรงเรียนพานทอง<br>
+    <div class="container">
 
-โรงเรียนพานทอง<br>
+        <section id="about">
+            <h2>ประวัติส่วนตัว</h2>
+            <div class="profile-box">
+                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23cbd5e1'/><text x='50%' y='55%' font-family='sans-serif' font-size='10' fill='%2364748b' text-anchor='middle'>ใส่รูปภาพที่นี่</text></svg>" alt="รูปโปรไฟล์">
+                <div>
+                    <h3>ชื่อ-นามสกุล ของคุณ</h3>
+                    <p><strong>ชื่อเล่น:</strong> ชื่อเล่นของคุณ | <strong>วันเกิด:</strong> วัน/เดือน/ปีเกิด</p>
+                    <p><strong>ความสนใจ:</strong> ใส่สิ่งที่คุณชอบ เช่น การเขียนโปรแกรม, การออกแบบกราฟิก, วิทยาศาสตร์, ภาษาต่างประเทศ</p>
+                    <p><strong>เป้าหมาย:</strong> คณะ/สาขา หรืออาชีพในฝันที่ต้องการศึกษาต่อในระดับมหาวิทยาลัย</p>
+                </div>
+            </div>
+        </section>
 
+        <section id="education">
+            <h2>ประวัติการศึกษา</h2>
+            <ul class="education-list">
+                <li class="education-item">
+                    <div class="education-year">พ.ศ. 2567 - ปัจจุบัน</div>
+                    <strong>ระดับมัธยมศึกษาตอนปลาย (ม.4 - ม.6)</strong><br>
+                    โรงเรียนของคุณ | แผนการเรียน (เช่น วิทย์-คณิต / ศิลป์-คำนวณ)
+                </li>
+                <li class="education-item">
+                    <div class="education-year">พ.ศ. 2564 - 2566</div>
+                    <strong>ระดับมัธยมศึกษาตอนต้น (ม.1 - ม.3)</strong><br>
+                    โรงเรียนของคุณ
+                </li>
+            </ul>
+        </section>
 
+        <section id="projects">
+            <h2>ผลงานและกิจกรรม</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img">ภาพผลงาน 1</div>
+                    <div class="card-content">
+                        <h3>ชื่อโปรเจกต์ / โครงงาน</h3>
+                        <p>อธิบายรายละเอียดสั้น ๆ เกี่ยวกับโครงงานที่ทำ หรือสิ่งที่เราได้เรียนรู้จากกิจกรรมนี้</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">ภาพผลงาน 2</div>
+                    <div class="card-content">
+                        <h3>เกียรติบัตร / การแข่งขัน</h3>
+                        <p>อธิบายเกี่ยวกับการเข้าร่วมแข่งขัน รางวัลที่ได้รับ หรือค่ายวิชาการที่เคยเข้าร่วม</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">ภาพผลงาน 3</div>
+                    <div class="card-content">
+                        <h3>กิจกรรมจิตอาสา</h3>
+                        <p>อธิบายกิจกรรมบำเพ็ญประโยชน์ หรือกิจกรรมของโรงเรียนที่เคยเข้าร่วมเป็นผู้นำหรือสตาฟ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="border-bottom: none;">
+            <h2>ช่องทางการติดต่อ</h2>
+            <p>📧 <strong>อีเมล:</strong> your.email@example.com</p>
+            <p>📞 <strong>เบอร์โทรศัพท์:</strong> 0xx-xxx-xxxx</p>
+            <p>🌐 <strong>GitHub:</strong> github.com/yourusername</p>
+            <p>📱 <strong>Instagram / Line:</strong> @youraccount</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 พอร์ตฟอลิโอ ม.6 | พัฒนาด้วยความตั้งใจ</p>
+    </footer>
 
 </body>
-
 </html>
