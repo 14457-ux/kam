@@ -1,191 +1,773 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Portfolio</title>
-    <style>
-        @import url('https://googleapis.com');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        
-        body {
-            background: linear-gradient(135deg, #0a0e1a, #1a2a4a, #0d3b66);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            color: #ffffff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
+<meta charset="UTF-8">
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50% }
-            50% { background-position: 100% 50% }
-            100% { background-position: 0% 50% }
-        }
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        /* Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background: rgba(10, 15, 30, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        nav h1 { font-family: 'Orbitron', sans-serif; color: #00d4ff; text-shadow: 0 0 10px #00d4ff; }
+<title>Engineering Portfolio</title>
 
-        nav ul { display: flex; list-style: none; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-        nav ul li { margin-left: 30px; cursor: pointer; padding: 5px 15px; border-radius: 5px; transition: all 0.3s ease; }
-        nav ul li:hover, nav ul li.active { background: rgba(0, 212, 255, 0.2); color: #00d4ff; box-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* Container */
-        .content-container { flex: 1; padding: 50px; max-width: 1200px; margin: 0 auto; width: 100%; }
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .page { display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-        .page.active { display: block; opacity: 1; transform: translateY(0); }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-        /* Typography */
-        h2 { font-family: 'Orbitron', sans-serif; margin-bottom: 20px; color: #00ffcc; border-left: 5px solid #00ffcc; padding-left: 15px; }
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-        /* Section Specifics */
-        .home { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; text-align: center; }
-        .home h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: #00d4ff; margin-bottom: 10px; }
-        .home img.cover { width: 300px; height: 300px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 30px rgba(0, 212, 255, 0.5); border: 4px solid #00d4ff; margin-bottom: 20px; }
+<link rel="stylesheet"
+href="style.css">
 
-        .profile-card { background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px; display: flex; gap: 30px; align-items: center; backdrop-filter: blur(10px); }
-        .profile-card img { width: 250px; border-radius: 10px; border: 2px solid #00ffcc; }
-
-        .education-timeline { border-left: 3px solid #00d4ff; padding-left: 20px; margin-top: 20px; }
-        .education-item { margin-bottom: 30px; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; }
-
-        /* Portfolio */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
-        .portfolio-item { background: rgba(0, 0, 0, 0.4); border-radius: 15px; overflow: hidden; border: 1px solid rgba(0, 212, 255, 0.3); transition: transform 0.3s ease; }
-        .portfolio-item:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.4); }
-        .portfolio-item img { width: 100%; height: 200px; object-fit: cover; }
-        .portfolio-info { padding: 20px; }
-
-        /* Contact */
-        .contact-box { background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 15px; text-align: center; max-width: 500px; margin: auto; }
-        .contact-box p { margin: 15px 0; font-size: 1.1rem; }
-
-        /* Gear Popup */
-        #gear-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #00ffcc; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 20px rgba(0, 255, 204, 0.6); animation: spin 5s linear infinite; z-index: 100; transition: transform 0.3s; }
-        #gear-btn:hover { transform: scale(1.1) rotate(45deg); }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 1000; }
-        .popup-content { background: linear-gradient(135deg, #0d3b66, #001f3f); padding: 40px; border-radius: 20px; text-align: center; border: 2px solid #00d4ff; box-shadow: 0 0 40px rgba(0, 212, 255, 0.5); max-width: 400px; width: 90%; animation: popIn 0.3s ease; }
-        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .popup-content img { width: 150px; animation: spin 10s linear infinite; margin-bottom: 20px; }
-        .close-btn { margin-top: 20px; background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-
-    </style>
 </head>
+
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <h1>ENGINEER PORTFOLIO</h1>
-        <ul>
-            <li class="active" onclick="switchPage('home')">หน้าแรก</li>
-            <li onclick="switchPage('profile')">ประวัติส่วนตัว</li>
-            <li onclick="switchPage('education')">การศึกษา</li>
-            <li onclick="switchPage('portfolio')">ผลงาน</li>
-            <li onclick="switchPage('contact')">ติดต่อ</li>
-        </ul>
-    </nav>
+<!-- ========================= -->
 
-    <!-- Main Container -->
-    <div class="content-container">
+<!-- Loading -->
 
-        <!-- หน้าแรก -->
-        <div id="home" class="page active">
-            <div class="home">
-                <!-- ใส่รูปสำหรับหน้าปก -->
-                <img src="https://unsplash.com" alt="Cover Image" class="cover">
-                <h1>PORTFOLIO</h1>
-                <p style="color: #00ffcc; font-size: 1.2rem;">วิศวกรรมศาสตร์ | Engineering</p>
-            </div>
-        </div>
+<!-- ========================= -->
 
-        <!-- ประวัติส่วนตัว -->
-        <div id="profile" class="page">
-            <h2>ประวัติส่วนตัว</h2>
-            <div class="profile-card">
-                <!-- ใส่รูปส่วนตัว -->
-                <img src="https://unsplash.com" alt="Profile Image">
-                <div>
-                    <p><strong>ชื่อ-นามสกุล:</strong> [ชื่อของคุณ นามสกุลของคุณ]</p>
-                    <p><strong>สาขาที่มุ่งหวัง:</strong> วิศวกรรมศาสตร์ (Engineering)</p>
-                    <p><strong>ความสามารถพิเศษ:</strong> การออกแบบ 3D, Coding, ทักษะการแก้ปัญหา</p>
-                    <p><strong>คติประจำใจ:</strong> วิศวกรไม่ได้แค่สร้างสิ่งของ แต่สร้างอนาคต</p>
-                </div>
-            </div>
-        </div>
+<div id="loader">
 
-        <!-- การศึกษา -->
-        <div id="education" class="page">
-            <h2>ประวัติการศึกษา</h2>
-            <div class="education-timeline">
-                <div class="education-item">
-                    <h3>ระดับมัธยมศึกษาตอนปลาย</h3>
-                    <p><strong>โรงเรียน:</strong> [ชื่อโรงเรียนของคุณ]</p>
-                    <p><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</p>
-                    <p><strong>เกรดเฉลี่ย (GPAX):</strong> X.XX</p>
-                </div>
-            </div>
-        </div>
+<div class="gear">
 
-        <!-- ผลงาน -->
-        <div id="portfolio" class="page">
-            <h2>ผลงานของฉัน</h2>
-            <div class="portfolio-grid">
-                
-                <!-- ผลงานที่ 1 -->
-                <div class="portfolio-item">
-                    <!-- ใส่รูปผลงาน -->
-                    <img src="https://unsplash.com" alt="Project 1">
-                    <div class="portfolio-info">
-                        <h3>ชื่อผลงาน: หุ่นยนต์กู้ภัย</h3>
-                        <p>ออกแบบและเขียนโปรแกรมหุ่นยนต์บังคับระยะไกลเพื่อช่วยเหลือผู้ประสบภัยในพื้นที่จำกัด</p>
-                    </div>
-                </div>
+<i class="fa-solid fa-gear"></i>
 
-                <!-- ผลงานที่ 2 -->
-                <div class="portfolio-item">
-                    <!-- ใส่รูปผลงาน -->
-                    <img src="https://unsplash.com" alt="Project 2">
-                    <div class="portfolio-info">
-                        <h3>ชื่อผลงาน: Smart Home IoT</h3>
-                        <p>พัฒนาระบบควบคุมอุณหภูมิและแสงสว่างในบ้านผ่านสมาร์ทโฟน เพื่อประหยัดพลังงาน</p>
-                    </div>
-                </div>
+</div>
 
-            </div>
-        </div>
+<h2>Loading Portfolio...</h2>
 
-        <!-- ช่องทางการติดต่อ -->
-        <div id="contact" class="page">
-            <h2>ช่องทางการติดต่อ</h2>
-            <div class="contact-box">
-                <p><strong>📞 เบอร์โทรศัพท์:</strong> 09X-XXX-XXXX</p>
-                <p><strong>✉️ Email:</strong> your.email@example.com</p>
-                <p><strong>💬 Line ID:</strong> your_line_id</p>
-                <p><strong>🌐 Portfolio Link:</strong> ://github.com</p>
-            </div>
-        </div>
+</div>
 
-    </div>
+<!-- ========================= -->
 
-    <!-- ปุ่มเปิดป๊อปอัพรูปเกียร์ -->
-    <div id="gear-btn" onclick="togglePopup()">
+<!-- Navbar -->
+
+<!-- ========================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-gears"></i>
+
+<span>Portfolio</span>
+
+</div>
+
+<ul class="nav-menu">
+
+<li><a href="#home">หน้าแรก</a></li>
+
+<li><a href="#about">ประวัติ</a></li>
+
+<li><a href="#education">การศึกษา</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#projects">ผลงาน</a></li>
+
+<li><a href="#certificate">เกียรติบัตร</a></li>
+
+<li><a href="#contact">ติดต่อ</a></li>
+
+</ul>
+
+<div class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- ========================= -->
+
+<!-- Hero -->
+
+<!-- ========================= -->
+
+<section id="home" class="hero">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content" data-aos="fade-up">
+
+<img src="images/profile.jpg" class="profile-img">
+
+<h1>
+
+น.ส.ชื่อ นามสกุล
+
+</h1>
+
+<h2>
+
+<span class="typing"></span>
+
+</h2>
+
+<p>
+
+เว็บไซต์พอร์ตฟอลิโอสำหรับศึกษาต่อคณะวิศวกรรมศาสตร์
+
+รวบรวมประวัติ ผลงาน เกียรติบัตร และกิจกรรม
+
+</p>
+
+<div class="hero-button">
+
+<a href="#about" class="btn">
+
+<i class="fa-solid fa-user"></i>
+
+เกี่ยวกับฉัน
+
+</a>
+
+<a href="#projects" class="btn btn-outline">
+
+<i class="fa-solid fa-code"></i>
+
+ผลงาน
+
+</a>
+
+</div>
+
+</div>
+
+<div class="scroll-down">
+
+<i class="fa-solid fa-angle-down"></i>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+
+<!-- About -->
+
+<!-- ========================= -->
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="title">
+
+เกี่ยวกับฉัน
+
+</h2>
+
+<div class="about-grid">
+
+<div class="about-image" data-aos="fade-right">
+
+<img src="images/profile.jpg">
+
+</div>
+
+<div class="about-content" data-aos="fade-left">
+
+<h3>
+
+ข้อมูลส่วนตัว
+
+</h3>
+
+<p>
+
+ชื่อ : ....................................
+
+</p>
+
+<p>
+
+ชื่อเล่น : ..................................
+
+</p>
+
+<p>
+
+วันเกิด : ..................................
+
+</p>
+
+<p>
+
+อายุ : ..................................
+
+</p>
+
+<p>
+
+โรงเรียน : ............................
+
+</p>
+
+<p>
+
+แผนการเรียน : วิทยาศาสตร์-คณิตศาสตร์
+
+</p>
+
+<p>
+
+ความสนใจ :
+
+วิศวกรรมคอมพิวเตอร์
+
+ระบบอัตโนมัติ
+
+AI
+
+Robotics
+
+Web Development
+
+</p>
+
+<p>
+
+เป้าหมาย
+
+ศึกษาต่อคณะวิศวกรรมศาสตร์
+
+สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+
+</p>
+
+<div class="about-card">
+
+<div>
+
+<h4>กิจกรรม</h4>
+
+<span>15+</span>
+
+</div>
+
+<div>
+
+<h4>ผลงาน</h4>
+
+<span>20+</span>
+
+</div>
+
+<div>
+
+<h4>เกียรติบัตร</h4>
+
+<span>30+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+  <!-- ========================= -->
+<!-- Education -->
+<!-- ========================= -->
+
+<section id="education">
+
+<div class="container">
+
+<h2 class="title">ประวัติการศึกษา</h2>
+
+<div class="timeline">
+
+<div class="timeline-item" data-aos="fade-right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<h3>ระดับประถมศึกษา</h3>
+
+<h4>โรงเรียน....................................</h4>
+
+<p>
+ปี พ.ศ. .... - ....
+</p>
+
+<p>
+สำเร็จการศึกษาระดับประถมศึกษา
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item" data-aos="fade-left">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<h3>ระดับมัธยมศึกษาตอนต้น</h3>
+
+<h4>โรงเรียน....................................</h4>
+
+<p>
+ปี พ.ศ. .... - ....
+</p>
+
+<p>
+แผนการเรียนทั่วไป
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item" data-aos="fade-right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<h3>ระดับมัธยมศึกษาตอนปลาย</h3>
+
+<h4>โรงเรียน....................................</h4>
+
+<p>
+ปี พ.ศ. .... - ปัจจุบัน
+</p>
+
+<p>
+แผนการเรียนวิทยาศาสตร์–คณิตศาสตร์
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Skills -->
+<!-- ========================= -->
+
+<section id="skills">
+
+<div class="container">
+
+<h2 class="title">
+Skills
+</h2>
+
+<div class="skill-grid">
+
+<div class="skill-card" data-aos="zoom-in">
+
+<h3>HTML</h3>
+
+<div class="progress">
+
+<div class="progress-bar html">
+
+<span>90%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-card" data-aos="zoom-in">
+
+<h3>CSS</h3>
+
+<div class="progress">
+
+<div class="progress-bar css">
+
+<span>85%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-card" data-aos="zoom-in">
+
+<h3>JavaScript</h3>
+
+<div class="progress">
+
+<div class="progress-bar js">
+
+<span>75%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-card" data-aos="zoom-in">
+
+<h3>Python</h3>
+
+<div class="progress">
+
+<div class="progress-bar py">
+
+<span>80%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-card" data-aos="zoom-in">
+
+<h3>C Language</h3>
+
+<div class="progress">
+
+<div class="progress-bar c">
+
+<span>70%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-card" data-aos="zoom-in">
+
+<h3>Arduino</h3>
+
+<div class="progress">
+
+<div class="progress-bar arduino">
+
+<span>75%</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Counter -->
+<!-- ========================= -->
+
+<section class="counter-section">
+
+<div class="container">
+
+<div class="counter-grid">
+
+<div class="counter-box">
+
+<h2 class="counter" data-target="30">0</h2>
+
+<p>Certificates</p>
+
+</div>
+
+<div class="counter-box">
+
+<h2 class="counter" data-target="20">0</h2>
+
+<p>Projects</p>
+
+</div>
+
+<div class="counter-box">
+
+<h2 class="counter" data-target="15">0</h2>
+
+<p>Activities</p>
+
+</div>
+
+<div class="counter-box">
+
+<h2 class="counter" data-target="5">0</h2>
+
+<p>Programming Languages</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Projects -->
+<!-- ========================= -->
+
+<section id="projects">
+
+<div class="container">
+
+<h2 class="title">
+
+ผลงาน
+
+</h2>
+
+<div class="project-grid">
+
+<div class="project-card" data-aos="fade-up">
+
+<img src="images/project1.jpg">
+
+<div class="project-content">
+
+<h3>Engineering Portfolio Website</h3>
+
+<p>
+
+เว็บไซต์ Portfolio ด้วย HTML CSS JavaScript
+
+</p>
+
+<button class="detail-btn">
+
+ดูรายละเอียด
+
+</button>
+
+</div>
+
+</div>
+
+<div class="project-card" data-aos="fade-up">
+
+<img src="images/project2.jpg">
+
+<div class="project-content">
+
+<h3>Arduino Smart Home</h3>
+
+<p>
+
+ระบบควบคุมบ้านอัจฉริยะ
+
+</p>
+
+<button class="detail-btn">
+
+ดูรายละเอียด
+
+</button>
+
+</div>
+
+</div>
+
+<div class="project-card" data-aos="fade-up">
+
+<img src="images/project3.jpg">
+
+<div class="project-content">
+
+<h3>Robot Line Follower</h3>
+
+<p>
+
+หุ่นยนต์เดินตามเส้น
+
+</p>
+
+<button class="detail-btn">
+
+ดูรายละเอียด
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Certificates -->
+<!-- ========================= -->
+
+<section id="certificate">
+
+<div class="container">
+
+<h2 class="title">
+
+เกียรติบัตร
+
+</h2>
+
+<div class="gallery">
+
+<img src="images/certificate1.jpg">
+
+<img src="images/certificate2.jpg">
+
+<img src="images/certificate3.jpg">
+
+<img src="images/certificate4.jpg">
+
+<img src="images/certificate5.jpg">
+
+<img src="images/certificate6.jpg">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Contact -->
+<!-- ========================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<h2 class="title">
+
+ช่องทางการติดต่อ
+
+</h2>
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<h3>Contact</h3>
+
+<p>
+
+<i class="fa-solid fa-envelope"></i>
+
+example@gmail.com
+
+</p>
+
+<p>
+
+<i class="fa-brands fa-facebook"></i>
+
+Facebook
+
+</p>
+
+<p>
+
+<i class="fa-brands fa-instagram"></i>
+
+Instagram
+
+</p>
+
+<p>
+
+<i class="fa-brands fa-github"></i>
+
+GitHub
+
+</p>
+
+</div>
+
+<div class="contact-form">
+
+<form>
+
+<input type="text" placeholder="ชื่อ">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="ข้อความ"></textarea>
+
+<button type="submit">
+
+ส่งข้อความ
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
+
+<footer>
+
+<p>
+
+© 2026 Engineering Portfolio
+
+</p>
+
+</footer>
+
+<button id="topBtn">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>  
