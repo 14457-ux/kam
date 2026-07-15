@@ -1,685 +1,44 @@
-/* ========================================= */
-/* ENGINEERING PORTFOLIO */
-/* script.js */
-/* Part 1 */
-/* ========================================= */
+/* =======================================================
+   Engineering Portfolio 2026
+======================================================= */
 
-/* ========================= */
-/* AOS */
-/* ========================= */
+"use strict";
+
+/* =======================================================
+   AOS
+======================================================= */
 
 AOS.init({
 
-duration:1000,
+    duration:1000,
 
-once:true,
+    once:true,
 
-offset:100
+    offset:100
 
 });
 
-/* ========================= */
-/* Loader */
-/* ========================= */
+/* =======================================================
+   LOADER
+======================================================= */
 
 window.addEventListener("load",()=>{
 
-const loader=document.getElementById("loader");
+    const loader=document.getElementById("loader");
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-loader.style.opacity="0";
+        loader.style.opacity="0";
 
-loader.style.visibility="hidden";
+        loader.style.visibility="hidden";
 
-},1200);
-
-});
-
-/* ========================= */
-/* Mobile Menu */
-/* ========================= */
-
-const menuBtn=document.querySelector(".menu-btn");
-
-const navMenu=document.querySelector(".nav-menu");
-
-menuBtn.addEventListener("click",()=>{
-
-navMenu.classList.toggle("active");
-
-menuBtn.classList.toggle("active");
+    },1800);
 
 });
 
-/* ========================= */
-
-document.querySelectorAll(".nav-menu a")
-
-.forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-navMenu.classList.remove("active");
-
-});
-
-});
-
-/* ========================= */
-/* Sticky Navbar */
-/* ========================= */
-
-const header=document.querySelector("header");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>80){
-
-header.style.background="rgba(8,27,51,.97)";
-
-header.style.boxShadow="0 10px 30px rgba(0,0,0,.25)";
-
-}
-
-else{
-
-header.style.background="rgba(8,27,51,.92)";
-
-header.style.boxShadow="none";
-
-}
-
-});
-
-/* ========================= */
-/* Typing Effect */
-/* ========================= */
-
-const words=[
-
-"Engineering Student",
-
-"Future Engineer",
-
-"Web Developer",
-
-"Programmer",
-
-"Creative Thinker"
-
-];
-
-let wordIndex=0;
-
-let charIndex=0;
-
-let deleting=false;
-
-const typing=document.querySelector(".typing");
-
-function typeEffect(){
-
-const current=words[wordIndex];
-
-if(!deleting){
-
-typing.textContent=current.substring(0,charIndex++);
-
-if(charIndex>current.length){
-
-deleting=true;
-
-setTimeout(typeEffect,1200);
-
-return;
-
-}
-
-}
-
-else{
-
-typing.textContent=current.substring(0,charIndex--);
-
-if(charIndex<0){
-
-deleting=false;
-
-wordIndex++;
-
-if(wordIndex>=words.length){
-
-wordIndex=0;
-
-}
-
-}
-
-}
-
-setTimeout(typeEffect,deleting?50:100);
-
-}
-
-typeEffect();
-
-/* ========================= */
-/* Scroll To Top */
-/* ========================= */
-
-const topBtn=document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>400){
-
-topBtn.style.display="block";
-
-}
-
-else{
-
-topBtn.style.display="none";
-
-}
-
-});
-
-topBtn.addEventListener("click",()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-});
-
-/* ========================= */
-/* Counter */
-/* ========================= */
-
-const counters=document.querySelectorAll(".counter");
-
-const speed=120;
-
-function runCounter(){
-
-counters.forEach(counter=>{
-
-const target=+counter.dataset.target;
-
-const update=()=>{
-
-const value=+counter.innerText;
-
-const increment=Math.ceil(target/speed);
-
-if(value<target){
-
-counter.innerText=value+increment;
-
-requestAnimationFrame(update);
-
-}
-
-else{
-
-counter.innerText=target;
-
-}
-
-};
-
-update();
-
-});
-
-}
-
-let started=false;
-
-window.addEventListener("scroll",()=>{
-
-const section=document.querySelector(".counter-section");
-
-const position=section.getBoundingClientRect().top;
-
-if(position<window.innerHeight && !started){
-
-started=true;
-
-runCounter();
-
-}
-
-});
-
-/* ========================================= */
-/* Part 2 */
-/* Dark Mode + Lightbox + Modal */
-/* ========================================= */
-
-/* ========================= */
-/* Dark Mode */
-/* ========================= */
-
-const darkButton=document.createElement("button");
-
-darkButton.className="dark-toggle";
-
-darkButton.innerHTML='<i class="fa-solid fa-moon"></i>';
-
-document.body.appendChild(darkButton);
-
-function enableDarkMode(){
-
-document.body.classList.add("dark");
-
-darkButton.innerHTML='<i class="fa-solid fa-sun"></i>';
-
-localStorage.setItem("theme","dark");
-
-}
-
-function disableDarkMode(){
-
-document.body.classList.remove("dark");
-
-darkButton.innerHTML='<i class="fa-solid fa-moon"></i>';
-
-localStorage.setItem("theme","light");
-
-}
-
-if(localStorage.getItem("theme")==="dark"){
-
-enableDarkMode();
-
-}
-
-darkButton.addEventListener("click",()=>{
-
-if(document.body.classList.contains("dark")){
-
-disableDarkMode();
-
-}else{
-
-enableDarkMode();
-
-}
-
-});
-
-/* ========================= */
-/* Lightbox Gallery */
-/* ========================= */
-
-const galleryImages=document.querySelectorAll(".gallery img");
-
-const lightbox=document.createElement("div");
-
-lightbox.className="lightbox";
-
-const lightboxImage=document.createElement("img");
-
-lightbox.appendChild(lightboxImage);
-
-document.body.appendChild(lightbox);
-
-galleryImages.forEach(image=>{
-
-image.addEventListener("click",()=>{
-
-lightbox.classList.add("active");
-
-lightboxImage.src=image.src;
-
-lightboxImage.alt=image.alt || "Certificate";
-
-});
-
-});
-
-lightbox.addEventListener("click",()=>{
-
-lightbox.classList.remove("active");
-
-});
-
-/* ========================= */
-/* Project Modal */
-/* ========================= */
-
-const projectData=[
-
-{
-
-title:"Engineering Portfolio Website",
-
-description:"เว็บไซต์ Portfolio พัฒนาโดยใช้ HTML, CSS และ JavaScript พร้อม Responsive Design และ Animation",
-
-image:"images/project1.jpg"
-
-},
-
-{
-
-title:"Arduino Smart Home",
-
-description:"ระบบบ้านอัจฉริยะควบคุมไฟ พัดลม และเซนเซอร์ด้วย Arduino",
-
-image:"images/project2.jpg"
-
-},
-
-{
-
-title:"Robot Line Follower",
-
-description:"หุ่นยนต์เดินตามเส้นพร้อมเซนเซอร์อินฟราเรดและระบบควบคุมความเร็ว",
-
-image:"images/project3.jpg"
-
-}
-
-];
-
-const modal=document.createElement("div");
-
-modal.className="modal";
-
-modal.innerHTML=`
-
-<div class="modal-content">
-
-<span class="close-modal">&times;</span>
-
-<h2 id="modalTitle"></h2>
-
-<img id="modalImage" style="width:100%;border-radius:15px;margin:20px 0;">
-
-<p id="modalDescription"></p>
-
-</div>
-
-`;
-
-document.body.appendChild(modal);
-
-const modalTitle=document.getElementById("modalTitle");
-
-const modalImage=document.getElementById("modalImage");
-
-const modalDescription=document.getElementById("modalDescription");
-
-const detailButtons=document.querySelectorAll(".detail-btn");
-
-detailButtons.forEach((button,index)=>{
-
-button.addEventListener("click",()=>{
-
-modal.classList.add("active");
-
-modalTitle.textContent=projectData[index].title;
-
-modalImage.src=projectData[index].image;
-
-modalDescription.textContent=projectData[index].description;
-
-});
-
-});
-
-modal.querySelector(".close-modal").addEventListener("click",()=>{
-
-modal.classList.remove("active");
-
-});
-
-modal.addEventListener("click",(event)=>{
-
-if(event.target===modal){
-
-modal.classList.remove("active");
-
-}
-
-});
-
-/* ========================================= */
-/* Part 3 */
-/* Animation + Form + Effects */
-/* ========================================= */
-
-/* ========================= */
-/* Scroll Reveal Animation */
-/* ========================= */
-
-const revealElements=document.querySelectorAll(
-
-".skill-card,.project-card,.timeline-content,.about-card div,.contact-info,.contact-form"
-
-);
-
-function revealOnScroll(){
-
-const trigger=window.innerHeight*0.85;
-
-revealElements.forEach(item=>{
-
-const top=item.getBoundingClientRect().top;
-
-if(top<trigger){
-
-item.classList.add("animate-up");
-
-}
-
-});
-
-}
-
-window.addEventListener("scroll",revealOnScroll);
-
-revealOnScroll();
-
-/* ========================= */
-/* Progress Bar Animation */
-/* ========================= */
-
-const progressBars=document.querySelectorAll(".progress-bar");
-
-let progressPlayed=false;
-
-function animateProgress(){
-
-const section=document.querySelector("#skills");
-
-if(!section) return;
-
-const top=section.getBoundingClientRect().top;
-
-if(top<window.innerHeight-100 && !progressPlayed){
-
-progressPlayed=true;
-
-progressBars.forEach(bar=>{
-
-const finalWidth=bar.style.width || getComputedStyle(bar).width;
-
-const cssWidth=window.getComputedStyle(bar).width;
-
-const percent=bar.classList.contains("html")?"90%":
-bar.classList.contains("css")?"85%":
-bar.classList.contains("js")?"75%":
-bar.classList.contains("py")?"80%":
-bar.classList.contains("c")?"70%":"75%";
-
-bar.style.width="0";
-
-setTimeout(()=>{
-
-bar.style.transition="width 1.5s ease";
-
-bar.style.width=percent;
-
-},150);
-
-});
-
-}
-
-}
-
-window.addEventListener("scroll",animateProgress);
-
-animateProgress();
-
-/* ========================= */
-/* Hero Parallax */
-/* ========================= */
-
-const hero=document.querySelector(".hero");
-
-window.addEventListener("scroll",()=>{
-
-const offset=window.pageYOffset;
-
-if(hero){
-
-hero.style.backgroundPositionY=(offset*0.5)+"px";
-
-}
-
-});
-
-/* ========================= */
-/* Contact Form Validation */
-/* ========================= */
-
-const form=document.querySelector(".contact-form form");
-
-if(form){
-
-form.addEventListener("submit",(e)=>{
-
-e.preventDefault();
-
-const name=form.querySelector("input[type='text']");
-
-const email=form.querySelector("input[type='email']");
-
-const message=form.querySelector("textarea");
-
-if(
-
-name.value.trim()==="" ||
-
-email.value.trim()==="" ||
-
-message.value.trim()===""
-
-){
-
-alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-
-return;
-
-}
-
-const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-if(!emailPattern.test(email.value)){
-
-alert("รูปแบบอีเมลไม่ถูกต้อง");
-
-return;
-
-}
-
-alert("ส่งข้อความเรียบร้อยแล้ว");
-
-form.reset();
-
-});
-
-}
-
-/* ========================= */
-/* ESC Close */
-/* ========================= */
-
-document.addEventListener("keydown",(event)=>{
-
-if(event.key==="Escape"){
-
-if(lightbox.classList.contains("active")){
-
-lightbox.classList.remove("active");
-
-}
-
-if(modal.classList.contains("active")){
-
-modal.classList.remove("active");
-
-}
-
-}
-
-});
-
-/* ========================= */
-/* Hover Tilt Effect */
-/* ========================= */
-
-const cards=document.querySelectorAll(
-
-".project-card,.skill-card,.about-card div"
-
-);
-
-cards.forEach(card=>{
-
-card.addEventListener("mousemove",(event)=>{
-
-const rect=card.getBoundingClientRect();
-
-const x=event.clientX-rect.left;
-
-const y=event.clientY-rect.top;
-
-const rotateY=((x/rect.width)-0.5)*10;
-
-const rotateX=((y/rect.height)-0.5)*-10;
-
-card.style.transform=
-
-`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.transform="perspective(1000px) rotateX(0) rotateY(0)";
-
-});
-
-});
-
-/* ========================================= */
-/* Part 4 */
-/* Final Effects */
-/* ========================================= */
-
-/* ========================= */
-/* Active Navigation */
-/* ========================= */
+/* =======================================================
+   NAVBAR ACTIVE
+======================================================= */
 
 const sections=document.querySelectorAll("section");
 
@@ -687,159 +46,1248 @@ const navLinks=document.querySelectorAll(".nav-menu a");
 
 window.addEventListener("scroll",()=>{
 
-let current="";
+    let current="";
 
-sections.forEach(section=>{
+    sections.forEach(section=>{
 
-const top=section.offsetTop-120;
+        const top=section.offsetTop-120;
 
-const height=section.offsetHeight;
+        const height=section.offsetHeight;
 
-if(window.pageYOffset>=top){
+        if(scrollY>=top){
 
-current=section.getAttribute("id");
+            current=section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link=>{
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href")==="#"+current){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+/* =======================================================
+   TYPING EFFECT
+======================================================= */
+
+const typing=document.querySelector(".typing");
+
+const words=[
+
+"Future Engineer",
+
+"Web Developer",
+
+"Creative Designer",
+
+"Computer Engineering",
+
+"AI Enthusiast"
+
+];
+
+let wordIndex=0;
+
+let letterIndex=0;
+
+let deleting=false;
+
+function typeEffect(){
+
+    const word=words[wordIndex];
+
+    if(!deleting){
+
+        typing.textContent=word.substring(0,letterIndex++);
+
+        if(letterIndex>word.length){
+
+            deleting=true;
+
+            setTimeout(typeEffect,1200);
+
+            return;
+
+        }
+
+    }else{
+
+        typing.textContent=word.substring(0,letterIndex--);
+
+        if(letterIndex===0){
+
+            deleting=false;
+
+            wordIndex=(wordIndex+1)%words.length;
+
+        }
+
+    }
+
+    setTimeout(typeEffect,deleting?40:90);
 
 }
 
+typeEffect();
+
+/* =======================================================
+   COUNTER
+======================================================= */
+
+const counters=document.querySelectorAll(".counter");
+
+const counterObserver=new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            const counter=entry.target;
+
+            const target=+counter.dataset.target;
+
+            let count=0;
+
+            const speed=target/80;
+
+            const update=()=>{
+
+                count+=speed;
+
+                if(count<target){
+
+                    counter.textContent=Math.floor(count);
+
+                    requestAnimationFrame(update);
+
+                }else{
+
+                    counter.textContent=target;
+
+                }
+
+            };
+
+            update();
+
+            counterObserver.unobserve(counter);
+
+        }
+
+    });
+
 });
 
-navLinks.forEach(link=>{
+counters.forEach(counter=>counterObserver.observe(counter));
+/* =======================================================
+   BACK TO TOP
+======================================================= */
 
-link.classList.remove("active");
+const topBtn = document.getElementById("topBtn");
 
-if(link.getAttribute("href")==="#"+current){
+window.addEventListener("scroll", () => {
 
-link.classList.add("active");
+    if (window.scrollY > 500) {
+
+        topBtn.classList.add("show");
+
+    } else {
+
+        topBtn.classList.remove("show");
+
+    }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+/* =======================================================
+   DARK MODE
+======================================================= */
+
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    const icon = themeBtn.querySelector("i");
+
+    if (document.body.classList.contains("dark")) {
+
+        icon.className = "fa-solid fa-sun";
+
+        localStorage.setItem("theme", "dark");
+
+    } else {
+
+        icon.className = "fa-solid fa-moon";
+
+        localStorage.setItem("theme", "light");
+
+    }
+
+});
+
+if (localStorage.getItem("theme") === "dark") {
+
+    document.body.classList.add("dark");
+
+    themeBtn.querySelector("i").className = "fa-solid fa-sun";
 
 }
 
-});
+/* =======================================================
+   SMOOTH MENU
+======================================================= */
+
+document.querySelectorAll(".nav-menu a").forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(
+
+            this.getAttribute("href")
+
+        );
+
+        target.scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+    });
 
 });
 
-/* ========================= */
-/* Smooth Scroll */
-/* ========================= */
+/* =======================================================
+   MOBILE MENU
+======================================================= */
 
-navLinks.forEach(link=>{
+const menuBtn = document.querySelector(".menu-btn");
 
-link.addEventListener("click",(event)=>{
+const navMenu = document.querySelector(".nav-menu");
 
-event.preventDefault();
+menuBtn.addEventListener("click", () => {
 
-const target=document.querySelector(link.getAttribute("href"));
+    navMenu.classList.toggle("show");
 
-if(target){
-
-target.scrollIntoView({
-
-behavior:"smooth"
+    menuBtn.classList.toggle("active");
 
 });
+
+/* =======================================================
+   HERO PARALLAX
+======================================================= */
+
+window.addEventListener("mousemove", (e) => {
+
+    const x = e.clientX / window.innerWidth;
+
+    const y = e.clientY / window.innerHeight;
+
+    document.querySelectorAll(".hero-glow").forEach(glow => {
+
+        glow.style.transform =
+
+            `translate(${x * 40}px, ${y * 40}px)`;
+
+    });
+
+});
+
+/* =======================================================
+   PROFILE IMAGE TILT
+======================================================= */
+
+const profile = document.querySelector(".profile-img");
+
+if (profile) {
+
+    profile.addEventListener("mousemove", e => {
+
+        const rect = profile.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+
+        const y = e.clientY - rect.top;
+
+        const rotateY = (x / rect.width - 0.5) * 20;
+
+        const rotateX = -(y / rect.height - 0.5) * 20;
+
+        profile.style.transform =
+
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+
+    });
+
+    profile.addEventListener("mouseleave", () => {
+
+        profile.style.transform = "";
+
+    });
+
+}
+/* =======================================================
+   GALLERY LIGHTBOX
+======================================================= */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const closeLightbox = document.querySelector(".close-lightbox");
+
+galleryItems.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        lightbox.classList.add("show");
+
+        lightboxImg.src = item.src;
+
+        lightboxImg.alt = item.alt;
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+if (closeLightbox) {
+
+    closeLightbox.addEventListener("click", () => {
+
+        lightbox.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    });
 
 }
 
-});
+lightbox?.addEventListener("click", e => {
+
+    if (e.target === lightbox) {
+
+        lightbox.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
 
 });
 
-/* ========================= */
-/* Floating Gear Animation */
-/* ========================= */
+/* =======================================================
+   PROJECT MODAL
+======================================================= */
 
-const gear=document.querySelector(".gear");
+const projects = [
 
-if(gear){
+{
 
-let angle=0;
+title:"Engineering Portfolio Website",
 
-setInterval(()=>{
+image:"images/project1.jpg",
 
-angle+=1;
+description:
+"เว็บไซต์ Portfolio แบบ Responsive พร้อม Animation, Glassmorphism และธีมวิศวกรรม",
 
-gear.style.transform=`rotate(${angle}deg)`;
+tech:["HTML","CSS","JavaScript"]
 
-},30);
+},
+
+{
+
+title:"Smart Home",
+
+image:"images/project2.jpg",
+
+description:
+"ระบบควบคุมอุปกรณ์ภายในบ้านด้วย Arduino และเซนเซอร์ต่าง ๆ",
+
+tech:["Arduino","C++","IoT"]
+
+},
+
+{
+
+title:"Line Follower Robot",
+
+image:"images/project3.jpg",
+
+description:
+"หุ่นยนต์เดินตามเส้น พร้อมระบบตรวจจับเส้นอัตโนมัติ",
+
+tech:["Arduino","Robot","Sensor"]
 
 }
 
-/* ========================= */
-/* Random Fade Elements */
-/* ========================= */
+];
 
-const randomItems=document.querySelectorAll(
+const modal = document.getElementById("projectModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalTech = document.querySelector(".modal-tech");
 
-".project-card,.skill-card,.timeline-content"
+document.querySelectorAll(".detail-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const index = Number(button.dataset.project);
+
+        const data = projects[index];
+
+        modalImage.src = data.image;
+
+        modalTitle.textContent = data.title;
+
+        modalDescription.textContent = data.description;
+
+        modalTech.innerHTML = "";
+
+        data.tech.forEach(item => {
+
+            const span = document.createElement("span");
+
+            span.textContent = item;
+
+            modalTech.appendChild(span);
+
+        });
+
+        modal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+document.querySelector(".close-modal")?.addEventListener("click", () => {
+
+    modal.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+});
+
+modal?.addEventListener("click", e => {
+
+    if (e.target === modal) {
+
+        modal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+/* =======================================================
+   CONTACT FORM
+======================================================= */
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm?.addEventListener("submit", e => {
+
+    e.preventDefault();
+
+    Swal.fire({
+
+        icon:"success",
+
+        title:"ส่งข้อความสำเร็จ",
+
+        text:"ขอบคุณที่ติดต่อมา 😊",
+
+        confirmButtonColor:"#7C6CFF"
+
+    });
+
+    contactForm.reset();
+
+});
+
+/* =======================================================
+   ESC KEY
+======================================================= */
+
+document.addEventListener("keydown", e => {
+
+    if (e.key === "Escape") {
+
+        modal?.classList.remove("show");
+
+        lightbox?.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+/* =======================================================
+   GALLERY LIGHTBOX
+======================================================= */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const closeLightbox = document.querySelector(".close-lightbox");
+
+galleryItems.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        lightbox.classList.add("show");
+
+        lightboxImg.src = item.src;
+
+        lightboxImg.alt = item.alt;
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+if (closeLightbox) {
+
+    closeLightbox.addEventListener("click", () => {
+
+        lightbox.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    });
+
+}
+
+lightbox?.addEventListener("click", e => {
+
+    if (e.target === lightbox) {
+
+        lightbox.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+/* =======================================================
+   PROJECT MODAL
+======================================================= */
+
+const projects = [
+
+{
+
+title:"Engineering Portfolio Website",
+
+image:"images/project1.jpg",
+
+description:
+"เว็บไซต์ Portfolio แบบ Responsive พร้อม Animation, Glassmorphism และธีมวิศวกรรม",
+
+tech:["HTML","CSS","JavaScript"]
+
+},
+
+{
+
+title:"Smart Home",
+
+image:"images/project2.jpg",
+
+description:
+"ระบบควบคุมอุปกรณ์ภายในบ้านด้วย Arduino และเซนเซอร์ต่าง ๆ",
+
+tech:["Arduino","C++","IoT"]
+
+},
+
+{
+
+title:"Line Follower Robot",
+
+image:"images/project3.jpg",
+
+description:
+"หุ่นยนต์เดินตามเส้น พร้อมระบบตรวจจับเส้นอัตโนมัติ",
+
+tech:["Arduino","Robot","Sensor"]
+
+}
+
+];
+
+const modal = document.getElementById("projectModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalTech = document.querySelector(".modal-tech");
+
+document.querySelectorAll(".detail-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const index = Number(button.dataset.project);
+
+        const data = projects[index];
+
+        modalImage.src = data.image;
+
+        modalTitle.textContent = data.title;
+
+        modalDescription.textContent = data.description;
+
+        modalTech.innerHTML = "";
+
+        data.tech.forEach(item => {
+
+            const span = document.createElement("span");
+
+            span.textContent = item;
+
+            modalTech.appendChild(span);
+
+        });
+
+        modal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+document.querySelector(".close-modal")?.addEventListener("click", () => {
+
+    modal.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+});
+
+modal?.addEventListener("click", e => {
+
+    if (e.target === modal) {
+
+        modal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+/* =======================================================
+   CONTACT FORM
+======================================================= */
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm?.addEventListener("submit", e => {
+
+    e.preventDefault();
+
+    Swal.fire({
+
+        icon:"success",
+
+        title:"ส่งข้อความสำเร็จ",
+
+        text:"ขอบคุณที่ติดต่อมา 😊",
+
+        confirmButtonColor:"#7C6CFF"
+
+    });
+
+    contactForm.reset();
+
+});
+
+/* =======================================================
+   ESC KEY
+======================================================= */
+
+document.addEventListener("keydown", e => {
+
+    if (e.key === "Escape") {
+
+        modal?.classList.remove("show");
+
+        lightbox?.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+/* =======================================================
+   PROJECT MODAL
+======================================================= */
+
+.modal{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(15,20,40,.85);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.35s;
+
+z-index:9999;
+
+backdrop-filter:blur(8px);
+
+}
+
+.modal.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+.modal-content{
+
+width:min(700px,92%);
+
+background:white;
+
+border-radius:30px;
+
+padding:35px;
+
+position:relative;
+
+animation:modalShow .35s;
+
+}
+
+@keyframes modalShow{
+
+from{
+
+transform:translateY(30px) scale(.9);
+
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0) scale(1);
+
+opacity:1;
+
+}
+
+}
+
+.modal-content img{
+
+width:100%;
+
+height:320px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+margin-bottom:25px;
+
+}
+
+.modal-content h2{
+
+margin-bottom:15px;
+
+color:var(--navy);
+
+}
+
+.modal-content p{
+
+line-height:1.8;
+
+color:#666;
+
+margin-bottom:25px;
+
+}
+
+.modal-tech{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin-bottom:30px;
+
+}
+
+.modal-tech span{
+
+padding:10px 18px;
+
+border-radius:999px;
+
+background:linear-gradient(
+
+135deg,
+
+var(--primary),
+
+var(--secondary)
 
 );
 
-randomItems.forEach((item,index)=>{
+color:white;
 
-item.style.animationDelay=`${index*0.15}s`;
+font-size:14px;
+
+}
+
+.close-modal{
+
+position:absolute;
+
+top:20px;
+
+right:25px;
+
+font-size:34px;
+
+cursor:pointer;
+
+color:var(--primary);
+
+transition:.3s;
+
+}
+
+.close-modal:hover{
+
+transform:rotate(90deg);
+
+}
+
+/* =======================================================
+   TOP BUTTON
+======================================================= */
+
+#topBtn{
+
+opacity:0;
+
+visibility:hidden;
+
+transform:translateY(20px);
+
+}
+
+#topBtn.show{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translateY(0);
+
+}
+
+/* =======================================================
+   MOBILE MENU
+======================================================= */
+
+.nav-menu.show{
+
+display:flex;
+
+position:absolute;
+
+top:90px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:92%;
+
+padding:25px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.95);
+
+backdrop-filter:blur(20px);
+
+flex-direction:column;
+
+gap:20px;
+
+box-shadow:var(--shadow);
+
+}
+
+/* =======================================================
+   DARK MODE
+======================================================= */
+
+body.dark{
+
+background:#101322;
+
+color:white;
+
+}
+
+body.dark section{
+
+background:transparent;
+
+}
+
+body.dark .profile-card,
+
+body.dark .info-card,
+
+body.dark .goal-card,
+
+body.dark .stat-card,
+
+body.dark .timeline-card,
+
+body.dark .skill-box,
+
+body.dark .project-card,
+
+body.dark .contact-card,
+
+body.dark .contact-form,
+
+body.dark .modal-content{
+
+background:#1b2138;
+
+border-color:#2f3861;
+
+}
+
+body.dark h1,
+
+body.dark h2,
+
+body.dark h3,
+
+body.dark h4{
+
+color:white;
+
+}
+
+body.dark p,
+
+body.dark span{
+
+color:#d8d8d8;
+
+}
+
+body.dark input,
+
+body.dark textarea{
+
+background:#2a3154;
+
+color:white;
+
+}
+
+body.dark .contact-item{
+
+background:#2a3154;
+
+}
+
+body.dark .social-links a{
+
+background:#2a3154;
+
+color:white;
+
+}
+
+body.dark footer{
+
+background:#0c0f1d;
+
+}
+/* =======================================================
+   SKILL CARD ANIMATION
+======================================================= */
+
+const skillCards = document.querySelectorAll(".skill-box");
+
+const skillObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+},{
+
+    threshold:0.25
 
 });
 
-/* ========================= */
-/* Welcome Console */
-/* ========================= */
+skillCards.forEach(card=>{
 
-console.log("%cEngineering Portfolio",
+    card.style.opacity="0";
+    card.style.transform="translateY(50px)";
+    card.style.transition=".8s";
 
-"font-size:24px;color:#1565c0;font-weight:bold;");
+    skillObserver.observe(card);
+
+});
+
+/* =======================================================
+   FLOATING BUBBLES
+======================================================= */
+
+function createBubble(){
+
+    const bubble=document.createElement("span");
+
+    bubble.className="bubble";
+
+    bubble.style.left=Math.random()*100+"vw";
+
+    bubble.style.width=20+Math.random()*80+"px";
+
+    bubble.style.height=bubble.style.width;
+
+    bubble.style.animationDuration=
+
+        8+Math.random()*12+"s";
+
+    document.querySelector(".floating-bg")
+
+        .appendChild(bubble);
+
+    setTimeout(()=>{
+
+        bubble.remove();
+
+    },20000);
+
+}
+
+setInterval(createBubble,1800);
+
+/* =======================================================
+   RANDOM GEAR ROTATION
+======================================================= */
+
+document.querySelectorAll(".gear").forEach(gear=>{
+
+    const speed=6+Math.random()*12;
+
+    gear.style.animationDuration=speed+"s";
+
+});
+
+/* =======================================================
+   PARALLAX BUBBLES
+======================================================= */
+
+window.addEventListener("scroll",()=>{
+
+    const scroll=window.scrollY;
+
+    document.querySelectorAll(".bubble").forEach(item=>{
+
+        item.style.transform=
+
+        `translateY(${scroll*0.08}px)`;
+
+    });
+
+});
+
+/* =======================================================
+   NAVBAR SHADOW
+======================================================= */
+
+const header=document.querySelector("header");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>50){
+
+        header.style.boxShadow=
+
+        "0 10px 35px rgba(0,0,0,.12)";
+
+    }
+
+    else{
+
+        header.style.boxShadow="none";
+
+    }
+
+});
+
+/* =======================================================
+   BUTTON RIPPLE
+======================================================= */
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+btn.addEventListener("click",function(e){
+
+const circle=document.createElement("span");
+
+const d=Math.max(
+
+this.clientWidth,
+
+this.clientHeight
+
+);
+
+circle.style.width=d+"px";
+
+circle.style.height=d+"px";
+
+circle.style.left=
+
+e.offsetX-d/2+"px";
+
+circle.style.top=
+
+e.offsetY-d/2+"px";
+
+circle.className="ripple";
+
+this.appendChild(circle);
+
+setTimeout(()=>{
+
+circle.remove();
+
+},600);
+
+});
+
+});
+
+/* =======================================================
+   PRELOAD IMAGES
+======================================================= */
+
+const images=[
+
+"images/profile.png",
+
+"images/project1.jpg",
+
+"images/project2.jpg",
+
+"images/project3.jpg",
+
+"images/certificate1.jpg",
+
+"images/certificate2.jpg",
+
+"images/certificate3.jpg"
+
+];
+
+images.forEach(src=>{
+
+const img=new Image();
+
+img.src=src;
+
+});
+
+/* =======================================================
+   CONSOLE MESSAGE
+======================================================= */
 
 console.log(
 
-"Developed with HTML CSS JavaScript"
+"%cEngineering Portfolio 2026",
+
+"font-size:22px;color:#7C6CFF;font-weight:bold;"
 
 );
 
-/* ========================= */
-/* Disable Image Drag */
-/* ========================= */
+console.log(
 
-document.querySelectorAll("img").forEach(image=>{
+"%cDesigned with HTML CSS JavaScript",
 
-image.setAttribute("draggable","false");
+"font-size:14px;color:#FF69B4"
 
-});
+);
 
-/* ========================= */
-/* Disable Right Click */
-/* (ลบส่วนนี้ออกได้หากไม่ต้องการ) */
-/* ========================= */
-
-document.addEventListener("contextmenu",(event)=>{
-
-event.preventDefault();
-
-});
-
-/* ========================= */
-/* Current Year */
-/* ========================= */
-
-const footer=document.querySelector("footer p");
-
-if(footer){
-
-footer.innerHTML=
-
-`© ${new Date().getFullYear()} Engineering Portfolio`;
-
-}
-
-/* ========================= */
-/* Loading Finished */
-/* ========================= */
-
-window.addEventListener("load",()=>{
-
-document.body.classList.add("animate-fade");
-
-});
-
-/* ========================= */
-/* End */
-/* ========================= */
-
-console.log("Portfolio Loaded Successfully");
+/* =======================================================
+   END
+======================================================= */
