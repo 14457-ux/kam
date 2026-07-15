@@ -5,20 +5,25 @@
 
 <meta charset="UTF-8">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+Engineering Portfolio
+</title>
 
-<title>Engineering Portfolio</title>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
 
 <link rel="stylesheet"
 href="https://unpkg.com/aos@2.3.4/dist/aos.css">
@@ -31,27 +36,77 @@ href="style.css">
 <body>
 
 <!-- ========================= -->
-
-<!-- Loading -->
-
+<!-- LOADER -->
 <!-- ========================= -->
 
 <div id="loader">
 
-<div class="gear">
+<div class="loader-bg"></div>
 
-<i class="fa-solid fa-gear"></i>
+<div class="loader-box">
+
+<div class="gear-ring">
+
+<i class="fa-solid fa-gears"></i>
 
 </div>
 
-<h2>Loading Portfolio...</h2>
+<h1>
+
+Engineering
+
+Portfolio
+
+</h1>
+
+<p>
+
+Loading...
+
+</p>
+
+<div class="loader-line">
+
+<span></span>
+
+</div>
+
+</div>
 
 </div>
 
 <!-- ========================= -->
+<!-- Floating Background -->
+<!-- ========================= -->
 
+<div class="floating-bg">
+
+<span class="bubble b1"></span>
+
+<span class="bubble b2"></span>
+
+<span class="bubble b3"></span>
+
+<span class="bubble b4"></span>
+
+<span class="bubble b5"></span>
+
+<span class="gear g1">
+<i class="fa-solid fa-gear"></i>
+</span>
+
+<span class="gear g2">
+<i class="fa-solid fa-gear"></i>
+</span>
+
+<span class="gear g3">
+<i class="fa-solid fa-gear"></i>
+</span>
+
+</div>
+
+<!-- ========================= -->
 <!-- Navbar -->
-
 <!-- ========================= -->
 
 <header>
@@ -62,25 +117,85 @@ href="style.css">
 
 <i class="fa-solid fa-gears"></i>
 
-<span>Portfolio</span>
+<span>
+
+Engineering
+
+</span>
 
 </div>
 
 <ul class="nav-menu">
 
-<li><a href="#home">หน้าแรก</a></li>
+<li>
 
-<li><a href="#about">ประวัติ</a></li>
+<a href="#home">
 
-<li><a href="#education">การศึกษา</a></li>
+หน้าแรก
 
-<li><a href="#skills">Skills</a></li>
+</a>
 
-<li><a href="#projects">ผลงาน</a></li>
+</li>
 
-<li><a href="#certificate">เกียรติบัตร</a></li>
+<li>
 
-<li><a href="#contact">ติดต่อ</a></li>
+<a href="#about">
+
+ประวัติ
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#education">
+
+การศึกษา
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#skills">
+
+Skills
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#projects">
+
+ผลงาน
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#gallery">
+
+เกียรติบัตร
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#contact">
+
+ติดต่อ
+
+</a>
+
+</li>
 
 </ul>
 
@@ -95,22 +210,24 @@ href="style.css">
 </header>
 
 <!-- ========================= -->
-
 <!-- Hero -->
-
 <!-- ========================= -->
 
 <section id="home" class="hero">
 
-<div class="hero-overlay"></div>
+<div class="hero-glow glow1"></div>
 
-<div class="hero-content" data-aos="fade-up">
+<div class="hero-glow glow2"></div>
 
-<img src="images/profile.jpg" class="profile-img">
+<div class="hero-content">
+
+<img
+src="images/profile.png"
+class="profile-img">
 
 <h1>
 
-น.ส.ชื่อ นามสกุล
+น.ส. จิราพัชร แก้วหาญ
 
 </h1>
 
@@ -122,27 +239,27 @@ href="style.css">
 
 <p>
 
-เว็บไซต์พอร์ตฟอลิโอสำหรับศึกษาต่อคณะวิศวกรรมศาสตร์
-
-รวบรวมประวัติ ผลงาน เกียรติบัตร และกิจกรรม
+Dream • Design • Develop
 
 </p>
 
 <div class="hero-button">
 
-<a href="#about" class="btn">
+<a href="#about"
+class="btn">
 
 <i class="fa-solid fa-user"></i>
 
-เกี่ยวกับฉัน
+About Me
 
 </a>
 
-<a href="#projects" class="btn btn-outline">
+<a href="#projects"
+class="btn glass">
 
 <i class="fa-solid fa-code"></i>
 
-ผลงาน
+Projects
 
 </a>
 
@@ -152,131 +269,234 @@ href="style.css">
 
 <div class="scroll-down">
 
-<i class="fa-solid fa-angle-down"></i>
+<i class="fa-solid fa-chevron-down"></i>
 
 </div>
 
 </section>
-
-<!-- ========================= -->
-
-<!-- About -->
-
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- ABOUT -->
+<!-- ======================================== -->
 
 <section id="about">
 
 <div class="container">
 
-<h2 class="title">
+<div class="section-header" data-aos="fade-up">
 
-เกี่ยวกับฉัน
+<h2>
+
+<i class="fa-solid fa-user-gear"></i>
+
+About Me
 
 </h2>
 
-<div class="about-grid">
+<p>
 
-<div class="about-image" data-aos="fade-right">
+แนะนำตัวและเป้าหมายในการศึกษาต่อ
 
-<img src="images/profile.jpg">
+</p>
 
 </div>
 
-<div class="about-content" data-aos="fade-left">
+<div class="about-grid">
+
+<div class="about-left"
+
+data-aos="fade-right">
+
+<div class="profile-card">
+
+<div class="profile-top">
+
+<img
+
+src="images/profile.png"
+
+alt="Profile">
+
+</div>
+
+<div class="profile-bottom">
+
+<h2>
+
+น.ส. จิราพัชร แก้วหาญ
+
+</h2>
+
+<h4>
+
+Future Engineer
+
+</h4>
+
+<p>
+
+นักเรียนที่สนใจด้าน
+
+Computer Engineering
+
+Web Development
+
+Artificial Intelligence
+
+Automation
+
+และ Robotics
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="about-right"
+
+data-aos="fade-left">
+
+<div class="info-card">
 
 <h3>
+
+<i class="fa-solid fa-address-card"></i>
 
 ข้อมูลส่วนตัว
 
 </h3>
 
+<div class="info-list">
+
+<div>
+
+<span>
+
+ชื่อเล่น
+
+</span>
+
 <p>
 
-ชื่อ : ....................................
+....................
 
 </p>
 
+</div>
+
+<div>
+
+<span>
+
+วันเกิด
+
+</span>
+
 <p>
 
-ชื่อเล่น : ..................................
+....................
 
 </p>
 
+</div>
+
+<div>
+
+<span>
+
+อายุ
+
+</span>
+
 <p>
 
-วันเกิด : ..................................
+....................
 
 </p>
 
+</div>
+
+<div>
+
+<span>
+
+โรงเรียน
+
+</span>
+
 <p>
 
-อายุ : ..................................
+....................
 
 </p>
 
+</div>
+
+<div>
+
+<span>
+
+แผนการเรียน
+
+</span>
+
 <p>
 
-โรงเรียน : ............................
+วิทยาศาสตร์-คณิตศาสตร์
 
 </p>
 
+</div>
+
+<div>
+
+<span>
+
+มหาวิทยาลัยที่ตั้งเป้า
+
+</span>
+
 <p>
 
-แผนการเรียน : วิทยาศาสตร์-คณิตศาสตร์
+KMITL
 
 </p>
 
-<p>
+</div>
 
-ความสนใจ :
+</div>
 
-วิศวกรรมคอมพิวเตอร์
+</div>
 
-ระบบอัตโนมัติ
+<div class="goal-card">
 
-AI
+<h3>
 
-Robotics
-
-Web Development
-
-</p>
-
-<p>
+<i class="fa-solid fa-bullseye"></i>
 
 เป้าหมาย
 
-ศึกษาต่อคณะวิศวกรรมศาสตร์
+</h3>
 
-สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+<p>
+
+ต้องการศึกษาต่อด้านวิศวกรรมคอมพิวเตอร์
+
+เพื่อพัฒนาทักษะด้านการเขียนโปรแกรม
+
+ระบบอัจฉริยะ
+
+IoT
+
+AI
+
+และการออกแบบเว็บไซต์
+
+พร้อมนำความรู้ไปสร้างนวัตกรรมที่เป็นประโยชน์ต่อสังคม
 
 </p>
-
-<div class="about-card">
-
-<div>
-
-<h4>กิจกรรม</h4>
-
-<span>15+</span>
-
-</div>
-
-<div>
-
-<h4>ผลงาน</h4>
-
-<span>20+</span>
-
-</div>
-
-<div>
-
-<h4>เกียรติบัตร</h4>
-
-<span>30+</span>
-
-</div>
 
 </div>
 
@@ -288,78 +508,313 @@ Web Development
 
 </section>
 
-  <!-- ========================= -->
-<!-- Education -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- STATISTICS -->
+<!-- ======================================== -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div
+
+class="stat-card"
+
+data-aos="zoom-in">
+
+<i class="fa-solid fa-award"></i>
+
+<h2
+
+class="counter"
+
+data-target="35">
+
+0
+
+</h2>
+
+<p>
+
+Certificates
+
+</p>
+
+</div>
+
+<div
+
+class="stat-card"
+
+data-aos="zoom-in"
+
+data-aos-delay="100">
+
+<i class="fa-solid fa-laptop-code"></i>
+
+<h2
+
+class="counter"
+
+data-target="18">
+
+0
+
+</h2>
+
+<p>
+
+Projects
+
+</p>
+
+</div>
+
+<div
+
+class="stat-card"
+
+data-aos="zoom-in"
+
+data-aos-delay="200">
+
+<i class="fa-solid fa-users"></i>
+
+<h2
+
+class="counter"
+
+data-target="25">
+
+0
+
+</h2>
+
+<p>
+
+Activities
+
+</p>
+
+</div>
+
+<div
+
+class="stat-card"
+
+data-aos="zoom-in"
+
+data-aos-delay="300">
+
+<i class="fa-solid fa-code"></i>
+
+<h2
+
+class="counter"
+
+data-target="6">
+
+0
+
+</h2>
+
+<p>
+
+Programming Skills
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ======================================== -->
+<!-- EDUCATION -->
+<!-- ======================================== -->
 
 <section id="education">
 
 <div class="container">
 
-<h2 class="title">ประวัติการศึกษา</h2>
+<div class="section-header" data-aos="fade-up">
+
+<h2>
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+Education
+
+</h2>
+
+<p>
+
+เส้นทางการศึกษาของฉัน
+
+</p>
+
+</div>
 
 <div class="timeline">
 
-<div class="timeline-item" data-aos="fade-right">
+<div class="timeline-item left"
 
-<div class="timeline-dot"></div>
+data-aos="fade-right">
 
-<div class="timeline-content">
+<div class="timeline-icon">
 
-<h3>ระดับประถมศึกษา</h3>
+<i class="fa-solid fa-school"></i>
 
-<h4>โรงเรียน....................................</h4>
+</div>
+
+<div class="timeline-card">
+
+<h3>
+
+ประถมศึกษา
+
+</h3>
+
+<h4>
+
+โรงเรียน............................
+
+</h4>
+
+<span>
+
+พ.ศ. .... - ....
+
+</span>
 
 <p>
-ปี พ.ศ. .... - ....
-</p>
 
-<p>
-สำเร็จการศึกษาระดับประถมศึกษา
+สำเร็จการศึกษาระดับประถมศึกษา พร้อมเข้าร่วมกิจกรรมด้านวิชาการและกิจกรรมของโรงเรียน
+
 </p>
 
 </div>
 
 </div>
 
-<div class="timeline-item" data-aos="fade-left">
+<div class="timeline-item right"
 
-<div class="timeline-dot"></div>
+data-aos="fade-left">
 
-<div class="timeline-content">
+<div class="timeline-icon">
 
-<h3>ระดับมัธยมศึกษาตอนต้น</h3>
+<i class="fa-solid fa-book-open"></i>
 
-<h4>โรงเรียน....................................</h4>
+</div>
+
+<div class="timeline-card">
+
+<h3>
+
+มัธยมศึกษาตอนต้น
+
+</h3>
+
+<h4>
+
+โรงเรียน............................
+
+</h4>
+
+<span>
+
+พ.ศ. .... - ....
+
+</span>
 
 <p>
-ปี พ.ศ. .... - ....
-</p>
 
-<p>
-แผนการเรียนทั่วไป
+เริ่มพัฒนาทักษะด้านวิทยาศาสตร์ คณิตศาสตร์ และการเขียนโปรแกรมเบื้องต้น
+
 </p>
 
 </div>
 
 </div>
 
-<div class="timeline-item" data-aos="fade-right">
+<div class="timeline-item left"
 
-<div class="timeline-dot"></div>
+data-aos="fade-right">
 
-<div class="timeline-content">
+<div class="timeline-icon">
 
-<h3>ระดับมัธยมศึกษาตอนปลาย</h3>
+<i class="fa-solid fa-microchip"></i>
 
-<h4>โรงเรียน....................................</h4>
+</div>
+
+<div class="timeline-card">
+
+<h3>
+
+มัธยมศึกษาตอนปลาย
+
+</h3>
+
+<h4>
+
+โรงเรียน............................
+
+</h4>
+
+<span>
+
+พ.ศ. .... - ปัจจุบัน
+
+</span>
 
 <p>
-ปี พ.ศ. .... - ปัจจุบัน
+
+แผนการเรียนวิทยาศาสตร์–คณิตศาสตร์ พร้อมศึกษา HTML, CSS, JavaScript, Python และ Arduino
+
 </p>
 
+</div>
+
+</div>
+
+<div class="timeline-item right"
+
+data-aos="fade-left">
+
+<div class="timeline-icon">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</div>
+
+<div class="timeline-card future">
+
+<h3>
+
+เป้าหมาย
+
+</h3>
+
+<h4>
+
+คณะวิศวกรรมศาสตร์
+
+</h4>
+
+<span>
+
+KMITL
+
+</span>
+
 <p>
-แผนการเรียนวิทยาศาสตร์–คณิตศาสตร์
+
+มุ่งศึกษาต่อด้านวิศวกรรมคอมพิวเตอร์ เพื่อพัฒนาทักษะด้านซอฟต์แวร์ ระบบอัตโนมัติ และปัญญาประดิษฐ์
+
 </p>
 
 </div>
@@ -372,113 +827,227 @@ Web Development
 
 </section>
 
-<!-- ========================= -->
-<!-- Skills -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- SKILLS -->
+<!-- ======================================== -->
 
 <section id="skills">
 
 <div class="container">
 
-<h2 class="title">
+<div class="section-header"
+
+data-aos="fade-up">
+
+<h2>
+
+<i class="fa-solid fa-code"></i>
+
 Skills
+
 </h2>
 
-<div class="skill-grid">
+<p>
 
-<div class="skill-card" data-aos="zoom-in">
+Programming & Technical Skills
 
-<h3>HTML</h3>
-
-<div class="progress">
-
-<div class="progress-bar html">
-
-<span>90%</span>
+</p>
 
 </div>
 
-</div>
+<div class="skills-grid">
+
+<div class="skill-box"
+
+data-percent="95">
+
+<div class="circle html">
+
+<span>
+
+95%
+
+</span>
 
 </div>
 
-<div class="skill-card" data-aos="zoom-in">
+<h3>
 
-<h3>CSS</h3>
+HTML5
 
-<div class="progress">
+</h3>
 
-<div class="progress-bar css">
+<p>
 
-<span>85%</span>
+Semantic HTML
 
-</div>
+Responsive Layout
 
-</div>
+Accessibility
 
-</div>
-
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>JavaScript</h3>
-
-<div class="progress">
-
-<div class="progress-bar js">
-
-<span>75%</span>
+</p>
 
 </div>
 
-</div>
+<div class="skill-box"
+
+data-percent="90">
+
+<div class="circle css">
+
+<span>
+
+90%
+
+</span>
 
 </div>
 
-<div class="skill-card" data-aos="zoom-in">
+<h3>
 
-<h3>Python</h3>
+CSS3
 
-<div class="progress">
+</h3>
 
-<div class="progress-bar py">
+<p>
 
-<span>80%</span>
+Flexbox
 
-</div>
+Grid
 
-</div>
+Animation
 
-</div>
+Glassmorphism
 
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>C Language</h3>
-
-<div class="progress">
-
-<div class="progress-bar c">
-
-<span>70%</span>
+</p>
 
 </div>
 
-</div>
+<div class="skill-box"
+
+data-percent="85">
+
+<div class="circle js">
+
+<span>
+
+85%
+
+</span>
 
 </div>
 
-<div class="skill-card" data-aos="zoom-in">
+<h3>
 
-<h3>Arduino</h3>
+JavaScript
 
-<div class="progress">
+</h3>
 
-<div class="progress-bar arduino">
+<p>
 
-<span>75%</span>
+DOM
+
+Animation
+
+API
+
+ES6
+
+</p>
 
 </div>
 
+<div class="skill-box"
+
+data-percent="80">
+
+<div class="circle py">
+
+<span>
+
+80%
+
+</span>
+
 </div>
+
+<h3>
+
+Python
+
+</h3>
+
+<p>
+
+Automation
+
+Problem Solving
+
+Basic AI
+
+</p>
+
+</div>
+
+<div class="skill-box"
+
+data-percent="75">
+
+<div class="circle arduino">
+
+<span>
+
+75%
+
+</span>
+
+</div>
+
+<h3>
+
+Arduino
+
+</h3>
+
+<p>
+
+IoT
+
+Sensors
+
+Robotics
+
+</p>
+
+</div>
+
+<div class="skill-box"
+
+data-percent="70">
+
+<div class="circle c">
+
+<span>
+
+70%
+
+</span>
+
+</div>
+
+<h3>
+
+C Language
+
+</h3>
+
+<p>
+
+Programming Logic
+
+Algorithms
+
+</p>
 
 </div>
 
@@ -487,86 +1056,49 @@ Skills
 </div>
 
 </section>
-
-<!-- ========================= -->
-<!-- Counter -->
-<!-- ========================= -->
-
-<section class="counter-section">
-
-<div class="container">
-
-<div class="counter-grid">
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="30">0</h2>
-
-<p>Certificates</p>
-
-</div>
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="20">0</h2>
-
-<p>Projects</p>
-
-</div>
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="15">0</h2>
-
-<p>Activities</p>
-
-</div>
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="5">0</h2>
-
-<p>Programming Languages</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Projects -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- PROJECTS -->
+<!-- ======================================== -->
 
 <section id="projects">
 
 <div class="container">
 
-<h2 class="title">
+<div class="section-header" data-aos="fade-up">
 
-ผลงาน
+<h2>
+
+<i class="fa-solid fa-laptop-code"></i>
+
+Projects
 
 </h2>
+
+<p>
+
+ผลงานและโครงงานที่ภาคภูมิใจ
+
+</p>
+
+</div>
 
 <div class="project-grid">
 
-<div class="project-card" data-aos="fade-up">
+<!-- Project 1 -->
 
-<img src="images/project1.jpg">
+<div class="project-card" data-aos="zoom-in">
 
-<div class="project-content">
+<div class="project-image">
 
-<h3>Engineering Portfolio Website</h3>
+<img src="images/project1.jpg" alt="Project 1">
 
-<p>
+<div class="project-overlay">
 
-เว็บไซต์ Portfolio ด้วย HTML CSS JavaScript
+<button class="detail-btn"
 
-</p>
+data-project="0">
 
-<button class="detail-btn">
+<i class="fa-solid fa-eye"></i>
 
 ดูรายละเอียด
 
@@ -576,21 +1108,50 @@ Skills
 
 </div>
 
-<div class="project-card" data-aos="fade-up">
+<div class="project-content">
+
+<span class="tag">
+
+HTML • CSS • JavaScript
+
+</span>
+
+<h3>
+
+Engineering Portfolio Website
+
+</h3>
+
+<p>
+
+เว็บไซต์ Portfolio ดีไซน์สไตล์วิศวกรรม
+Responsive พร้อม Animation
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Project 2 -->
+
+<div class="project-card"
+
+data-aos="zoom-in"
+
+data-aos-delay="100">
+
+<div class="project-image">
 
 <img src="images/project2.jpg">
 
-<div class="project-content">
+<div class="project-overlay">
 
-<h3>Arduino Smart Home</h3>
+<button class="detail-btn"
 
-<p>
+data-project="1">
 
-ระบบควบคุมบ้านอัจฉริยะ
-
-</p>
-
-<button class="detail-btn">
+<i class="fa-solid fa-eye"></i>
 
 ดูรายละเอียด
 
@@ -600,21 +1161,50 @@ Skills
 
 </div>
 
-<div class="project-card" data-aos="fade-up">
+<div class="project-content">
+
+<span class="tag">
+
+Arduino
+
+</span>
+
+<h3>
+
+Smart Home
+
+</h3>
+
+<p>
+
+ระบบบ้านอัจฉริยะควบคุมไฟ
+พัดลม และเซนเซอร์ผ่าน Arduino
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Project 3 -->
+
+<div class="project-card"
+
+data-aos="zoom-in"
+
+data-aos-delay="200">
+
+<div class="project-image">
 
 <img src="images/project3.jpg">
 
-<div class="project-content">
+<div class="project-overlay">
 
-<h3>Robot Line Follower</h3>
+<button class="detail-btn"
 
-<p>
+data-project="2">
 
-หุ่นยนต์เดินตามเส้น
-
-</p>
-
-<button class="detail-btn">
+<i class="fa-solid fa-eye"></i>
 
 ดูรายละเอียด
 
@@ -624,39 +1214,113 @@ Skills
 
 </div>
 
+<div class="project-content">
+
+<span class="tag">
+
+Robot
+
+</span>
+
+<h3>
+
+Line Follower Robot
+
+</h3>
+
+<p>
+
+หุ่นยนต์เดินตามเส้นพร้อมระบบตรวจจับเส้นอัตโนมัติ
+
+</p>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- Certificates -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- CERTIFICATES -->
+<!-- ======================================== -->
 
-<section id="certificate">
+<section id="gallery">
 
 <div class="container">
 
-<h2 class="title">
+<div class="section-header"
 
-เกียรติบัตร
+data-aos="fade-up">
+
+<h2>
+
+<i class="fa-solid fa-award"></i>
+
+Certificates
 
 </h2>
 
-<div class="gallery">
+<p>
 
-<img src="images/certificate1.jpg">
+เกียรติบัตรและผลงานการแข่งขัน
 
-<img src="images/certificate2.jpg">
+</p>
 
-<img src="images/certificate3.jpg">
+</div>
 
-<img src="images/certificate4.jpg">
+<div class="gallery-grid">
 
-<img src="images/certificate5.jpg">
+<img
 
-<img src="images/certificate6.jpg">
+src="images/certificate1.jpg"
+
+class="gallery-item"
+
+alt="Certificate 1">
+
+<img
+
+src="images/certificate2.jpg"
+
+class="gallery-item"
+
+alt="Certificate 2">
+
+<img
+
+src="images/certificate3.jpg"
+
+class="gallery-item"
+
+alt="Certificate 3">
+
+<img
+
+src="images/certificate4.jpg"
+
+class="gallery-item"
+
+alt="Certificate 4">
+
+<img
+
+src="images/certificate5.jpg"
+
+class="gallery-item"
+
+alt="Certificate 5">
+
+<img
+
+src="images/certificate6.jpg"
+
+class="gallery-item"
+
+alt="Certificate 6">
 
 </div>
 
@@ -664,71 +1328,260 @@ Skills
 
 </section>
 
-<!-- ========================= -->
-<!-- Contact -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- PROJECT MODAL -->
+<!-- ======================================== -->
+
+<div id="projectModal"
+
+class="modal">
+
+<div class="modal-content">
+
+<span class="close-modal">
+
+&times;
+
+</span>
+
+<img
+
+id="modalImage"
+
+src="">
+
+<h2
+
+id="modalTitle">
+
+</h2>
+
+<p
+
+id="modalDescription">
+
+</p>
+
+<div class="modal-tech">
+
+<span>
+
+HTML
+
+</span>
+
+<span>
+
+CSS
+
+</span>
+
+<span>
+
+JavaScript
+
+</span>
+
+</div>
+
+<div class="modal-button">
+
+<a href="#"
+
+class="btn">
+
+GitHub
+
+</a>
+
+<a href="#"
+
+class="btn glass">
+
+Demo
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ======================================== -->
+<!-- LIGHTBOX -->
+<!-- ======================================== -->
+
+<div id="lightbox"
+
+class="lightbox">
+
+<span class="close-lightbox">
+
+&times;
+
+</span>
+
+<img
+
+id="lightboxImg"
+
+src="">
+
+</div>
+<!-- ======================================== -->
+<!-- CONTACT -->
+<!-- ======================================== -->
 
 <section id="contact">
 
 <div class="container">
 
-<h2 class="title">
+<div class="section-header" data-aos="fade-up">
 
-ช่องทางการติดต่อ
-
-</h2>
-
-<div class="contact-grid">
-
-<div class="contact-info">
-
-<h3>Contact</h3>
-
-<p>
+<h2>
 
 <i class="fa-solid fa-envelope"></i>
 
-example@gmail.com
+Contact
 
-</p>
-
-<p>
-
-<i class="fa-brands fa-facebook"></i>
-
-Facebook
-
-</p>
+</h2>
 
 <p>
 
-<i class="fa-brands fa-instagram"></i>
-
-Instagram
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-github"></i>
-
-GitHub
+สามารถติดต่อฉันได้ผ่านช่องทางด้านล่าง
 
 </p>
 
 </div>
 
-<div class="contact-form">
+<div class="contact-wrapper">
 
-<form>
+<div class="contact-card"
 
-<input type="text" placeholder="ชื่อ">
+data-aos="fade-right">
 
-<input type="email" placeholder="Email">
+<h3>
 
-<textarea placeholder="ข้อความ"></textarea>
+Let's Connect
 
-<button type="submit">
+</h3>
+
+<p>
+
+หากสนใจผลงาน สามารถติดต่อได้ทุกช่องทาง
+
+</p>
+
+<div class="contact-item">
+
+<i class="fa-solid fa-envelope"></i>
+
+<span>
+
+your@email.com
+
+</span>
+
+</div>
+
+<div class="contact-item">
+
+<i class="fa-solid fa-phone"></i>
+
+<span>
+
+08x-xxx-xxxx
+
+</span>
+
+</div>
+
+<div class="contact-item">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<span>
+
+ประเทศไทย
+
+</span>
+
+</div>
+
+<div class="social-links">
+
+<a href="#">
+
+<i class="fab fa-facebook-f"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-instagram"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-github"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-linkedin-in"></i>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="contact-form"
+
+data-aos="fade-left">
+
+<form id="contactForm">
+
+<input
+
+type="text"
+
+placeholder="ชื่อ"
+
+required>
+
+<input
+
+type="email"
+
+placeholder="Email"
+
+required>
+
+<input
+
+type="text"
+
+placeholder="หัวข้อ">
+
+<textarea
+
+placeholder="ข้อความ"
+
+required>
+
+</textarea>
+
+<button
+
+type="submit"
+
+class="btn">
+
+<i class="fa-solid fa-paper-plane"></i>
 
 ส่งข้อความ
 
@@ -744,19 +1597,47 @@ GitHub
 
 </section>
 
-<!-- ========================= -->
-<!-- Footer -->
-<!-- ========================= -->
+<!-- ======================================== -->
+<!-- FOOTER -->
+<!-- ======================================== -->
 
 <footer>
 
+<div class="container">
+
+<div class="footer-logo">
+
+<i class="fa-solid fa-gears"></i>
+
+Engineering Portfolio
+
+</div>
+
 <p>
 
-© 2026 Engineering Portfolio
+Design & Development
+
+by
+
+Jirapatch Kaewhan
 
 </p>
 
+<p id="copyright">
+
+© 2026
+
+All Rights Reserved
+
+</p>
+
+</div>
+
 </footer>
+
+<!-- ======================================== -->
+<!-- FLOATING BUTTONS -->
+<!-- ======================================== -->
 
 <button id="topBtn">
 
@@ -764,10 +1645,30 @@ GitHub
 
 </button>
 
+<button id="themeBtn">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<!-- ======================================== -->
+<!-- SWEET ALERT -->
+<!-- ======================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- ======================================== -->
+<!-- AOS -->
+<!-- ======================================== -->
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- ======================================== -->
+<!-- SCRIPT -->
+<!-- ======================================== -->
 
 <script src="script.js"></script>
 
 </body>
 
-</html>  
+</html>
