@@ -1,43 +1,191 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<title>Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Portfolio</title>
+    <style>
+        @import url('https://googleapis.com');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
+        
+        body {
+            background: linear-gradient(135deg, #0a0e1a, #1a2a4a, #0d3b66);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 15, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav h1 { font-family: 'Orbitron', sans-serif; color: #00d4ff; text-shadow: 0 0 10px #00d4ff; }
+
+        nav ul { display: flex; list-style: none; }
+
+        nav ul li { margin-left: 30px; cursor: pointer; padding: 5px 15px; border-radius: 5px; transition: all 0.3s ease; }
+        nav ul li:hover, nav ul li.active { background: rgba(0, 212, 255, 0.2); color: #00d4ff; box-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
+
+        /* Container */
+        .content-container { flex: 1; padding: 50px; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+        .page { display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .page.active { display: block; opacity: 1; transform: translateY(0); }
+
+        /* Typography */
+        h2 { font-family: 'Orbitron', sans-serif; margin-bottom: 20px; color: #00ffcc; border-left: 5px solid #00ffcc; padding-left: 15px; }
+
+        /* Section Specifics */
+        .home { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70vh; text-align: center; }
+        .home h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: #00d4ff; margin-bottom: 10px; }
+        .home img.cover { width: 300px; height: 300px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 30px rgba(0, 212, 255, 0.5); border: 4px solid #00d4ff; margin-bottom: 20px; }
+
+        .profile-card { background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px; display: flex; gap: 30px; align-items: center; backdrop-filter: blur(10px); }
+        .profile-card img { width: 250px; border-radius: 10px; border: 2px solid #00ffcc; }
+
+        .education-timeline { border-left: 3px solid #00d4ff; padding-left: 20px; margin-top: 20px; }
+        .education-item { margin-bottom: 30px; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; }
+
+        /* Portfolio */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        .portfolio-item { background: rgba(0, 0, 0, 0.4); border-radius: 15px; overflow: hidden; border: 1px solid rgba(0, 212, 255, 0.3); transition: transform 0.3s ease; }
+        .portfolio-item:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.4); }
+        .portfolio-item img { width: 100%; height: 200px; object-fit: cover; }
+        .portfolio-info { padding: 20px; }
+
+        /* Contact */
+        .contact-box { background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 15px; text-align: center; max-width: 500px; margin: auto; }
+        .contact-box p { margin: 15px 0; font-size: 1.1rem; }
+
+        /* Gear Popup */
+        #gear-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #00ffcc; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 20px rgba(0, 255, 204, 0.6); animation: spin 5s linear infinite; z-index: 100; transition: transform 0.3s; }
+        #gear-btn:hover { transform: scale(1.1) rotate(45deg); }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 1000; }
+        .popup-content { background: linear-gradient(135deg, #0d3b66, #001f3f); padding: 40px; border-radius: 20px; text-align: center; border: 2px solid #00d4ff; box-shadow: 0 0 40px rgba(0, 212, 255, 0.5); max-width: 400px; width: 90%; animation: popIn 0.3s ease; }
+        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .popup-content img { width: 150px; animation: spin 10s linear infinite; margin-bottom: 20px; }
+        .close-btn { margin-top: 20px; background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+
+    </style>
 </head>
 <body>
 
-<nav>
-<a href="index.html">หน้าแรก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">การศึกษา</a>
-<a href="projects.html">ผลงาน</a>
-<a href="contact.html">ติดต่อ</a>
-</nav>
+    <!-- Navbar -->
+    <nav>
+        <h1>ENGINEER PORTFOLIO</h1>
+        <ul>
+            <li class="active" onclick="switchPage('home')">หน้าแรก</li>
+            <li onclick="switchPage('profile')">ประวัติส่วนตัว</li>
+            <li onclick="switchPage('education')">การศึกษา</li>
+            <li onclick="switchPage('portfolio')">ผลงาน</li>
+            <li onclick="switchPage('contact')">ติดต่อ</li>
+        </ul>
+    </nav>
 
-<header>
-<img src="images/cover.jpg" class="cover">
-</header>
+    <!-- Main Container -->
+    <div class="content-container">
 
-<div class="container">
+        <!-- หน้าแรก -->
+        <div id="home" class="page active">
+            <div class="home">
+                <!-- ใส่รูปสำหรับหน้าปก -->
+                <img src="https://unsplash.com" alt="Cover Image" class="cover">
+                <h1>PORTFOLIO</h1>
+                <p style="color: #00ffcc; font-size: 1.2rem;">วิศวกรรมศาสตร์ | Engineering</p>
+            </div>
+        </div>
 
-<div class="card">
-<h1>PORTFOLIO</h1>
+        <!-- ประวัติส่วนตัว -->
+        <div id="profile" class="page">
+            <h2>ประวัติส่วนตัว</h2>
+            <div class="profile-card">
+                <!-- ใส่รูปส่วนตัว -->
+                <img src="https://unsplash.com" alt="Profile Image">
+                <div>
+                    <p><strong>ชื่อ-นามสกุล:</strong> [ชื่อของคุณ นามสกุลของคุณ]</p>
+                    <p><strong>สาขาที่มุ่งหวัง:</strong> วิศวกรรมศาสตร์ (Engineering)</p>
+                    <p><strong>ความสามารถพิเศษ:</strong> การออกแบบ 3D, Coding, ทักษะการแก้ปัญหา</p>
+                    <p><strong>คติประจำใจ:</strong> วิศวกรไม่ได้แค่สร้างสิ่งของ แต่สร้างอนาคต</p>
+                </div>
+            </div>
+        </div>
 
-<h2>ชื่อ-นามสกุล</h2>
+        <!-- การศึกษา -->
+        <div id="education" class="page">
+            <h2>ประวัติการศึกษา</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <h3>ระดับมัธยมศึกษาตอนปลาย</h3>
+                    <p><strong>โรงเรียน:</strong> [ชื่อโรงเรียนของคุณ]</p>
+                    <p><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</p>
+                    <p><strong>เกรดเฉลี่ย (GPAX):</strong> X.XX</p>
+                </div>
+            </div>
+        </div>
 
-<p>นักเรียนที่มีความสนใจด้านวิศวกรรมศาสตร์ มีความมุ่งมั่นในการเรียนรู้
-และพัฒนาทักษะด้านวิทยาศาสตร์ เทคโนโลยี และนวัตกรรม พร้อมนำความรู้ไปประยุกต์ใช้ในการแก้ไขปัญหาอย่างสร้างสรรค์</p>
+        <!-- ผลงาน -->
+        <div id="portfolio" class="page">
+            <h2>ผลงานของฉัน</h2>
+            <div class="portfolio-grid">
+                
+                <!-- ผลงานที่ 1 -->
+                <div class="portfolio-item">
+                    <!-- ใส่รูปผลงาน -->
+                    <img src="https://unsplash.com" alt="Project 1">
+                    <div class="portfolio-info">
+                        <h3>ชื่อผลงาน: หุ่นยนต์กู้ภัย</h3>
+                        <p>ออกแบบและเขียนโปรแกรมหุ่นยนต์บังคับระยะไกลเพื่อช่วยเหลือผู้ประสบภัยในพื้นที่จำกัด</p>
+                    </div>
+                </div>
 
-</div>
+                <!-- ผลงานที่ 2 -->
+                <div class="portfolio-item">
+                    <!-- ใส่รูปผลงาน -->
+                    <img src="https://unsplash.com" alt="Project 2">
+                    <div class="portfolio-info">
+                        <h3>ชื่อผลงาน: Smart Home IoT</h3>
+                        <p>พัฒนาระบบควบคุมอุณหภูมิและแสงสว่างในบ้านผ่านสมาร์ทโฟน เพื่อประหยัดพลังงาน</p>
+                    </div>
+                </div>
 
-</div>
+            </div>
+        </div>
 
-<footer>
-Portfolio Engineering
-</footer>
+        <!-- ช่องทางการติดต่อ -->
+        <div id="contact" class="page">
+            <h2>ช่องทางการติดต่อ</h2>
+            <div class="contact-box">
+                <p><strong>📞 เบอร์โทรศัพท์:</strong> 09X-XXX-XXXX</p>
+                <p><strong>✉️ Email:</strong> your.email@example.com</p>
+                <p><strong>💬 Line ID:</strong> your_line_id</p>
+                <p><strong>🌐 Portfolio Link:</strong> ://github.com</p>
+            </div>
+        </div>
 
-<script src="script.js"></script>
+    </div>
 
-</body>
-</html>
+    <!-- ปุ่มเปิดป๊อปอัพรูปเกียร์ -->
+    <div id="gear-btn" onclick="togglePopup()">
