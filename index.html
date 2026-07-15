@@ -1,286 +1,314 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Engineering</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Engineering Portfolio</title>
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Prompt',sans-serif;
-scroll-behavior:smooth;
-}
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-body{
-background:#111;
-color:white;
-}
-
-/* Popup */
-#popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#111;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-#popup span{
-font-size:120px;
-animation:spin 2s linear infinite;
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-/* เมนู */
-
-nav{
-position:fixed;
-width:100%;
-background:#ff7300;
-display:flex;
-justify-content:center;
-padding:15px;
-z-index:100;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin:0 18px;
-font-weight:bold;
-}
-
-nav a:hover{
-color:black;
-}
-
-/* Section */
-
-section{
-min-height:100vh;
-padding:100px 10%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
-
-#home{
-background:linear-gradient(135deg,#ff7300,#222);
-}
-
-#about,#projects{
-background:#1d1d1d;
-}
-
-#education,#contact{
-background:#2b2b2b;
-}
-
-h1{
-font-size:45px;
-margin-bottom:20px;
-}
-
-h2{
-color:#ff7300;
-margin-bottom:20px;
-}
-
-p{
-max-width:700px;
-line-height:1.8;
-}
-
-.btn{
-margin-top:30px;
-padding:12px 28px;
-background:#ff7300;
-color:white;
-border:none;
-border-radius:30px;
-cursor:pointer;
-font-size:16px;
-}
-
-.btn:hover{
-background:white;
-color:#ff7300;
-}
-
-.cards{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:30px;
-}
-
-.card{
-background:#333;
-padding:20px;
-width:250px;
-border-radius:15px;
-transition:.3s;
-box-shadow:0 0 15px rgba(255,115,0,.3);
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px orange;
-}
-
-footer{
-background:#111;
-padding:20px;
-text-align:center;
-color:#aaa;
-}
-
-</style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <body>
 
+<!-- Popup -->
+
 <div id="popup">
-<span>⚙️</span>
+
+<div class="gear">
+
+<i class="fa-solid fa-gear"></i>
+
 </div>
 
+<h2>WELCOME</h2>
+
+</div>
+
+<!-- Navbar -->
+
 <nav>
-<a href="#home">หน้าแรก</a>
-<a href="#about">ประวัติ</a>
-<a href="#education">การศึกษา</a>
-<a href="#projects">ผลงาน</a>
-<a href="#contact">ติดต่อ</a>
+
+<h2>Portfolio</h2>
+
+<ul>
+
+<li><a href="#home">หน้าแรก</a></li>
+
+<li><a href="#about">ประวัติ</a></li>
+
+<li><a href="#education">การศึกษา</a></li>
+
+<li><a href="#projects">ผลงาน</a></li>
+
+<li><a href="#contact">ติดต่อ</a></li>
+
+</ul>
+
 </nav>
+
+<!-- Home -->
 
 <section id="home">
 
-<h1>Portfolio</h1>
+<div class="hero">
 
-<h2>ชื่อ - นามสกุล</h2>
+<img src="images/profile.jpg" class="profile">
+
+<h1>ชื่อ - นามสกุล</h1>
 
 <p>
+
 นักเรียนชั้นมัธยมศึกษาปีที่ 6
-สนใจด้านวิศวกรรม เทคโนโลยี และการเขียนโปรแกรม
-มีความตั้งใจเข้าศึกษาต่อคณะวิศวกรรมศาสตร์
+
+ผู้สนใจด้านวิศวกรรมศาสตร์
+
+และเทคโนโลยี
+
 </p>
 
 <a href="#about">
-<button class="btn">เริ่มต้น</button>
+
+<button>
+
+เริ่มต้น
+
+</button>
+
 </a>
 
+</div>
+
 </section>
+
+<!-- About -->
 
 <section id="about">
 
-<h2>ประวัติส่วนตัว</h2>
+<h1>ประวัติส่วนตัว</h1>
 
-<div class="cards">
+<div class="about-box">
 
-<div class="card">
-<h3>👤 ข้อมูล</h3>
-<p>ชื่อ : ............</p>
-<p>อายุ : 18 ปี</p>
-<p>จังหวัด : ............</p>
-</div>
+<img src="images/profile.jpg">
 
-<div class="card">
-<h3>💻 ความสามารถ</h3>
-<p>HTML</p>
-<p>CSS</p>
-<p>Python</p>
-</div>
+<div>
 
-<div class="card">
-<h3>🎯 เป้าหมาย</h3>
-<p>ศึกษาต่อคณะวิศวกรรมศาสตร์</p>
+<h3>ข้อมูลส่วนตัว</h3>
+
+<p>
+
+ชื่อ :
+
+....................................
+
+</p>
+
+<p>
+
+วันเกิด :
+
+....................................
+
+</p>
+
+<p>
+
+อายุ :
+
+18 ปี
+
+</p>
+
+<p>
+
+โรงเรียน :
+
+....................................
+
+</p>
+
+<p>
+
+งานอดิเรก :
+
+เขียนโปรแกรม
+
+อ่านหนังสือ
+
+</p>
+
+<p>
+
+เป้าหมาย :
+
+ศึกษาต่อคณะวิศวกรรมศาสตร์
+
+สจล.
+
+</p>
+
 </div>
 
 </div>
 
 </section>
+
+<!-- Education -->
 
 <section id="education">
 
-<h2>ประวัติการศึกษา</h2>
+<h1>ประวัติการศึกษา</h1>
 
-<div class="cards">
+<div class="timeline">
 
-<div class="card">
+<div class="item">
+
 <h3>ประถมศึกษา</h3>
-<p>โรงเรียน................</p>
+
+<p>โรงเรียน.......................</p>
+
 </div>
 
-<div class="card">
+<div class="item">
+
 <h3>มัธยมต้น</h3>
-<p>โรงเรียน................</p>
+
+<p>โรงเรียน.......................</p>
+
 </div>
 
-<div class="card">
+<div class="item">
+
 <h3>มัธยมปลาย</h3>
-<p>โรงเรียน................</p>
+
+<p>โรงเรียน.......................</p>
+
 </div>
 
 </div>
 
 </section>
+
+<!-- Projects -->
 
 <section id="projects">
 
-<h2>ผลงาน</h2>
+<h1>ผลงาน</h1>
 
-<div class="cards">
+<div class="project-grid">
 
 <div class="card">
-<h3>⚙️ Arduino</h3>
-<p>สร้างระบบควบคุมอัตโนมัติ</p>
+
+<img src="images/project1.jpg">
+
+<h3>Arduino Project</h3>
+
+<p>
+
+ระบบควบคุมอัตโนมัติ
+
+</p>
+
 </div>
 
 <div class="card">
-<h3>🌐 Website</h3>
-<p>พัฒนาเว็บไซต์ Portfolio</p>
+
+<img src="images/project2.jpg">
+
+<h3>Website</h3>
+
+<p>
+
+Portfolio Website
+
+</p>
+
 </div>
 
 <div class="card">
-<h3>🤖 Robot</h3>
-<p>โครงงานหุ่นยนต์แข่งขัน</p>
+
+<img src="images/project3.jpg">
+
+<h3>Robot</h3>
+
+<p>
+
+หุ่นยนต์แข่งขัน
+
+</p>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- Certificates -->
+
+<section id="gallery">
+
+<h1>เกียรติบัตร</h1>
+
+<div class="gallery">
+
+<img src="images/certificate1.jpg">
+
+<img src="images/certificate2.jpg">
+
+<img src="images/certificate3.jpg">
+
+<img src="images/certificate4.jpg">
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
 <section id="contact">
 
-<h2>ช่องทางการติดต่อ</h2>
+<h1>ติดต่อ</h1>
 
-<div class="card">
+<div class="contact-box">
 
-<p>📧 Email : your@email.com</p>
+<p>
 
-<p>📱 โทร : 08X-XXX-XXXX</p>
+<i class="fa-solid fa-envelope"></i>
 
-<p>💻 GitHub : github.com/username</p>
+your@email.com
 
-<p>📘 Facebook : ชื่อของคุณ</p>
+</p>
+
+<p>
+
+<i class="fa-solid fa-phone"></i>
+
+08x-xxx-xxxx
+
+</p>
+
+<p>
+
+<i class="fa-brands fa-github"></i>
+
+github.com/yourname
+
+</p>
+
+<p>
+
+<i class="fa-brands fa-facebook"></i>
+
+Facebook
+
+</p>
 
 </div>
 
@@ -288,23 +316,12 @@ color:#aaa;
 
 <footer>
 
-Portfolio Engineering © 2026
+Engineering Portfolio © 2026
 
 </footer>
 
-<script>
-
-window.onload=function(){
-
-setTimeout(function(){
-
-document.getElementById("popup").style.display="none";
-
-},2000);
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
