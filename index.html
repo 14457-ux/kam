@@ -1,434 +1,209 @@
-HTML
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Portfolio | ม.6</title>
-    <style>
-        /* ==========================================
-           BRIGHT & MODERN PORTFOLIO THEME (CSS)
-           ========================================== */
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f7ff; /* พื้นหลังสีฟ้าพาสเทลอ่อน สดใส ไม่มืด */
-            /* ลายกริดจาง ๆ แบบสมุดกราฟเขียนแบบวิศวะ */
-            background-image: 
-                linear-gradient(rgba(0, 150, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 150, 255, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: #2d3748;
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio KMITL</title>
 
-        /* แถบเมนูนำทาง */
-        nav {
-            background-color: rgba(255, 255, 255, 0.9); 
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 3px solid #ff007f; /* เส้นใต้ชมพูสดใส */
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav li a {
-            display: block;
-            color: #4a5568;
-            text-decoration: none;
-            padding: 18px 22px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-        }
-        nav li a:hover {
-            color: #ff007f; 
-            text-shadow: 0 0 5px rgba(255, 0, 127, 0.2);
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{
+    background:#f5f5f5;
+    color:#222;
+    scroll-behavior:smooth;
+}
 
-        /* ส่วนหน้าแรก (Hero / หน้าปกพอร์ต) */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #ffffff 0%, #e6f2ff 100%);
-            position: relative;
-            overflow: hidden;
-        }
+/* Popup */
+#popup{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
 
-        /* ลูกเล่นฟันเฟืองหมุนสไตล์วิศวะ (สดใส) */
-        .gear-bg {
-            position: absolute;
-            font-size: 120px;
-            color: rgba(0, 242, 254, 0.15);
-            animation: spin 10s linear infinite;
-            z-index: 1;
-        }
-        .gear-1 { top: 10%; left: 10%; }
-        .gear-2 { bottom: 15%; right: 10%; color: rgba(255, 0, 127, 0.1); animation-direction: reverse; font-size: 150px; }
+#gear{
+    font-size:90px;
+    animation:spin 2s linear infinite;
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 10px;
-            color: #0056b3;
-            letter-spacing: 1px;
-            font-weight: 800;
-        }
-        .hero h1 span {
-            background: linear-gradient(45deg, #ff007f, #00c6ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.4rem;
-            color: #4a5568;
-            font-weight: 600;
-        }
+/* Menu */
+nav{
+position:fixed;
+width:100%;
+background:#F58220;
+padding:15px;
+text-align:center;
+z-index:100;
+}
 
-        /* การจัดหน้ากระดาษให้เหมือนเล่มพอร์ตจริง ๆ (Multi-page Look) */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        /* ตกแต่งแต่ละหน้า (Section) ให้เหมือนแผ่นกระดาษในเล่มพอร์ต */
-        .portfolio-page {
-            padding: 60px 45px;
-            background: #ffffff; /* หน้ากระดาษสีขาวสะอาด */
-            margin-bottom: 60px;
-            border-radius: 24px; /* ขอบมนสวยงามซอฟต์ ๆ */
-            border: 1px solid #e1e8ed;
-            box-shadow: 0 15px 35px rgba(0, 86, 179, 0.06); /* เงาละมุนมีมิติ */
-            position: relative;
-            overflow: hidden;
-        }
+nav a{
+color:white;
+text-decoration:none;
+margin:20px;
+font-weight:bold;
+}
 
-        /* หัวข้อหน้าสไตล์วิศวะน่ารัก */
-        h2 {
-            color: #0056b3;
-            font-size: 2.2rem;
-            margin-top: 0;
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 3px dashed #e2e8f0;
-            padding-bottom: 15px;
-        }
-        h2 .icon {
-            color: #ff007f;
-        }
+nav a:hover{
+color:black;
+}
 
-        /* หน้าประวัติส่วนตัว */
-        .profile-box {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 24px; 
-            background-color: #f0f7ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #0056b3;
-            border: 4px solid #00c6ff; 
-            box-shadow: 0 8px 20px rgba(0, 198, 255, 0.2);
-        }
+/* Section */
+section{
+min-height:100vh;
+padding:100px 30px;
+text-align:center;
+}
 
-        /* หน้าประวัติการศึกษา */
-        .education-list {
-            list-style: none;
-            padding: 0;
-        }
-        .education-item {
-            margin-bottom: 35px;
-            padding-left: 35px;
-            border-left: 3px solid #00c6ff;
-            position: relative;
-        }
-        .education-item::before {
-            content: '⚙️'; /* ใช้ฟันเฟืองเป็นจุดไทม์ไลน์ */
-            position: absolute;
-            left: -11px;
-            top: 2px;
-            font-size: 16px;
-            background: #ffffff;
-            padding: 2px 0;
-        }
-        .education-year {
-            font-weight: bold;
-            color: #ff007f;
-            font-size: 1.2rem;
-        }
+.home{
+background:linear-gradient(#F58220,#ffb35c);
+color:white;
+}
 
-        /* หน้าผลงาน (Grid System) */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .card {
-            background: #f8fbc0;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #e1e8ed;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #ff007f;
-            box-shadow: 0 12px 24px rgba(255, 0, 127, 0.15);
-        }
-        .card-img {
-            height: 160px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .card-content {
-            padding: 20px;
-        }
-        .card-content h3 {
-            margin: 0 0 10px 0;
-            color: #0056b3;
-        }
-        .view-btn {
-            background: transparent;
-            border: 1px solid #ff007f;
-            color: #ff007f;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-        .view-btn:hover {
-            background: #ff007f;
-            color: white;
-        }
+.about,.project{
+background:white;
+}
 
-        /* ช่องทางการติดต่อ */
-        .contact-info p {
-            font-size: 1.1rem;
-            margin: 18px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+.edu,.contact{
+background:#ececec;
+}
 
-        /* ระบบป๊อปอัพ (Modal Popup) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 56, 179, 0.3);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
-        .modal-content {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 24px;
-            max-width: 500px;
-            width: 90%;
-            border: 3px solid #ff007f;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            position: relative;
-            text-align: center;
-        }
-        .close-btn {
-            position: absolute;
-            top: 15px; right: 20px;
-            font-size: 30px;
-            color: #a0aec0;
-            cursor: pointer;
-        }
-        .close-btn:hover { color: #ff007f; }
+.card{
+width:260px;
+margin:20px auto;
+padding:20px;
+background:white;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+transition:.3s;
+}
 
-        /* ส่วนท้ายเล่มพอร์ต */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: #ffffff;
-            color: #718096;
-            font-size: 0.9rem;
-            border-top: 1px solid #e2e8f0;
-        }
+.card:hover{
+transform:translateY(-8px);
+}
 
-        @media (max-width: 600px) {
-            nav ul { flex-direction: column; text-align: center; }
-            .hero h1 { font-size: 2.6rem; }
-            .profile-box { flex-direction: column; text-align: center; }
-            .portfolio-page { padding: 40px 20px; }
-        }
-    </style>
+button{
+padding:12px 25px;
+background:black;
+color:white;
+border:none;
+margin-top:20px;
+cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+background:#F58220;
+}
+</style>
+
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="#home">หน้าแรก</a></li>
-            <li><a href="#about">ประวัติส่วนตัว</a></li>
-            <li><a href="#education">ประวัติการศึกษา</a></li>
-            <li><a href="#projects">ผลงาน</a></li>
-            <li><a href="#contact">ช่องทางติดต่อ</a></li>
-        </ul>
-    </nav>
+<div id="popup">
+<div id="gear">⚙️</div>
+</div>
 
-    <div id="home" class="hero">
-        <div class="gear-bg gear-1">⚙️</div>
-        <div class="gear-bg gear-2">⚙️</div>
-        
-        <div class="hero-content">
-            <h1>ENGINEERING <span>PORTFOLIO</span></h1>
-            <p>แฟ้มสะสมผลงานนักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
-        </div>
-    </div>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#edu">Education</a>
+<a href="#project">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
 
-    <div class="container">
+<section class="home" id="home">
+<h1>PORTFOLIO</h1>
+<br>
+<h2>ชื่อ - นามสกุล</h2>
+<br>
+<p>ผู้สมัครคณะวิศวกรรมศาสตร์<br>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</p>
 
-        <section id="about" class="portfolio-page">
-            <h2><span class="icon">⚙️</span> PROFILE | ประวัติส่วนตัว</h2>
-            <div class="profile-box">
-                <img class="profile-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23e6f2ff'/><text x='50%' y='55%' font-family='sans-serif' font-size='8' fill='%230056b3' text-anchor='middle'>[ วางรูปโปรไฟล์ที่นี่ ]</text></svg>" alt="รูปโปรไฟล์">
-                <div>
-                    <h3>นางสาว จิราพัชชร แก้วหาญ</h3>
-                    <p><strong>ชื่อเล่น:</strong> แก้ม | <strong>วันเกิด:</strong> 25 พฤศจิกายน 2551</p>
-                    <p><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</p>
-                    <p><strong>ความสนใจ:</strong> / วิศวกรรมอุตสาหการ / เทคโนโลยีและนวัตกรรมสร้างสรรค์</p>
-                    <p><strong>เป้าหมาย:</strong> มุ่งมั่นศึกษาต่อในคณะวิศวกรรมศาสตร์ สาขา วิศวะอุตสาหการ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</p>
-                </div>
-            </div>
-        </section>
+<button onclick="location.href='#about'">ดูข้อมูล</button>
+</section>
 
-        <section id="education" class="portfolio-page">
-            <h2><span class="icon">⚙️</span> EDUCATION | ประวัติการศึกษา</h2>
-            <ul class="education-list">
-                <li class="education-item">
-                    <div class="education-year">พ.ศ. 2567 - ปัจจุบัน</div>
-                    <strong>ระดับมัธยมศึกษาตอนปลาย (ม.4 - ม.6)</strong><br>
-                    โรงเรียนของคุณ | เกรดเฉลี่ยสะสม (GPAX): X.XX
-                </li>
-                <li class="education-item">
-                    <div class="education-year">พ.ศ. 2564 - 2566</div>
-                    <strong>ระดับมัธยมศึกษาตอนต้น (ม.1 - ม.3)</strong><br>
-                    โรงเรียนของคุณ
-                </li>
-            </ul>
-        </section>
+<section class="about" id="about">
 
-        <section id="projects" class="portfolio-page">
-            <h2><span class="icon">⚙️</span> PROJECTS & ACTIVITIES | ผลงานและกิจกรรม</h2>
-            <div class="grid">
-                <div class="card" onclick="openModal('โครงงานนวัตกรรม & STEM', 'เขียนอธิบายรายละเอียดโครงงานที่เคยทำ สิ่งประดิษฐ์ หรือการทดลองวิจัยทางวิทยาศาสตร์ที่โดดเด่นของคุณที่นี่ค่ะ')">
-                    <div class="card-img" style="background: linear-gradient(135deg, #ff007f, #ff758c);">🛠️ INNOVATION</div>
-                    <div class="card-content">
-                        <h3>โครงงานสิ่งประดิษฐ์ / STEM</h3>
-                        <p>คลิกเพื่อดูรายละเอียดโครงงาน...</p>
-                        <button class="view-btn">ดูรายละเอียด</button>
-                    </div>
-                </div>
-                <div class="card" onclick="openModal('ค่ายอัจฉริยภาพวิศวกรรม', 'เล่าประสบการณ์ที่ได้ไปร่วมค่ายเวิร์กช็อปวิศวะของมหาวิทยาลัยต่าง ๆ กิจกรรมแลกเปลี่ยน หรือเกียรติบัตรที่ได้รับมาค่ะ')">
-                    <div class="card-img" style="background: linear-gradient(135deg, #00c6ff, #0072ff);">🤖 CAMPS & COMPETITIONS</div>
-                    <div class="card-content">
-                        <h3>ค่ายและกิจกรรมวิชาการ</h3>
-                        <p>คลิกเพื่อดูรายละเอียดกิจกรรม...</p>
-                        <button class="view-btn">ดูรายละเอียด</button>
-                    </div>
-                </div>
-                <div class="card" onclick="openModal('ทักษะความสามารถทางวิศวะ', 'ระบุทักษะคอมพิวเตอร์ การเขียนโค้ดภาษาต่างๆ (เช่น Python, C++) หรือโปรแกรมคำนวณ/ออกแบบที่คุณทำได้')">
-                    <div class="card-img" style="background: linear-gradient(135deg, #f761a1, #8c1eff);">💻 SKILLS & WORKSHOP</div>
-                    <div class="card-content">
-                        <h3>ทักษะเชิงเทคนิค (Skills)</h3>
-                        <p>คลิกเพื่อดูรายละเอียดทักษะ...</p>
-                        <button class="view-btn">ดูรายละเอียด</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+<h1>ประวัติส่วนตัว</h1>
 
-        <section id="contact" class="portfolio-page" style="margin-bottom: 0;">
-            <h2><span class="icon">⚙️</span> CONTACT | ช่องทางการติดต่อ</h2>
-            <div class="contact-info">
-                <p>📧 <strong>อีเมล:</strong> jesniulq@gmail.com</p>
-                <p>📞 <strong>เบอร์โทรศัพท์:</strong> 0930716180</p>
-                <p>🌐 <strong>GitHub:</strong> github.com/14457-ux</p>
-            </div>
-        </section>
+<div class="card">
+<p>👤 ชื่อ : ...............</p>
+<p>🎂 อายุ : ...............</p>
+<p>🏠 จังหวัด : ...............</p>
+<p>💻 ความสามารถ : HTML CSS Python</p>
+</div>
 
-    </div>
+</section>
 
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle" style="border: none; color: #ff007f; margin-bottom: 15px; justify-content: center;">ชื่อผลงาน</h2>
-            <p id="modalDescription" style="color: #4a5568; text-align: left;"></p>
-        </div>
-    </div>
+<section class="edu" id="edu">
 
-    <footer>
-        <p>© 2026 Engineering Portfolio | พัฒนาด้วย GitHub Pages เพื่อยื่นระบบ TCAS</p>
-    </footer>
+<h1>ประวัติการศึกษา</h1>
 
-    <script>
-        function openModal(title, description) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDescription').innerText = description;
-            document.getElementById('projectModal').style.display = 'flex';
-        }
+<div class="card">
+<p>🎓 ประถมศึกษา</p>
+<p>โรงเรียน............</p>
+</div>
 
-        function closeModal() {
-            document.getElementById('projectModal').style.display = 'none';
-        }
+<div class="card">
+<p>🎓 มัธยมต้น</p>
+<p>โรงเรียน............</p>
+</div>
 
-        window.onclick = function(event) {
-            let modal = document.getElementById('projectModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
+<div class="card">
+<p>🎓 มัธยมปลาย</p>
+<p>โรงเรียน............</p>
+</div>
+
+</section>
+
+<section class="project" id="project">
+
+<h1>ผลงาน</h1>
+
+<div class="card">
+<h3>💡 Project 1</h3>
+<p>หุ่นยนต์ Arduino</p>
+</div>
+
+<div class="card">
+<h3>⚙️ Project 2</h3>
+<p>เว็บไซต์ Portfolio</p>
+</div>
+
+<div class="card">
+<h3>🔧 Project 3</h3>
+<p>IoT Smart Home</p>
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h1>ช่องทางการติดต่อ</h1>
+
+<div class="card">
+<p>📧 Email : your@email.com</p>
+<p>📱 โทร : 08x-xxx-xxxx</p>
+<p>🌐 GitHub : github.com/yourname</p>
+<p>📘 Facebook : Your Name</p>
+</div>
+
+</section>
+
+<script>
+window.onload=function(){
+setTimeout(function(){
+document.getElementById("popup").style.display="none";
+},2000);
+}
+</script>
 
 </body>
 </html>
