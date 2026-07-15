@@ -1,139 +1,43 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio วิศวกรรม</title>
-    <!-- Font และ ไอคอน -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- เมนูนำทาง -->
-    <nav class="navbar">
-        <div class="logo">ENGR.<span>PORT</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">หน้าแรก</a></li>
-            <li><a href="#about">ประวัติ</a></li>
-            <li><a href="#education">การศึกษา</a></li>
-            <li><a href="#portfolio">ผลงาน/เกียรติบัตร</a></li>
-            <li><a href="#contact">ติดต่อ</a></li>
-        </ul>
-    </nav>
+<nav>
+<a href="index.html">หน้าแรก</a>
+<a href="profile.html">ประวัติส่วนตัว</a>
+<a href="education.html">การศึกษา</a>
+<a href="projects.html">ผลงาน</a>
+<a href="contact.html">ติดต่อ</a>
+</nav>
 
-    <!-- ส่วนหน้าแรก (Home) -->
-    <section id="home" class="home">
-        <div class="home-content">
-            <h3>สวัสดีครับ ผมคือ</h3>
-            <h1>วิศวกร นักพัฒนา</h1>
-            <p>ยินดีต้อนรับสู่พอร์ตโฟลิโอ นำเสนอทักษะ ประสบการณ์ และผลงานทางด้านวิศวกรรม</p>
-            <a href="#portfolio" class="btn">ดูผลงาน</a>
-        </div>
-        <div class="home-img">
-            <!-- ไอคอนรูปเกียร์ (ป๊อปอัพ) -->
-            <div class="gear-container">
-                <i class="fa-solid fa-gear gear-anim"></i>
-                <i class="fa-solid fa-gear gear-anim-rev"></i>
-            </div>
-        </div>
-    </section>
+<header>
+<img src="images/cover.jpg" class="cover">
+</header>
 
-    <!-- ส่วนประวัติส่วนตัว (About) -->
-    <section id="about" class="about">
-        <h2 class="heading">ประวัติ<span>ส่วนตัว</span></h2>
-        <div class="about-content">
-            <div class="about-img">
-                <img src="your-photo.jpg" alt="รูปโปรไฟล์">
-            </div>
-            <div class="about-text">
-                <h3>วิศวกรนักพัฒนา (Engineering & Innovation)</h3>
-                <p>มีความมุ่งมั่นในการออกแบบและแก้ปัญหาทางวิศวกรรม ผสมผสานความรู้ด้านทฤษฎีและภาคปฏิบัติเข้าด้วยกัน สามารถทำงานร่วมกับทีมและเรียนรู้เทคโนโลยีใหม่ๆ อยู่เสมอ</p>
-                <p><strong>ทักษะหลัก:</strong> CAD Design, Automation, Python, Project Management, Data Analysis</p>
-            </div>
-        </div>
-    </section>
+<div class="container">
 
-    <!-- ส่วนประวัติการศึกษา (Education) -->
-    <section id="education" class="education">
-        <h2 class="heading">ประวัติ<span>การศึกษา</span></h2>
-        <div class="education-row">
-            <div class="education-box">
-                <div class="education-content">
-                    <div class="content">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <h3>ปริญญาตรี (วิศวกรรมศาสตรบัณฑิต)</h3>
-                        <h4>สาขาวิชาวิศวกรรม...</h4>
-                        <h5>สถาบัน/มหาวิทยาลัย... (ปี พ.ศ. XXXX - XXXX)</h5>
-                        <p>เกียรตินิยม/ผลการเรียนเฉลี่ย: X.XX</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="card">
+<h1>PORTFOLIO</h1>
 
-    <!-- ส่วนผลงานและเกียรติบัตร (Portfolio) -->
-    <section id="portfolio" class="portfolio">
-        <h2 class="heading">ผลงานและ<span>เกียรติบัตร</span></h2>
-        <div class="portfolio-container">
+<h2>ชื่อ-นามสกุล</h2>
 
-            <!-- ตัวอย่างผลงานชิ้นที่ 1 -->
-            <div class="portfolio-box" onclick="openModal('img1.jpg', 'รายละเอียดโปรเจกต์: ออกแบบระบบอัตโนมัติ')">
-                <img src="project1.jpg" alt="ผลงานที่ 1">
-                <div class="portfolio-layer">
-                    <h4>ออกแบบระบบอัตโนมัติ</h4>
-                    <p>คลิกเพื่อดูรายละเอียดและรูปภาพเพิ่มเติม</p>
-                </div>
-            </div>
+<p>นักเรียนที่มีความสนใจด้านวิศวกรรมศาสตร์ มีความมุ่งมั่นในการเรียนรู้
+และพัฒนาทักษะด้านวิทยาศาสตร์ เทคโนโลยี และนวัตกรรม พร้อมนำความรู้ไปประยุกต์ใช้ในการแก้ไขปัญหาอย่างสร้างสรรค์</p>
 
-            <!-- ตัวอย่างเกียรติบัตรชิ้นที่ 1 -->
-            <div class="portfolio-box" onclick="openModal('cert1.jpg', 'เกียรติบัตร: ราชนะเลิศการออกแบบวิศวกรรม')">
-                <img src="cert1.jpg" alt="เกียรติบัตร">
-                <div class="portfolio-layer">
-                    <h4>เกียรติบัตร</h4>
-                    <p>คลิกเพื่อขยายดูเกียรติบัตร</p>
-                </div>
-            </div>
+</div>
 
-        </div>
-    </section>
+</div>
 
-    <!-- Modal สำหรับป็อปอัพรูปภาพผลงานและเกียรติบัตร -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-    </div>
+<footer>
+Portfolio Engineering
+</footer>
 
-    <!-- ส่วนช่องทางการติดต่อ (Contact) -->
-    <section id="contact" class="contact">
-        <h2 class="heading">ช่องทาง<span>ติดต่อ</span></h2>
-        <div class="contact-container">
-            <div class="contact-box">
-                <i class="fa-solid fa-envelope"></i>
-                <p>อีเมล: your-email@email.com</p>
-            </div>
-            <div class="contact-box">
-                <i class="fa-solid fa-phone"></i>
-                <p>โทรศัพท์: 08X-XXX-XXXX</p>
-            </div>
-            <div class="contact-box">
-                <i class="fa-brands fa-github"></i>
-                <p>GitHub: ://github.com</p>
-            </div>
-            <div class="contact-box">
-                <i class="fa-brands fa-linkedin"></i>
-                <p>LinkedIn: ://linkedin.com</p>
-            </div>
-        </div>
-    </section>
+<script src="script.js"></script>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Engineering Portfolio. All Rights Reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
