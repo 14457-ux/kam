@@ -421,4 +421,274 @@ section h2{
     padding:12px 24px;
 }
 
+}/*=====================
+
+Floating Gear
+
+=====================*/
+
+.gear-bg{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.gear-bg i{
+
+position:absolute;
+
+color:#ff80bf;
+
+opacity:.12;
+
+animation:rotateGear linear infinite;
+
+}
+
+.g1{
+
+font-size:120px;
+
+left:3%;
+
+top:10%;
+
+animation-duration:18s;
+
+}
+
+.g2{
+
+font-size:70px;
+
+right:8%;
+
+top:20%;
+
+animation-duration:10s;
+
+animation-direction:reverse;
+
+}
+
+.g3{
+
+font-size:90px;
+
+left:18%;
+
+bottom:15%;
+
+animation-duration:16s;
+
+}
+
+.g4{
+
+font-size:50px;
+
+right:20%;
+
+bottom:30%;
+
+animation-duration:8s;
+
+animation-direction:reverse;
+
+}
+
+.g5{
+
+font-size:140px;
+
+right:3%;
+
+bottom:5%;
+
+animation-duration:25s;
+
+}
+
+.g6{
+
+font-size:60px;
+
+left:45%;
+
+top:5%;
+
+animation-duration:11s;
+
+}
+
+.g7{
+
+font-size:80px;
+
+left:60%;
+
+bottom:18%;
+
+animation-duration:14s;
+
+animation-direction:reverse;
+
+}
+
+.g8{
+
+font-size:45px;
+
+left:80%;
+
+top:55%;
+
+animation-duration:7s;
+
+}
+
+@keyframes rotateGear{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+/* ===========================
+   BACKGROUND EFFECT
+=========================== */
+
+.background-effect{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:-2;
+}
+
+/* ดาว */
+
+.star{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 10px white;
+    animation:twinkle 2s infinite alternate;
+}
+
+.s1{top:8%;left:15%;}
+.s2{top:20%;left:75%;}
+.s3{top:35%;left:45%;}
+.s4{top:60%;left:12%;}
+.s5{top:75%;left:80%;}
+.s6{top:90%;left:55%;}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.6);
+    }
+
+}
+
+/* Bubble */
+
+.bubble{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,105,180,.15);
+
+    backdrop-filter:blur(5px);
+
+    animation:floatBubble linear infinite;
+
+}
+
+.b1{
+
+width:80px;
+height:80px;
+left:10%;
+bottom:-80px;
+animation-duration:18s;
+
+}
+
+.b2{
+
+width:120px;
+height:120px;
+left:35%;
+bottom:-120px;
+animation-duration:22s;
+
+}
+
+.b3{
+
+width:60px;
+height:60px;
+right:15%;
+bottom:-60px;
+animation-duration:16s;
+
+}
+
+.b4{
+
+width:100px;
+height:100px;
+right:40%;
+bottom:-100px;
+animation-duration:20s;
+
+}
+
+@keyframes floatBubble{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(-120vh);
+
+}
+
 }
