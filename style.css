@@ -777,3 +777,31 @@ document.addEventListener("mousemove",(e)=>{
     cursor.style.top=e.clientY+"px";
 
 });
+<section id="home">
+...
+</section>
+
+<section id="about">
+...
+</section>
+
+<section id="education">
+...
+</section>
+
+<section id="project">
+...
+</section>
+
+<section id="certificate">
+...
+</section>
+
+<!-- 👇 ตรงนี้ -->
+<section id="contact">
+...
+</section>
+
+<footer>
+...
+</footer>
