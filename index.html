@@ -1,337 +1,389 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | วิศวกรรมอุตสาหการ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite-deep:   #201e26;
+    --graphite:        #2c2833;
+    --graphite-soft:   #3a3541;
+    --mauve-gray:      #9c93a4;
+    --blush:           #e9bcc7;
+    --rose-gold:       #c98fa0;
+    --rose-gold-light: #e3aebb;
+    --pearl:           #f4ecee;
+    --pearl-dim:       #cfc4c9;
+    --line:            rgba(233,188,199,0.25);
+  }
 
-<title>Engineering Portfolio</title>
+  *{margin:0;padding:0;box-sizing:border-box;}
 
-<link rel="stylesheet" href="style.css">
+  html{scroll-behavior:smooth;}
 
-<link
-href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap"
-rel="stylesheet">
+  body{
+    font-family:'Prompt',sans-serif;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,143,160,0.14), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 85% 100%, rgba(156,147,164,0.16), transparent 60%),
+      linear-gradient(160deg, var(--graphite-deep) 0%, var(--graphite) 55%, #262330 100%);
+    color:var(--pearl);
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
 
+  /* ---------- decorative background gears ---------- */
+  .bg-gear{
+    position:fixed;
+    opacity:0.10;
+    z-index:0;
+    pointer-events:none;
+  }
+  .bg-gear svg{width:100%;height:100%;display:block;}
+  .bg-gear.g1{ width:520px; height:520px; top:-160px; left:-180px; animation:spin 60s linear infinite; }
+  .bg-gear.g2{ width:360px; height:360px; bottom:-120px; right:-100px; animation:spinReverse 46s linear infinite; }
+  .bg-gear.g3{ width:220px; height:220px; top:38%; right:6%; animation:spin 30s linear infinite; opacity:0.07;}
+  .bg-gear.g4{ width:150px; height:150px; bottom:12%; left:6%; animation:spinReverse 24s linear infinite; opacity:0.08;}
+
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  @keyframes spinReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
+
+  /* ---------- top nav (นำแถบเดิมที่มีหลายปุ่มกลับมา) ---------- */
+  nav{
+    position:relative;
+    z-index:10;
+    display:flex;
+    justify-content:center;
+    padding:28px 16px 10px;
+  }
+  .nav-pill{
+    display:flex;
+    gap:6px;
+    background:rgba(244,236,238,0.05);
+    border:1px solid var(--line);
+    backdrop-filter:blur(10px);
+    border-radius:999px;
+    padding:6px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .nav-pill a{
+    text-decoration:none;
+    color:var(--pearl-dim);
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:10px 20px;
+    border-radius:999px;
+    transition:all .35s ease;
+    position:relative;
+  }
+  .nav-pill a:hover,
+  .nav-pill a:focus-visible{
+    color:var(--graphite-deep);
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+    outline:none;
+  }
+  .nav-pill a.active{
+    color:var(--graphite-deep);
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+  }
+  .nav-pill a:focus-visible{box-shadow:0 0 0 3px rgba(233,188,199,0.5);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    margin:0 auto;
+    padding:64px 24px 100px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:center;
+    min-height:78vh;
+  }
+
+  .hero-text{
+    order:1; /* หน้าจอใหญ่ให้ข้อความอยู่ซ้าย */
+  }
+
+  .eyebrow{
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--rose-gold-light);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:34px;height:1px;
+    background:var(--rose-gold-light);
+  }
+
+  .hero h1{
+    font-family:'Prompt',sans-serif;
+    font-weight:600;
+    font-size:clamp(32px,4.4vw,52px);
+    line-height:1.25;
+    color:var(--pearl);
+    margin-bottom:18px;
+  }
+  .hero h1 span{
+    color:transparent;
+    background:linear-gradient(120deg,var(--blush),var(--rose-gold) 60%,var(--mauve-gray));
+    -webkit-background-clip:text;
+    background-clip:text;
+  }
+
+  .hero p{
+    font-size:16px;
+    line-height:1.9;
+    color:var(--pearl-dim);
+    font-weight:300;
+    margin-bottom:34px;
+    max-width:46ch;
+  }
+
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    font-family:'Oswald',sans-serif;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    font-size:13px;
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:6px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .btn-primary{
+    color:var(--graphite-deep);
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+    box-shadow:0 10px 30px -10px rgba(201,143,160,0.6);
+  }
+  .btn-primary:hover,.btn-primary:focus-visible{
+    transform:translateY(-3px);
+    box-shadow:0 16px 34px -10px rgba(201,143,160,0.8);
+  }
+  .btn-ghost{
+    color:var(--pearl);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover,.btn-ghost:focus-visible{
+    border-color:var(--rose-gold-light);
+    background:rgba(233,188,199,0.06);
+  }
+  .btn:focus-visible{outline:2px solid var(--rose-gold-light);outline-offset:3px;}
+
+  /* ---------- gear-framed portrait medallion ---------- */
+  .medallion-wrap{
+    position:relative;
+    width:min(100%,420px);
+    aspect-ratio:1/1;
+    margin:0 auto;
+    order:2; /* หน้าจอใหญ่ให้รูปภาพอยู่ขวา */
+  }
+  .med-ring{
+    position:absolute;
+    inset:0;
+    animation:spin 90s linear infinite;
+  }
+  .med-ring svg{width:100%;height:100%;}
+  .med-ring path{
+    fill:none;
+    stroke:url(#ringGrad);
+    stroke-width:2.4;
+  }
+  .med-ring-inner{
+    position:absolute;
+    inset:36px;
+    animation:spinReverse 70s linear infinite;
+    opacity:0.65;
+  }
+  .med-ring-inner svg{width:100%;height:100%;}
+  .med-ring-inner path{fill:none;stroke:var(--mauve-gray);stroke-width:1.4;}
+
+  .frame{
+    position:absolute;
+    inset:72px;
+    border-radius:50%;
+    background:
+      linear-gradient(160deg, var(--graphite-soft), var(--graphite-deep));
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    box-shadow:
+      inset 0 0 0 6px rgba(244,236,238,0.04),
+      0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  .frame img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(15%) saturate(1.05);
+  }
+  .frame .placeholder{
+    text-align:center;
+    color:var(--pearl-dim);
+    font-size:13px;
+    letter-spacing:1px;
+    padding:20px;
+    font-family:'Oswald',sans-serif;
+  }
+  .frame .placeholder small{
+    display:block;
+    margin-top:6px;
+    color:var(--mauve-gray);
+    font-size:11px;
+  }
+
+  .badge{
+    position:absolute;
+    bottom:6%;
+    right:2%;
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+    color:var(--graphite-deep);
+    font-family:'Oswald',sans-serif;
+    font-size:12px;
+    letter-spacing:1px;
+    padding:10px 16px;
+    border-radius:10px;
+    box-shadow:0 12px 26px -8px rgba(201,143,160,0.7);
+    transform:rotate(-4deg);
+  }
+
+  footer{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:26px 16px 40px;
+    color:var(--mauve-gray);
+    font-size:12px;
+    letter-spacing:1px;
+    font-family:'Oswald',sans-serif;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:880px){
+    .hero{
+      grid-template-columns:1fr;
+      padding-top:20px;
+      text-align:center;
+    }
+    .medallion-wrap{
+      order:1; /* บนมือถือ สลับเอารูปภาพขึ้นไปไว้บนสุด */
+      margin-top:10px;
+      margin-bottom:20px;
+    }
+    .hero-text{
+      order:2; /* บนมือถือ เอาข้อความและปุ่มลงมาไว้ด้านล่างรูป */
+    }
+    .eyebrow{justify-content:center;}
+    .hero p{margin-left:auto;margin-right:auto;}
+    .cta-row{justify-content:center;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .bg-gear, .med-ring, .med-ring-inner{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
 </head>
-
 <body>
 
-<!-- ดาว -->
-
-<div class="stars"></div>
-<div class="grid-bg"></div>
-
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
-<div class="bubble b4"></div>
-<div class="bubble b5"></div>
-
-<div class="ring ring1"></div>
-<div class="ring ring2"></div>
-
-<div class="light l1"></div>
-<div class="light l2"></div>
-<div class="light l3"></div>
-
-<div class="sparkle s1">✨</div>
-<div class="sparkle s2">✨</div>
-<div class="sparkle s3">✨</div>
-<div class="sparkle s4">✨</div>
-<div class="sparkle s5">✨</div>
-<div class="sparkle s6">✨</div>
-<div class="sparkle s7">✨</div>
-<div class="sparkle s8">✨</div>
-
-<div class="heart h1">💖</div>
-<div class="heart h2">💕</div>
-<div class="heart h3">💗</div>
-<!-- เฟือง -->
-
-<div class="gear gear1">⚙️</div>
-<div class="gear gear2">⚙️</div>
-<div class="gear gear3">⚙️</div>
-
-<!-- Popup -->
-
-<div id="popup">
-
-<div class="popup-box">
-
-<span id="close">&times;</span>
-
-<img src="assets/gear.png">
-
-<h2>WELCOME</h2>
-
-<p>Engineering Portfolio</p>
-
-</div>
-
-</div>
-
-<header>
-
-<h1>Engineering Portfolio</h1>
-
-<nav>
-
-<a href="#home">หน้าแรก</a>
-
-<a href="#about">ประวัติส่วนตัว</a>
-
-<a href="#education">การศึกษา</a>
-
-<a href="#project">ผลงาน</a>
-
-<a href="#certificate">เกียรติบัตร</a>
-
-<a href="#contact">ติดต่อ</a>
-
-</nav>
-
-</header>
-
-<section id="home" class="hero">
-
-<img src="assets/profile.jpg" class="profile">
-
-<h1>น.ส.ชื่อของคุณ</h1>
-
-<p>Engineering Student</p>
-
-<button onclick="document.getElementById('about').scrollIntoView()">
-
-เริ่มต้น
-
-</button>
-
-</section>
-
-<section id="about">
-
-<h2>ประวัติส่วนตัว</h2>
-
-<div class="about-box">
-
-<p>
-
-สวัสดีค่ะ ดิฉันเป็นนักเรียนที่มีความสนใจด้านวิศวกรรมศาสตร์
-มีความมุ่งมั่นในการเรียนรู้ พัฒนาทักษะด้านวิทยาศาสตร์
-คณิตศาสตร์ เทคโนโลยี และการเขียนโปรแกรม
-
-</p>
-
-<p>
-
-ชื่นชอบการสร้างเว็บไซต์ ออกแบบ UI เขียน HTML CSS JavaScript
-และสนใจด้าน Automation, AI รวมถึง Internet of Things (IoT)
-
-</p>
-
-<p>
-
-มีความรับผิดชอบ ทำงานเป็นทีมได้ดี
-สามารถเรียนรู้สิ่งใหม่ได้รวดเร็ว
-พร้อมพัฒนาตนเองอยู่เสมอ
-
-</p>
-
-<p>
-
-งานอดิเรก ได้แก่
-อ่านหนังสือ ดูคลิปความรู้
-ออกแบบเว็บไซต์
-สร้างโปรเจกต์ใหม่ ๆ
-และฝึกเขียนโปรแกรมทุกวัน
-
-</p>
-
-<p>
-
-เป้าหมายในอนาคต
-คือการศึกษาต่อด้านวิศวกรรมศาสตร์
-และนำความรู้ไปพัฒนาเทคโนโลยีที่เป็นประโยชน์ต่อสังคม
-
-</p>
-
-</div>
-
-</section>
-
-<section id="education">
-
-<h2>ประวัติการศึกษา</h2>
-
-<div class="card">
-
-<h3>ระดับประถมศึกษา</h3>
-
-<p>......................</p>
-
-</div>
-
-<div class="card">
-
-<h3>ระดับมัธยมศึกษาตอนต้น</h3>
-
-<p>......................</p>
-
-</div>
-
-<div class="card">
-
-<h3>ระดับมัธยมศึกษาตอนปลาย</h3>
-
-<p>......................</p>
-
-</div>
-
-</section>
-
-<section id="project">
-
-<h2>ผลงาน</h2>
-
-<div class="gallery">
-
-<div>
-
-<img src="assets/project1.jpg">
-
-<h3>Project 1</h3>
-
-</div>
-
-<div>
-
-<img src="assets/project1.jpg">
-
-<h3>Project 2</h3>
-
-</div>
-
-<div>
-
-<img src="assets/project1.jpg">
-
-<h3>Project 3</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="certificate">
-
-<h2>เกียรติบัตร</h2>
-
-<div class="gallery">
-
-<img src="assets/certificate1.jpg">
-
-<img src="assets/certificate2.jpg">
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<h2 class="section-title">📞 ติดต่อฉัน</h2>
-
-<div class="contact-container">
-
-    <!-- ข้อมูลติดต่อ -->
-    <div class="contact-card">
-
-        <h3>ช่องทางการติดต่อ</h3>
-
-        <div class="contact-item">
-            <span>📧</span>
-            <a href="mailto:jesniulq@gmail.com">
-                example@gmail.com
-            </a>
-        </div>
-
-        <div class="contact-item">
-            <span>📱</span>
-            <a href="tel:0930716180">
-                0930716180
-            </a>
-        </div>
-
-        <div class="contact-item">
-            <span>💬</span>
-            <a href="https://line.me/" target="_blank">
-                LINE
-            </a>
-        </div>
-
-        <div class="contact-item">
-            <span>📸</span>
-            <a href="https://instagram.com/jesniuq" target="_blank">
-                Instagram
-            </a>
-        </div>
-
-        <div class="contact-item">
-            <span>🌐</span>
-            <a href="https://github.com/" target="_blank">
-                GitHub
-            </a>
-        </div>
-
-        <div class="contact-item">
-            <span>👍</span>
-            <a href="https://facebook.com/" target="_blank">
-                Facebook
-            </a>
-        </div>
-
+  <!-- decorative rotating background gears -->
+  <div class="bg-gear g1">
+    <svg viewBox="0 0 200 200"><path fill="#e9bcc7" fill-rule="evenodd"
+      d="M 174.00,100.00 L 188.89,114.08 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 180.19,59.14 L 170.38,77.13 Z M 70.00,100.00 A 30.00,30.00 0 1,0 130.00,100.00 A 30.00,30.00 0 1,0 70.00,100.00 Z"/>
+    </svg>
+  </div>
+  <div class="bg-gear g2">
+    <svg viewBox="0 0 200 200"><path fill="#9c93a4" fill-rule="evenodd"
+      d="M 172.00,100.00 L 188.27,117.56 L 188.27,117.56 L 166.52,127.55 L 150.91,150.91 L 150.00,174.83 L 150.00,174.83 L 127.55,166.52 L 100.00,172.00 L 82.44,188.27 L 82.44,188.27 L 72.45,166.52 L 49.09,150.91 L 25.17,150.00 L 25.17,150.00 L 33.48,127.55 L 28.00,100.00 L 11.73,82.44 L 11.73,82.44 L 33.48,72.45 L 49.09,49.09 L 50.00,25.17 L 50.00,25.17 L 72.45,33.48 L 100.00,28.00 L 117.56,11.73 L 117.56,11.73 L 127.55,33.48 L 150.91,49.09 L 174.83,50.00 L 174.83,50.00 L 166.52,72.45 Z M 66.00,100.00 A 34.00,34.00 0 1,0 134.00,100.00 A 34.00,34.00 0 1,0 66.00,100.00 Z"/>
+    </svg>
+  </div>
+  <div class="bg-gear g3">
+    <svg viewBox="0 0 200 200"><path fill="#c98fa0" fill-rule="evenodd"
+      d="M 176.00,100.00 L 189.23,111.75 L 189.23,111.75 L 173.41,119.67 L 165.82,138.00 L 171.40,154.79 L 171.40,154.79 L 153.74,153.74 L 138.00,165.82 L 134.44,183.15 L 134.44,183.15 L 119.67,173.41 L 100.00,176.00 L 88.25,189.23 L 88.25,189.23 L 80.33,173.41 L 62.00,165.82 L 45.21,171.40 L 45.21,171.40 L 46.26,153.74 L 34.18,138.00 L 16.85,134.44 L 16.85,134.44 L 26.59,119.67 L 24.00,100.00 L 10.77,88.25 L 10.77,88.25 L 26.59,80.33 L 34.18,62.00 L 28.60,45.21 L 28.60,45.21 L 46.26,46.26 L 62.00,34.18 L 65.56,16.85 L 65.56,16.85 L 80.33,26.59 L 100.00,24.00 L 111.75,10.77 L 111.75,10.77 L 119.67,26.59 L 138.00,34.18 L 154.79,28.60 L 154.79,28.60 L 153.74,46.26 L 165.82,62.00 L 183.15,65.56 L 183.15,65.56 L 173.41,80.33 Z M 74.00,100.00 A 26.00,26.00 0 1,0 126.00,100.00 A 26.00,26.00 0 1,0 74.00,100.00 Z"/>
+    </svg>
+  </div>
+  <div class="bg-gear g4">
+    <svg viewBox="0 0 200 200"><path fill="#e9bcc7" fill-rule="evenodd"
+      d="M 172.00,100.00 L 188.27,117.56 L 188.27,117.56 L 166.52,127.55 L 150.91,150.91 L 150.00,174.83 L 150.00,174.83 L 127.55,166.52 L 100.00,172.00 L 82.44,188.27 L 82.44,188.27 L 72.45,166.52 L 49.09,150.91 L 25.17,150.00 L 25.17,150.00 L 33.48,127.55 L 28.00,100.00 L 11.73,82.44 L 11.73,82.44 L 33.48,72.45 L 49.09,49.09 L 50.00,25.17 L 50.00,25.17 L 72.45,33.48 L 100.00,28.00 L 117.56,11.73 L 117.56,11.73 L 127.55,33.48 L 150.91,49.09 L 174.83,50.00 L 174.83,50.00 L 166.52,72.45 Z M 66.00,100.00 A 34.00,34.00 0 1,0 134.00,100.00 A 34.00,34.00 0 1,0 66.00,100.00 Z"/>
+    </svg>
+  </div>
+
+  <!-- ===== navigation (ดึงแถบเมนู 5 ปุ่มเดิมกลับมาแล้วครับ) ===== -->
+  <nav>
+    <div class="nav-pill">
+      <a href="index.html" class="active">Index</a>
+      <a href="profile.html">Profile</a>
+      <a href="education.html">Education</a>
+      <a href="award.html">Award</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ===== hero (โครงสร้างรองรับการจัดวางรูปภาพอยู่ด้านบนเมื่อเปิดบนมือถือ) ===== -->
+  <section class="hero">
+    
+    <!-- ส่วนข้อความและปุ่มกด -->
+    <div class="hero-text">
+      <div class="eyebrow">Portfolio 2569</div>
+      <h1>ยินดีต้อนรับสู่<br><span>เส้นทางวิศวกรรม<br>อุตสาหการ</span>ของฉัน</h1>
+      <p>
+        เเฟ้มสะสมผลงานนี้รวบรวมตัวตน ผลงาน และความมุ่งมั่นของนักเรียนชั้นมัธยมศึกษาปีที่ 6
+        ที่ใฝ่ฝันจะศึกษาต่อในคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการค่ะ
+        
+      </p>
+      <div class="cta-row">
+        <a href="profile.html" class="btn btn-primary">เริ่มดูโปรไฟล์</a>
+        <a href="award.html" class="btn btn-ghost">ดูผลงาน &amp; รางวัล</a>
+      </div>
     </div>
 
-    <!-- ฟอร์ม -->
-    <div class="message-card">
-
-        <h3>ส่งข้อความถึงฉัน</h3>
-
-        <form>
-
-            <input
-            type="text"
-            placeholder="ชื่อของคุณ">
-
-            <input
-            type="email"
-            placeholder="อีเมล">
-
-            <textarea
-            rows="6"
-            placeholder="เขียนข้อความ..."></textarea>
-
-            <button type="submit">
-
-                💖 ส่งข้อความ
-
-            </button>
-
-        </form>
-
+    <!-- ส่วนรูปภาพเฟืองโปรไฟล์ -->
+    <div class="medallion-wrap">
+      <div class="med-ring">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e9bcc7"/>
+              <stop offset="100%" stop-color="#9c93a4"/>
+            </linearGradient>
+          </defs>
+          <path d="M 174.00,100.00 L 188.89,114.08 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 180.19,59.14 L 170.38,77.13 Z"/>
+        </svg>
+      </div>
+      <div class="med-ring-inner">
+        <svg viewBox="0 0 200 200">
+          <path d="M 176.00,100.00 L 189.23,111.75 L 189.23,111.75 L 173.41,119.67 L 165.82,138.00 L 171.40,154.79 L 171.40,154.79 L 153.74,153.74 L 138.00,165.82 L 134.44,183.15 L 134.44,183.15 L 119.67,173.41 L 100.00,176.00 L 88.25,189.23 L 88.25,189.23 L 80.33,173.41 L 62.00,165.82 L 45.21,171.40 L 45.21,171.40 L 46.26,153.74 L 34.18,138.00 L 16.85,134.44 L 16.85,134.44 L 26.59,119.67 L 24.00,100.00 L 10.77,88.25 L 10.77,88.25 L 26.59,80.33 L 34.18,62.00 L 28.60,45.21 L 28.60,45.21 L 46.26,46.26 L 62.00,34.18 L 65.56,16.85 L 65.56,16.85 L 80.33,26.59 L 100.00,24.00 L 111.75,10.77 L 111.75,10.77 L 119.67,26.59 L 138.00,34.18 L 154.79,28.60 L 154.79,28.60 L 153.74,46.26 L 165.82,62.00 L 183.15,65.56 L 183.15,65.56 L 173.41,80.33 Z"/>
+        </svg>
+      </div>
+      <div class="frame">
+        <!-- แทนที่ด้วย <img src="รูปของคุณ.jpg" alt="รูปโปรไฟล์"> เพื่อใส่รูปจริง -->
+        <div class="placeholder">
+          ใส่รูปของคุณตรงนี้
+          <small>แทนที่ &lt;div class="placeholder"&gt; ด้วยแท็ก &lt;img&gt;</small>
+        </div>
+      </div>
+      <div class="badge">ม.6 · สายวิทย์-คณิต</div>
     </div>
+  </section>
 
-</div>
-
-</section>
-<footer>
-
-Copyright © 2026
-
-</footer>
-
-<script src="script.js"></script>
+  <footer>© 2569 PORTFOLIO — INDUSTRIAL ENGINEERING </footer>
 
 </body>
 </html>
