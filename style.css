@@ -449,14 +449,9 @@ z-index:-1;
 
 .gear-bg i{
 
-position:absolute;
-
-color:#ff80bf;
-
-opacity:.12;
-
-animation:rotateGear linear infinite;
-
+animation:
+rotateGear linear infinite,
+gearFloat 5s ease-in-out infinite;
 }
 
 .g1{
@@ -766,3 +761,19 @@ body::before{
         0 0 25px rgba(255,79,154,.25);
 
 }
+/* ===========================
+   Cursor Glow
+=========================== */
+
+const cursor=document.createElement("div");
+
+cursor.className="cursor";
+
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove",(e)=>{
+
+    cursor.style.left=e.clientX+"px";
+    cursor.style.top=e.clientY+"px";
+
+});
