@@ -1,674 +1,311 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Engineering Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+<link
+href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap"
+rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- ========================= -->
+<!-- ดาว -->
 
-<!-- Loading Popup -->
+<div class="stars"></div>
 
-<!-- ========================= -->
+<!-- เฟือง -->
 
-<div id="loader">
+<div class="gear gear1">⚙️</div>
+<div class="gear gear2">⚙️</div>
+<div class="gear gear3">⚙️</div>
 
-<div class="loader-content">
+<!-- Popup -->
 
-<img src="assets/images/gear.png" class="gear">
+<div id="popup">
 
-<h1>Engineering Portfolio</h1>
+<div class="popup-box">
 
-<p>Loading...</p>
+<span id="close">&times;</span>
 
-</div>
+<img src="assets/gear.png">
 
-</div>
+<h2>WELCOME</h2>
 
-<!-- Floating Gear -->
-
-<div class="floating-gear">
-
-<i class="fa-solid fa-gears"></i>
+<p>Engineering Portfolio</p>
 
 </div>
 
-<!-- Navigation -->
+</div>
 
 <header>
 
+<h1>Engineering Portfolio</h1>
+
 <nav>
 
-<div class="logo">
+<a href="#home">หน้าแรก</a>
 
-<i class="fa-solid fa-gears"></i>
+<a href="#about">ประวัติส่วนตัว</a>
 
-My Portfolio
+<a href="#education">การศึกษา</a>
 
-</div>
+<a href="#project">ผลงาน</a>
 
-<ul>
+<a href="#certificate">เกียรติบัตร</a>
 
-<li><a href="#home">หน้าแรก</a></li>
-
-<li><a href="#about">ประวัติ</a></li>
-
-<li><a href="#education">การศึกษา</a></li>
-
-<li><a href="#project">ผลงาน</a></li>
-
-<li><a href="#certificate">เกียรติบัตร</a></li>
-
-<li><a href="#contact">ติดต่อ</a></li>
-
-</ul>
-
-<button id="darkMode">
-
-<i class="fa-solid fa-moon"></i>
-
-</button>
+<a href="#contact">ติดต่อ</a>
 
 </nav>
 
 </header>
 
-<!-- ========================= -->
+<section id="home" class="hero">
 
-<!-- HOME -->
+<img src="assets/profile.jpg" class="profile">
 
-<!-- ========================= -->
+<h1>น.ส.ชื่อของคุณ</h1>
 
-<section id="home">
+<p>Engineering Student</p>
 
-<div class="hero-left">
-
-<h3>Hello I'm</h3>
-
-<h1>YOUR NAME</h1>
-
-<h2 id="typing"></h2>
-
-<p>
-
-เว็บไซต์ Portfolio สำหรับยื่นเข้าศึกษาต่อ
-คณะวิศวกรรมศาสตร์
-
-</p>
-
-<a href="#about" class="btn">
+<button onclick="document.getElementById('about').scrollIntoView()">
 
 เริ่มต้น
 
-</a>
-
-</div>
-
-<div class="hero-right">
-
-<img src="assets/images/profile.jpg">
-
-</div>
+</button>
 
 </section>
-
-<!-- Wave -->
-
-<div class="wave"></div>
-
-<!-- ========================= -->
-
-<!-- ABOUT -->
-
-<!-- ========================= -->
-
-
 
 <section id="about">
 
-    <h2>ประวัติส่วนตัว</h2>
+<h2>ประวัติส่วนตัว</h2>
 
-    <div class="card">
+<div class="about-box">
 
-        <img src="assets/profile.jpg" alt="Profile">
+<p>
 
-        <div>
+สวัสดีค่ะ ดิฉันเป็นนักเรียนที่มีความสนใจด้านวิศวกรรมศาสตร์
+มีความมุ่งมั่นในการเรียนรู้ พัฒนาทักษะด้านวิทยาศาสตร์
+คณิตศาสตร์ เทคโนโลยี และการเขียนโปรแกรม
 
-            <h3>ชื่อ - นามสกุล</h3>
-            <p>นางสาวจิราพัชร แก้วหาญ</p>
-
-            <h3>ชื่อเล่น</h3>
-            <p>แก้ม</p>
-
-            <h3>วันเดือนปีเกิด</h3>
-            <p>25 พฤศจิกายน 2551</p>
-
-            <h3>อายุ</h3>
-            <p>1 ปี</p>
-
-            <h3>โรงเรียน</h3>
-            <p>พานทอง</p>
-
-            <h3>แผนการเรียน</h3>
-            <p>วิทยาศาสตร์ - คณิตศาสตร์</p>
-
-            <h3>เป้าหมาย</h3>
-            <p>
-                มีความสนใจด้านวิศวกรรมอุตสาหการ
-                ต้องการพัฒนาความรู้และทักษะเพื่อนำไปต่อยอดในการศึกษาระดับมหาวิทยาลัย
-                พร้อมทั้งมุ่งมั่นเรียนรู้สิ่งใหม่ ๆ และพัฒนาตนเองอยู่เสมอ
-            </p>
-
-            <h3>ทักษะ (Skills)</h3>
-
-            <ul class="skill-list">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Microsoft Word</li>
-                <li>Microsoft PowerPoint</li>
-                <li>Canva</li>
-                <li>การทำงานเป็นทีม (Teamwork)</li>
-            </ul>
-
-            <h3>งานอดิเรก</h3>
-
-            <p>
-                อ่านหนังสือ ฟังเพลง เล่นกีฬา ศึกษาเทคโนโลยีใหม่ ๆ
-                และฝึกเขียนโปรแกรมเพื่อพัฒนาทักษะด้านคอมพิวเตอร์
-            </p>
-
-            <h3>คติประจำใจ</h3>
-
-            <p>
-                "ความพยายามในวันนี้ คือความสำเร็จในวันข้างหน้า"
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
 </p>
 
-<div class="skills">
+<p>
 
-<h4>Skills</h4>
+ชื่นชอบการสร้างเว็บไซต์ ออกแบบ UI เขียน HTML CSS JavaScript
+และสนใจด้าน Automation, AI รวมถึง Internet of Things (IoT)
 
-<div class="skill">
+</p>
 
-<span>HTML</span>
+<p>
 
-<div class="progress">
+มีความรับผิดชอบ ทำงานเป็นทีมได้ดี
+สามารถเรียนรู้สิ่งใหม่ได้รวดเร็ว
+พร้อมพัฒนาตนเองอยู่เสมอ
 
-<div class="html"></div>
+</p>
 
-</div>
+<p>
 
-</div>
+งานอดิเรก ได้แก่
+อ่านหนังสือ ดูคลิปความรู้
+ออกแบบเว็บไซต์
+สร้างโปรเจกต์ใหม่ ๆ
+และฝึกเขียนโปรแกรมทุกวัน
 
-<div class="skill">
+</p>
 
-<span>CSS</span>
+<p>
 
-<div class="progress">
+เป้าหมายในอนาคต
+คือการศึกษาต่อด้านวิศวกรรมศาสตร์
+และนำความรู้ไปพัฒนาเทคโนโลยีที่เป็นประโยชน์ต่อสังคม
 
-<div class="css"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>JavaScript</span>
-
-<div class="progress">
-
-<div class="js"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Python</span>
-
-<div class="progress">
-
-<div class="python"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+</p>
 
 </div>
 
 </section>
-    <!-- ========================= -->
-<!-- EDUCATION -->
-<!-- ========================= -->
 
 <section id="education">
 
-    <h2 class="section-title">
-        ประวัติการศึกษา
-    </h2>
+<h2>ประวัติการศึกษา</h2>
 
-    <div class="timeline">
+<div class="card">
 
-        <div class="timeline-item left">
+<h3>ระดับประถมศึกษา</h3>
 
-            <div class="timeline-content">
+<p>......................</p>
 
-                <img src="assets/images/school1.jpg">
+</div>
 
-                <h3>ระดับประถมศึกษา</h3>
+<div class="card">
 
-                <p>โรงเรียน................................</p>
+<h3>ระดับมัธยมศึกษาตอนต้น</h3>
 
-                <span>ปี .... - ....</span>
+<p>......................</p>
 
-            </div>
+</div>
 
-        </div>
+<div class="card">
 
-        <div class="timeline-item right">
+<h3>ระดับมัธยมศึกษาตอนปลาย</h3>
 
-            <div class="timeline-content">
+<p>......................</p>
 
-                <img src="assets/images/school2.jpg">
-
-                <h3>ระดับมัธยมศึกษาตอนต้น</h3>
-
-                <p>โรงเรียน................................</p>
-
-                <span>ปี .... - ....</span>
-
-            </div>
-
-        </div>
-
-        <div class="timeline-item left">
-
-            <div class="timeline-content">
-
-                <img src="assets/images/school3.jpg">
-
-                <h3>ระดับมัธยมศึกษาตอนปลาย</h3>
-
-                <p>โรงเรียน................................</p>
-
-                <span>ปี .... - ปัจจุบัน</span>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
-
-<!-- ========================= -->
-<!-- PROJECT -->
-<!-- ========================= -->
 
 <section id="project">
 
-    <h2 class="section-title">
-        ผลงาน
-    </h2>
+<h2>ผลงาน</h2>
 
-    <div class="project-grid">
+<div class="gallery">
 
-        <div class="project-card">
+<div>
 
-            <img src="assets/images/project1.jpg">
+<img src="assets/project1.jpg">
 
-            <div class="project-info">
+<h3>Project 1</h3>
 
-                <h3>Project 01</h3>
+</div>
 
-                <p>เว็บไซต์ Portfolio</p>
+<div>
 
-                <button class="projectBtn">
-                    ดูรายละเอียด
-                </button>
+<img src="assets/project1.jpg">
 
-            </div>
+<h3>Project 2</h3>
 
-        </div>
+</div>
 
-        <div class="project-card">
+<div>
 
-            <img src="assets/images/project2.jpg">
+<img src="assets/project1.jpg">
 
-            <div class="project-info">
+<h3>Project 3</h3>
 
-                <h3>Project 02</h3>
+</div>
 
-                <p>Arduino Smart Farm</p>
-
-                <button class="projectBtn">
-                    ดูรายละเอียด
-                </button>
-
-            </div>
-
-        </div>
-
-        <div class="project-card">
-
-            <img src="assets/images/project3.jpg">
-
-            <div class="project-info">
-
-                <h3>Project 03</h3>
-
-                <p>Robot แข่งขัน</p>
-
-                <button class="projectBtn">
-                    ดูรายละเอียด
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
-
-<!-- ========================= -->
-<!-- CERTIFICATE -->
-<!-- ========================= -->
 
 <section id="certificate">
 
-    <h2 class="section-title">
-        เกียรติบัตร
-    </h2>
+<h2>เกียรติบัตร</h2>
 
-    <div class="certificate-grid">
+<div class="gallery">
 
-        <img src="assets/images/certificate1.jpg">
+<img src="assets/certificate1.jpg">
 
-        <img src="assets/images/certificate2.jpg">
+<img src="assets/certificate2.jpg">
 
-        <img src="assets/images/certificate3.jpg">
-
-        <img src="assets/images/certificate4.jpg">
-
-        <img src="assets/images/certificate5.jpg">
-
-        <img src="assets/images/certificate6.jpg">
-
-    </div>
+</div>
 
 </section>
-
-<!-- ========================= -->
-<!-- GALLERY -->
-<!-- ========================= -->
-
-<section id="gallery">
-
-    <h2 class="section-title">
-        กิจกรรม
-    </h2>
-
-    <div class="gallery-slider">
-
-        <img src="assets/images/activity1.jpg">
-
-        <img src="assets/images/activity2.jpg">
-
-        <img src="assets/images/activity3.jpg">
-
-        <img src="assets/images/activity4.jpg">
-
-    </div>
-
-</section>
-
-<!-- ========================= -->
-<!-- CONTACT -->
-<!-- ========================= -->
 
 <section id="contact">
 
-    <h2 class="section-title">
+<h2 class="section-title">📞 ติดต่อฉัน</h2>
 
-        ติดต่อ
+<div class="contact-container">
 
-    </h2>
+    <!-- ข้อมูลติดต่อ -->
+    <div class="contact-card">
 
-    <div class="contact-box">
+        <h3>ช่องทางการติดต่อ</h3>
 
-        <a href="#">
+        <div class="contact-item">
+            <span>📧</span>
+            <a href="mailto:jesniulq@gmail.com">
+                example@gmail.com
+            </a>
+        </div>
 
-            <i class="fab fa-facebook"></i>
+        <div class="contact-item">
+            <span>📱</span>
+            <a href="tel:0930716180">
+                0930716180
+            </a>
+        </div>
 
-            Facebook
+        <div class="contact-item">
+            <span>💬</span>
+            <a href="https://line.me/" target="_blank">
+                LINE
+            </a>
+        </div>
 
-        </a>
+        <div class="contact-item">
+            <span>📸</span>
+            <a href="https://instagram.com/jesniuq" target="_blank">
+                Instagram
+            </a>
+        </div>
 
-        <a href="#">
+        <div class="contact-item">
+            <span>🌐</span>
+            <a href="https://github.com/" target="_blank">
+                GitHub
+            </a>
+        </div>
 
-            <i class="fab fa-instagram"></i>
-
-            Instagram
-
-        </a>
-
-        <a href="#">
-
-            <i class="fab fa-github"></i>
-
-            GitHub
-
-        </a>
-
-        <a href="#">
-
-            <i class="fa-solid fa-envelope"></i>
-
-            Gmail
-
-        </a>
-
-        <a href="#">
-
-            <i class="fa-solid fa-phone"></i>
-
-            โทรศัพท์
-
-        </a>
+        <div class="contact-item">
+            <span>👍</span>
+            <a href="https://facebook.com/" target="_blank">
+                Facebook
+            </a>
+        </div>
 
     </div>
+
+    <!-- ฟอร์ม -->
+    <div class="message-card">
+
+        <h3>ส่งข้อความถึงฉัน</h3>
+
+        <form>
+
+            <input
+            type="text"
+            placeholder="ชื่อของคุณ">
+
+            <input
+            type="email"
+            placeholder="อีเมล">
+
+            <textarea
+            rows="6"
+            placeholder="เขียนข้อความ..."></textarea>
+
+            <button type="submit">
+
+                💖 ส่งข้อความ
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
 
 </section>
-    <!-- ========================= -->
-<!-- PROJECT POPUP -->
-<!-- ========================= -->
-
-<div id="projectModal" class="modal">
-
-    <div class="modal-content">
-
-        <span class="close">&times;</span>
-
-        <img id="modalImage" src="">
-
-        <h2 id="modalTitle">
-
-            Project Title
-
-        </h2>
-
-        <p id="modalText">
-
-            รายละเอียดของผลงาน
-
-        </p>
-
-        <a id="modalLink" href="#" target="_blank">
-
-            ดูบน GitHub
-
-        </a>
-
-    </div>
-
-</div>
-
-<!-- ========================= -->
-<!-- IMAGE LIGHTBOX -->
-<!-- ========================= -->
-
-<div id="lightbox">
-
-    <span id="closeLightbox">
-
-        ×
-
-    </span>
-
-    <img id="lightboxImage">
-
-</div>
-
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
-
 <footer>
 
-    <div class="footer-box">
+Copyright © 2026
 
-        <h2>
-
-            Engineering Portfolio
-
-        </h2>
-
-        <p>
-
-            Designed with ❤️ HTML CSS JavaScript
-
-        </p>
-
-   <section id="contact">
-
-    <h2>ติดต่อฉัน</h2>
-
-    <p class="contact-title">
-        หากต้องการติดต่อหรือสอบถามเพิ่มเติม สามารถติดต่อผ่านช่องทางด้านล่างได้
-    </p>
-
-    <div class="contact-grid">
-
-        <a href="https://facebook.com/chakamqx" target="_blank" class="contact-card">
-            <div class="icon facebook">
-                <i class="fab fa-facebook-f"></i>
-            </div>
-
-            <h3>Facebook</h3>
-            <p>@chakamqx</p>
-        </a>
-
-        <a href="https://instagram.com/jesniuq" target="_blank" class="contact-card">
-            <div class="icon instagram">
-                <i class="fab fa-instagram"></i>
-            </div>
-
-            <h3>Instagram</h3>
-            <p>@jrsniuq</p>
-        </a>
-
-        <a href="https://github.com/yourname" target="_blank" class="contact-card">
-            <div class="icon github">
-                <i class="fab fa-github"></i>
-            </div>
-
-            <h3>GitHub</h3>
-            <p>github.com/14457-ux</p>
-        </a>
-
-        <a href="mailto:jesniulq@gmail.com" class="contact-card">
-            <div class="icon email">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-
-            <h3>Email</h3>
-            <p>yourname@gmail.com</p>
-        </a>
-
-        <a href="tel:0930716180" class="contact-card">
-            <div class="icon phone">
-                <i class="fa-solid fa-phone"></i>
-            </div>
-
-            <h3>Phone</h3>
-            <p>0930716180</p>
-        </a>
-
-        <a href="#" class="contact-card">
-            <div class="icon line">
-                <i class="fa-brands fa-line"></i>
-            </div>
-
-            <h3>LINE</h3>
-            <p>@yourline</p>
-        </a>
-
-    </div>
-
-</section>
-
-</section>
-
-<!-- ========================= -->
-<!-- SCROLL TO TOP -->
-<!-- ========================= -->
-
-<button id="topBtn">
-
-<i class="fa-solid fa-arrow-up"></i>
-
-</button>
-
-<!-- ========================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================= -->
+</footer>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
