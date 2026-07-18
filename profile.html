@@ -274,7 +274,7 @@
     z-index: 2;
   }
   
-  .btn-nav {
+    .btn-nav {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -284,14 +284,15 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--pearl-dim);
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: 1px solid rgba(233,188,199,0.15);
+    padding: 12px 30px; /* เพิ่ม padding ด้านข้างให้ดูยาวขึ้น */
+    border-radius: 999px; /* ปรับจาก 8px เป็น 999px เพื่อให้ปุ่มโค้งมนเป็นวงรี */
+    border: 1px solid var(--line);
     background: rgba(244,236,238,0.02);
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     cursor: pointer;
   }
+
   
   .btn-nav:hover {
     color: var(--graphite-deep);
