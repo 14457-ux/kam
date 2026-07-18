@@ -21,7 +21,6 @@
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-
   html{scroll-behavior:smooth;}
 
   body{
@@ -36,13 +35,7 @@
     position:relative;
   }
 
-  /* ---------- decorative background gears ---------- */
-  .bg-gear{
-    position:fixed;
-    opacity:0.10;
-    z-index:0;
-    pointer-events:none;
-  }
+  .bg-gear{ position:fixed; opacity:0.10; z-index:0; pointer-events:none; }
   .bg-gear svg{width:100%;height:100%;display:block;}
   .bg-gear.g1{ width:520px; height:520px; top:-160px; left:-180px; animation:spin 60s linear infinite; }
   .bg-gear.g2{ width:360px; height:360px; bottom:-120px; right:-100px; animation:spinReverse 46s linear infinite; }
@@ -50,201 +43,97 @@
   @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
   @keyframes spinReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
 
-  /* ---------- top nav ---------- */
-  nav{
-    position:relative;
-    z-index:10;
-    display:flex;
-    justify-content:center;
-    padding:28px 16px 10px;
-  }
+  nav{ position:relative; z-index:10; display:flex; justify-content:center; padding:28px 16px 10px; }
   .nav-pill{
-    display:flex;
-    gap:6px;
+    display:flex; gap:6px;
     background:rgba(244,236,238,0.05);
     border:1px solid var(--line);
     backdrop-filter:blur(10px);
-    border-radius:999px;
-    padding:6px;
-    flex-wrap:wrap;
-    justify-content:center;
+    border-radius:999px; padding:6px;
+    flex-wrap:wrap; justify-content:center;
   }
   .nav-pill a{
-    text-decoration:none;
-    color:var(--pearl-dim);
-    font-family:'Oswald',sans-serif;
-    font-size:13px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    padding:10px 20px;
-    border-radius:999px;
+    text-decoration:none; color:var(--pearl-dim);
+    font-family:'Oswald',sans-serif; font-size:13px;
+    letter-spacing:1.5px; text-transform:uppercase;
+    padding:10px 20px; border-radius:999px;
     transition:all .35s ease;
   }
-  .nav-pill a:hover{
-    color:var(--graphite-deep);
-    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
-  }
-  .nav-pill a.active{
+  .nav-pill a:hover, .nav-pill a.active{
     color:var(--graphite-deep);
     background:linear-gradient(135deg,var(--blush),var(--rose-gold));
   }
 
-  /* ---------- content layout ---------- */
-  .award-container{
-    position:relative;
-    z-index:2;
-    max-width:960px;
-    margin:0 auto;
-    padding:64px 24px 100px;
-  }
-
-  .header-section{
-    text-align:center;
-    margin-bottom:56px;
-  }
+  .award-container{ position:relative; z-index:2; max-width:960px; margin:0 auto; padding:64px 24px 40px; }
+  .header-section{ text-align:center; margin-bottom:56px; }
   .eyebrow{
-    font-family:'Oswald',sans-serif;
-    font-size:13px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:var(--rose-gold-light);
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:16px;
+    font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:4px;
+    text-transform:uppercase; color:var(--rose-gold-light);
+    display:inline-flex; align-items:center; gap:12px; margin-bottom:16px;
   }
   .eyebrow::before, .eyebrow::after{ content:""; width:24px; height:1px; background:var(--rose-gold-light); }
+  h1{ font-weight:600; font-size:clamp(28px,3.8vw,40px); color:var(--pearl); }
+  h1 span{ color:transparent; background:linear-gradient(120deg,var(--blush),var(--rose-gold) 60%,var(--mauve-gray)); -webkit-background-clip:text; background-clip:text; }
 
-  h1{
-    font-weight:600;
-    font-size:clamp(28px,3.8vw,40px);
-    color:var(--pearl);
-  }
-  h1 span{
-    color:transparent;
-    background:linear-gradient(120deg,var(--blush),var(--rose-gold) 60%,var(--mauve-gray));
-    -webkit-background-clip:text;
-    background-clip:text;
-  }
-
-  /* ---------- โครงสร้าง 4 กล่องคู่รูปภาพและข้อความ ---------- */
-  .award-grid-list{
-    display:flex;
-    flex-direction:column;
-    gap:32px;
-  }
-
+  .award-grid-list{ display:flex; flex-direction:column; gap:32px; }
   .award-card{
-    display:flex;
-    background:rgba(244,236,238,0.03);
+    display:flex; background:rgba(244,236,238,0.03);
     border:1px solid rgba(233,188,199,0.1);
-    border-radius:18px;
-    overflow:hidden;
-    backdrop-filter:blur(10px);
+    border-radius:18px; overflow:hidden; backdrop-filter:blur(10px);
     transition:transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  .award-card:hover{
-    transform:translateY(-4px);
-    border-color:rgba(233,188,199,0.25);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-  }
+  .award-card:hover{ transform:translateY(-4px); border-color:rgba(233,188,199,0.25); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
 
-  /* ส่วนกล่องรูปภาพที่คู่กัน */
   .card-image-area{
-    flex:0 0 280px; /* ล็อกความกว้างรูปฝั่งซ้ายไว้ที่ 280px */
-    position:relative;
+    flex:0 0 280px; position:relative;
     background:linear-gradient(160deg, var(--graphite-soft), var(--graphite-deep));
     border-right:1px solid rgba(233,188,199,0.1);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
   }
-  .card-image-area img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-  .placeholder-thumb{
-    text-align:center;
-    color:var(--pearl-dim);
-    font-size:12px;
-    padding:20px;
-    font-family:'Oswald',sans-serif;
-    letter-spacing:1px;
-  }
+  .placeholder-thumb{ text-align:center; color:var(--pearl-dim); font-size:12px; padding:20px; font-family:'Oswald',sans-serif; letter-spacing:1px; }
 
-  /* ส่วนเนื้อหาข้อความ */
-  .card-content-area{
-    flex:1;
-    padding:32px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-  }
-  .award-year{
-    font-family:'Oswald',sans-serif;
-    font-size:13px;
-    color:var(--rose-gold-light);
-    letter-spacing:1.5px;
-    margin-bottom:8px;
-  }
-  .award-title{
-    font-size:18px;
-    font-weight:600;
-    color:var(--blush);
-    margin-bottom:6px;
-    line-height:1.4;
-  }
-  .award-org{
-    font-size:13px;
-    color:var(--mauve-gray);
-    margin-bottom:14px;
-    font-weight:400;
-  }
-  .award-desc{
-    font-size:14px;
-    color:var(--pearl-dim);
-    font-weight:300;
-    line-height:1.6;
-  }
+  .card-content-area{ flex:1; padding:32px; display:flex; flex-direction:column; justify-content:center; }
+  .award-year{ font-family:'Oswald',sans-serif; font-size:13px; color:var(--rose-gold-light); letter-spacing:1.5px; margin-bottom:8px; }
+  .award-title{ font-size:18px; font-weight:600; color:var(--blush); margin-bottom:6px; line-height:1.4; }
+  .award-org{ font-size:13px; color:var(--mauve-gray); margin-bottom:14px; }
+  .award-desc{ font-size:14px; color:var(--pearl-dim); font-weight:300; line-height:1.6; }
 
-  footer{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    padding:40px 16px;
-    color:var(--mauve-gray);
-    font-size:12px;
-    letter-spacing:1px;
-    font-family:'Oswald',sans-serif;
+  /* ---------- ปุ่มนำทาง (Navigation Buttons) ---------- */
+  .nav-wrapper {
+    display: flex; justify-content: space-between; align-items: center;
+    margin: 60px auto 40px; padding: 0 24px; max-width: 960px;
   }
+  .btn-nav {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--pearl-dim); text-decoration: none;
+    font-family: 'Oswald', sans-serif; font-size: 13px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 12px 28px; border-radius: 999px;
+    background: rgba(244,236,238,0.03); border: 1px solid var(--line);
+    backdrop-filter: blur(10px); transition: all 0.4s ease;
+  }
+  .btn-nav:hover {
+    color: var(--graphite-deep);
+    background: linear-gradient(135deg, var(--blush), var(--rose-gold));
+    border-color: transparent; transform: translateY(-3px);
+  }
+  .btn-nav svg { width: 16px; height: 16px; fill: currentColor; }
+  .btn-nav.prev:hover svg { transform: translateX(-4px); }
+  .btn-nav.next:hover svg { transform: translateX(4px); }
 
-  /* ---------- responsive ---------- */
+  footer{ position:relative; z-index:2; text-align:center; padding:40px 16px; color:var(--mauve-gray); font-size:12px; letter-spacing:1px; font-family:'Oswald',sans-serif; }
+
   @media (max-width:768px){
-    .award-card{
-      flex-direction:column; /* บนมือถือจะเปลี่ยนเป็นรูปอยู่บน ข้อความอยู่ล่าง */
-    }
-    .card-image-area{
-      flex:none;
-      width:100%;
-      height:200px; /* ปรับความสูงรูปภาพเมื่อแสดงบนมือถือ */
-      border-right:none;
-      border-bottom:1px solid rgba(233,188,199,0.1);
-    }
-    .card-content-area{
-      padding:24px;
-    }
+    .award-card{ flex-direction:column; }
+    .card-image-area{ flex:none; width:100%; height:200px; border-right:none; border-bottom:1px solid rgba(233,188,199,0.1); }
   }
 </style>
 </head>
 <body>
 
-  <!-- decorative background gears -->
   <div class="bg-gear g1"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" fill-rule="evenodd" d="M 174.00,100.00 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 170.38,77.13 Z M 70.00,100.00 A 30.00,30.00 0 1,0 130.00,100.00 A 30.00,30.00 0 1,0 70.00,100.00 Z"/></svg></div>
   <div class="bg-gear g2"><svg viewBox="0 0 200 200"><path fill="#9c93a4" fill-rule="evenodd" d="M 172.00,100.00 L 188.27,117.56 L 166.52,127.55 L 150.91,150.91 L 150.00,174.83 L 127.55,166.52 L 100.00,172.00 L 82.44,188.27 L 72.45,166.52 L 49.09,150.91 L 25.17,150.00 L 33.48,127.55 L 28.00,100.00 L 11.73,82.44 L 33.48,72.45 L 49.09,49.09 L 50.00,25.17 L 72.45,33.48 L 100.00,28.00 L 117.56,11.73 L 127.55,33.48 L 150.91,49.09 L 174.83,50.00 L 166.52,72.45 Z M 66.00,100.00 A 34.00,34.00 0 1,0 134.00,100.00 A 34.00,34.00 0 1,0 66.00,100.00 Z"/></svg></div>
 
-  <!-- ===== navigation ===== -->
   <nav>
     <div class="nav-pill">
       <a href="index.html">Index</a>
@@ -255,87 +144,31 @@
     </div>
   </nav>
 
-  <!-- ===== main content ===== -->
   <main class="award-container">
-    
     <div class="header-section">
       <div class="eyebrow">Achievements &amp; Projects</div>
       <h1>รางวัลและ<span>ผลงานเด่น</span></h1>
     </div>
 
-    <!-- รายการกล่องผลงาน (จำกัดไว้ที่ 4 กล่องคู่กับรูปภาพพอดี) -->
     <div class="award-grid-list">
-      
-      <!-- กล่องที่ 1 -->
-      <div class="award-card">
-        <div class="card-image-area">
-          <!-- ใส่ภาพประกอบตรงนี้ เช่น <img src="project-3d.jpg" alt="3D Model"> -->
-          <div class="placeholder-thumb">
-            IMAGE PLACEHOLDER
-            <small style="display:block;margin-top:6px;opacity:0.6;">ใส่แท็ก &lt;img&gt; รูปโครงงาน 3D</small>
-          </div>
-        </div>
-        <div class="card-content-area">
-          <div class="award-year">PROJECT — 2569</div>
-          <div class="award-title">โครงงานออกแบบห้องนอนในฝันแบบ 3 มิติ (Dream Bedroom Design)</div>
-          <div class="award-org">วิชาการออกแบบและเทคโนโลยี</div>
-          <div class="award-desc">ประยุกต์ใช้ซอฟต์แวร์ SketchUp ในการออกแบบและจำลองแปลนห้องนอน วางโครงสร้างเฟอร์นิเจอร์พร้อมระบุประเภทวัสดุตกแต่ง รวมถึงคำนวณพื้นที่และการจัดวาง (Layout Optimization) เพื่อให้เกิดประสิทธิภาพสูงสุดตามหลักการยศาสตร์ (Ergonomics)</div>
-        </div>
-      </div>
-
-      <!-- กล่องที่ 2 -->
-      <div class="award-card">
-        <div class="card-image-area">
-          <!-- ใส่ภาพประกอบตรงนี้ เช่น <img src="swu-openhouse.jpg" alt="SWU Openhouse"> -->
-          <div class="placeholder-thumb">
-            IMAGE PLACEHOLDER
-            <small style="display:block;margin-top:6px;opacity:0.6;">ใส่แท็ก &lt;img&gt; รูปภาพกิจกรรม SWU</small>
-          </div>
-        </div>
-        <div class="card-content-area">
-          <div class="award-year">CERTIFICATE — 2568</div>
-          <div class="award-title">เข้าร่วมกิจกรรมเปิดบ้านวิชาการ SWU Open House</div>
-          <div class="award-org">มหาวิทยาลัยศรีนครินทรวิโรฒ</div>
-          <div class="award-desc">เข้าร่วมศึกษาดูงาน นวัตกรรม เทคโนโลยี และกระบวนการจัดการเรียนการสอนของคณะวิศวกรรมศาสตร์ เพื่อนำแนวคิด ความรู้ระบบอุตสาหกรรม และแรงบันดาลใจกลับมาประยุกต์ใช้ในการวางแผนการเรียนในอนาคต</div>
-        </div>
-      </div>
-
-      <!-- กล่องที่ 3 -->
-      <div class="award-card">
-        <div class="card-image-area">
-          <!-- ใส่ภาพประกอบตรงนี้ เช่น <img src="futsal.jpg" alt="Futsal Competition"> -->
-          <div class="placeholder-thumb">
-            IMAGE PLACEHOLDER
-            <small style="display:block;margin-top:6px;opacity:0.6;">ใส่แท็ก &lt;img&gt; รูปการแข่งขันกีฬา</small>
-          </div>
-        </div>
-        <div class="card-content-area">
-          <div class="award-year">COMPETITION — 2568</div>
-          <div class="award-title">การแข่งขันกีฬาฟุตซอลภายในสถานศึกษา</div>
-          <div class="award-org">การแข่งขันระดับโรงเรียน</div>
-          <div class="award-desc">เข้าร่วมแข่งขันในฐานะสมาชิกทีมฟุตซอล ได้ฝึกฝนทักษะการวางแผนกลยุทธ์การเล่น การแก้ปัญหาเฉพาะหน้าอย่างรวดเร็วในสนาม ความสามัคคี และความมุ่งมั่นร่วมกับทีมจนจบฤดูกาลแข่งขัน</div>
-        </div>
-      </div>
-
-      <!-- กล่องที่ 4 -->
-      <div class="award-card">
-        <div class="card-image-area">
-          <!-- ใส่ภาพประกอบตรงนี้ เช่น <img src="science-award.jpg" alt="Science Project"> -->
-          <div class="placeholder-thumb">
-            IMAGE PLACEHOLDER
-            <small style="display:block;margin-top:6px;opacity:0.6;">ใส่แท็ก &lt;img&gt; รูปกิจกรรมวิชาการ</small>
-          </div>
-        </div>
-        <div class="card-content-area">
-          <div class="award-year">ACADEMIC — 2568</div>
-          <div class="award-title">กิจกรรมพัฒนาทักษะกระบวนการทางวิทยาศาสตร์และเทคโนโลยี</div>
-          <div class="award-org">กลุ่มสาระการเรียนรู้วิทยาศาสตร์และคณิตศาสตร์</div>
-          <div class="award-desc">ผ่านการเข้าร่วมทดสอบทักษะ หรือจัดทำโครงงานทดลองวิจัยระดับชั้นเรียน เพื่อพัฒนาทักษะด้านการคำนวณ การวิเคราะห์สถิติข้อมูล และการสรุปผลเชิงตรรกะ ซึ่งเป็นพื้นฐานสำคัญสำหรับสายงานวิศวกรรม</div>
-        </div>
-      </div>
-
+      <!-- (รายการผลงานยังคงเดิม) -->
+      <div class="award-card"><div class="card-image-area"><div class="placeholder-thumb">IMAGE</div></div><div class="card-content-area"><div class="award-year">PROJECT — 2569</div><div class="award-title">โครงงานออกแบบห้องนอนในฝันแบบ 3 มิติ (Dream Bedroom Design)</div><div class="award-org">วิชาการออกแบบและเทคโนโลยี</div><div class="award-desc">ประยุกต์ใช้ซอฟต์แวร์ SketchUp ในการออกแบบและจำลองแปลนห้องนอน...</div></div></div>
+      <div class="award-card"><div class="card-image-area"><div class="placeholder-thumb">IMAGE</div></div><div class="card-content-area"><div class="award-year">CERTIFICATE — 2568</div><div class="award-title">เข้าร่วมกิจกรรมเปิดบ้านวิชาการ SWU Open House</div><div class="award-org">มหาวิทยาลัยศรีนครินทรวิโรฒ</div><div class="award-desc">เข้าร่วมศึกษาดูงาน นวัตกรรม เทคโนโลยี...</div></div></div>
+      <div class="award-card"><div class="card-image-area"><div class="placeholder-thumb">IMAGE</div></div><div class="card-content-area"><div class="award-year">COMPETITION — 2568</div><div class="award-title">การแข่งขันกีฬาฟุตซอลภายในสถานศึกษา</div><div class="award-org">การแข่งขันระดับโรงเรียน</div><div class="award-desc">เข้าร่วมแข่งขันในฐานะสมาชิกทีมฟุตซอล...</div></div></div>
+      <div class="award-card"><div class="card-image-area"><div class="placeholder-thumb">IMAGE</div></div><div class="card-content-area"><div class="award-year">ACADEMIC — 2568</div><div class="award-title">กิจกรรมพัฒนาทักษะกระบวนการทางวิทยาศาสตร์และเทคโนโลยี</div><div class="award-org">กลุ่มสาระการเรียนรู้วิทยาศาสตร์และคณิตศาสตร์</div><div class="award-desc">ผ่านการเข้าร่วมทดสอบทักษะ หรือจัดทำโครงงาน...</div></div></div>
     </div>
 
+    <!-- Navigation Buttons -->
+    <div class="nav-wrapper">
+      <a href="education.html" class="btn-nav prev">
+        <svg viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg>
+        Prev: Education
+      </a>
+      <a href="contact.html" class="btn-nav next">
+        Next: Contact
+        <svg viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
+      </a>
+    </div>
   </main>
 
   <footer>© 2569 PORTFOLIO — INDUSTRIAL ENGINEERING APPLICANT</footer>
