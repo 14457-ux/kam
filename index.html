@@ -21,7 +21,6 @@
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-
   html{scroll-behavior:smooth;}
 
   body{
@@ -36,13 +35,8 @@
     position:relative;
   }
 
-  /* ---------- decorative background gears ---------- */
-  .bg-gear{
-    position:fixed;
-    opacity:0.10;
-    z-index:0;
-    pointer-events:none;
-  }
+  /* Decorative background gears */
+  .bg-gear{ position:fixed; opacity:0.10; z-index:0; pointer-events:none; }
   .bg-gear svg{width:100%;height:100%;display:block;}
   .bg-gear.g1{ width:520px; height:520px; top:-160px; left:-180px; animation:spin 60s linear infinite; }
   .bg-gear.g2{ width:360px; height:360px; bottom:-120px; right:-100px; animation:spinReverse 46s linear infinite; }
@@ -52,22 +46,15 @@
   @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
   @keyframes spinReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
 
-  /* ---------- top nav ---------- */
-  nav{
-    position:relative;
-    z-index:10;
-    display:flex;
-    justify-content:center;
-    padding:28px 16px 10px;
-  }
+  /* Navigation - Pill Shape */
+  nav{ position:relative; z-index:10; display:flex; justify-content:center; padding:28px 16px 10px; }
   .nav-pill{
-    display:flex;
-    gap:6px;
+    display:flex; gap:6px;
     background:rgba(244,236,238,0.05);
     border:1px solid var(--line);
     backdrop-filter:blur(10px);
-    border-radius:999px;
-    padding:6px;
+    border-radius: 50px; 
+    padding: 6px;
     flex-wrap:wrap;
     justify-content:center;
   }
@@ -78,208 +65,54 @@
     font-size:13px;
     letter-spacing:1.5px;
     text-transform:uppercase;
-    padding:10px 20px;
-    border-radius:999px;
+    padding:10px 24px;
+    border-radius: 50px;
     transition:all .35s ease;
-    position:relative;
   }
-  .nav-pill a:hover,
-  .nav-pill a:focus-visible{
-    color:var(--graphite-deep);
-    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
-    outline:none;
-  }
-  .nav-pill a.active{
+  .nav-pill a:hover, .nav-pill a.active{
     color:var(--graphite-deep);
     background:linear-gradient(135deg,var(--blush),var(--rose-gold));
   }
-  .nav-pill a:focus-visible{box-shadow:0 0 0 3px rgba(233,188,199,0.5);}
 
-  /* ---------- hero ---------- */
+  /* Hero Section */
   .hero{
-    position:relative;
-    z-index:2;
-    max-width:1100px;
-    margin:0 auto;
-    padding:64px 24px 100px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:48px;
-    align-items:center;
-    min-height:78vh;
+    position:relative; z-index:2; max-width:1100px; margin:0 auto;
+    padding:64px 24px 100px; display:grid; grid-template-columns:1fr 1fr;
+    gap:48px; align-items:center; min-height:78vh;
   }
-
-  .eyebrow{
-    font-family:'Oswald',sans-serif;
-    font-size:13px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:var(--rose-gold-light);
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:34px;height:1px;
-    background:var(--rose-gold-light);
-  }
-
-  .hero h1{
-    font-family:'Prompt',sans-serif;
-    font-weight:600;
-    font-size:clamp(32px,4.4vw,52px);
-    line-height:1.25;
-    color:var(--pearl);
-    margin-bottom:18px;
-  }
-  .hero h1 span{
-    color:transparent;
-    background:linear-gradient(120deg,var(--blush),var(--rose-gold) 60%,var(--mauve-gray));
-    -webkit-background-clip:text;
-    background-clip:text;
-  }
-
-  .hero p{
-    font-size:16px;
-    line-height:1.9;
-    color:var(--pearl-dim);
-    font-weight:300;
-    margin-bottom:34px;
-    max-width:46ch;
-  }
+  .eyebrow{ font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--rose-gold-light); display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+  .eyebrow::before{ content:""; width:34px; height:1px; background:var(--rose-gold-light); }
+  .hero h1{ font-family:'Prompt',sans-serif; font-weight:600; font-size:clamp(32px,4.4vw,52px); line-height:1.25; color:var(--pearl); margin-bottom:18px; }
+  .hero h1 span{ color:transparent; background:linear-gradient(120deg,var(--blush),var(--rose-gold) 60%,var(--mauve-gray)); -webkit-background-clip:text; background-clip:text; }
+  .hero p{ font-size:16px; line-height:1.9; color:var(--pearl-dim); font-weight:300; margin-bottom:34px; max-width:46ch; }
 
   .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
-  .btn{
-    font-family:'Oswald',sans-serif;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    font-size:13px;
-    text-decoration:none;
-    padding:15px 30px;
-    border-radius:6px;
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    transition:transform .3s ease, box-shadow .3s ease;
-  }
-  .btn-primary{
-    color:var(--graphite-deep);
-    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
-    box-shadow:0 10px 30px -10px rgba(201,143,160,0.6);
-  }
-  .btn-primary:hover,.btn-primary:focus-visible{
-    transform:translateY(-3px);
-    box-shadow:0 16px 34px -10px rgba(201,143,160,0.8);
-  }
-  .btn-ghost{
-    color:var(--pearl);
-    border:1px solid var(--line);
-  }
-  .btn-ghost:hover,.btn-ghost:focus-visible{
-    border-color:var(--rose-gold-light);
-    background:rgba(233,188,199,0.06);
-  }
-  .btn:focus-visible{outline:2px solid var(--rose-gold-light);outline-offset:3px;}
+  .btn{ font-family:'Oswald',sans-serif; letter-spacing:1.5px; text-transform:uppercase; font-size:13px; text-decoration:none; padding:15px 30px; border-radius:6px; display:inline-flex; align-items:center; gap:10px; transition:all .3s ease; }
+  .btn-primary{ color:var(--graphite-deep); background:linear-gradient(135deg,var(--blush),var(--rose-gold)); }
+  .btn-ghost{ color:var(--pearl); border:1px solid var(--line); }
 
-  /* ---------- gear-framed portrait medallion ---------- */
-  .medallion-wrap{
-    position:relative;
-    width:min(100%,420px);
-    aspect-ratio:1/1;
-    margin:0 auto;
-  }
-  .med-ring{
-    position:absolute;
-    inset:0;
-    animation:spin 90s linear infinite;
-  }
-  .med-ring svg{width:100%;height:100%;}
-  .med-ring path{
-    fill:none;
-    stroke:url(#ringGrad);
-    stroke-width:2.4;
-  }
-  .med-ring-inner{
-    position:absolute;
-    inset:36px;
-    animation:spinReverse 70s linear infinite;
-    opacity:0.65;
-  }
-  .med-ring-inner svg{width:100%;height:100%;}
-  .med-ring-inner path{fill:none;stroke:var(--mauve-gray);stroke-width:1.4;}
-
+  /* Medallion */
+  .medallion-wrap{ position:relative; width:min(100%,420px); aspect-ratio:1/1; margin:0 auto; }
   .frame{
-    position:absolute;
-    inset:72px;
-    border-radius:50%;
-    background:
-      linear-gradient(160deg, var(--graphite-soft), var(--graphite-deep));
-    border:1px solid var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    box-shadow:
-      inset 0 0 0 6px rgba(244,236,238,0.04),
-      0 20px 60px -20px rgba(0,0,0,0.6);
+    position:absolute; inset:72px; border-radius:50%;
+    background:linear-gradient(160deg, var(--graphite-soft), var(--graphite-deep));
+    border:1px solid var(--line); display:flex; align-items:center; justify-content:center; overflow:hidden;
   }
-  .frame img{
-    width:100%;height:100%;object-fit:cover;
-    filter:grayscale(15%) saturate(1.05);
-  }
-  .frame .placeholder{
-    text-align:center;
-    color:var(--pearl-dim);
-    font-size:13px;
-    letter-spacing:1px;
-    padding:20px;
-    font-family:'Oswald',sans-serif;
-  }
+  .frame img{ width:100%; height:100%; object-fit:cover; }
+  .badge{ position:absolute; bottom:6%; right:2%; background:linear-gradient(135deg,var(--blush),var(--rose-gold)); color:var(--graphite-deep); font-family:'Oswald',sans-serif; font-size:12px; padding:10px 16px; border-radius:10px; transform:rotate(-4deg); }
 
-  .badge{
-    position:absolute;
-    bottom:6%;
-    right:2%;
-    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
-    color:var(--graphite-deep);
-    font-family:'Oswald',sans-serif;
-    font-size:12px;
-    letter-spacing:1px;
-    padding:10px 16px;
-    border-radius:10px;
-    box-shadow:0 12px 26px -8px rgba(201,143,160,0.7);
-    transform:rotate(-4deg);
-  }
-
-  footer{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    padding:26px 16px 40px;
-    color:var(--mauve-gray);
-    font-size:12px;
-    letter-spacing:1px;
-    font-family:'Oswald',sans-serif;
-  }
-
-  @media (max-width:880px){
-    .hero{grid-template-columns:1fr;padding-top:20px;text-align:center;}
-    .eyebrow{justify-content:center;}
-    .hero p{margin-left:auto;margin-right:auto;}
-    .cta-row{justify-content:center;}
-    .medallion-wrap{margin-top:20px;}
-  }
+  @media (max-width:880px){ .hero{grid-template-columns:1fr; text-align:center;} .eyebrow{justify-content:center;} }
 </style>
 </head>
 <body>
 
+  <!-- Background Gears -->
   <div class="bg-gear g1"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" d="M 174,100 L 188,114 L 170,122 L 159,143 L 163,163 L 143,159 L 122,170 L 114,188 L 100,174 L 77,170 L 59,180 L 56,159 L 40,143 L 19,140 L 29,122 L 26,100 L 11,85 L 29,77 L 40,56 L 36,36 L 56,40 L 77,29 L 85,11 L 100,26 L 122,29 L 140,19 L 143,40 L 159,56 L 180,59 L 170,77 Z"/></svg></div>
   <div class="bg-gear g2"><svg viewBox="0 0 200 200"><path fill="#9c93a4" d="M 172,100 L 188,117 L 166,127 L 150,150 L 150,174 L 127,166 L 100,172 L 82,188 L 72,166 L 49,150 L 25,150 L 33,127 L 28,100 L 11,82 L 33,72 L 49,49 L 50,25 L 72,33 L 100,28 L 117,11 L 127,33 L 150,49 L 174,50 L 166,72 Z"/></svg></div>
   <div class="bg-gear g3"><svg viewBox="0 0 200 200"><path fill="#c98fa0" d="M 176,100 L 189,111 L 173,119 L 165,138 L 171,154 L 153,153 L 138,165 L 134,183 L 119,173 L 100,176 L 88,189 L 80,173 L 62,165 L 45,171 L 46,153 L 34,138 L 16,134 L 26,119 L 24,100 L 10,88 L 26,80 L 34,62 L 28,45 L 46,46 L 62,34 L 65,16 L 80,26 L 100,24 L 111,10 L 119,26 L 138,34 L 154,28 L 153,46 L 165,62 L 183,65 L 173,80 Z"/></svg></div>
   <div class="bg-gear g4"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" d="M 172,100 L 188,117 L 166,127 L 150,150 L 150,174 L 127,166 L 100,172 L 82,188 L 72,166 L 49,150 L 25,150 L 33,127 L 28,100 L 11,82 L 33,72 L 49,49 L 50,25 L 72,33 L 100,28 L 117,11 L 127,33 L 150,49 L 174,50 L 166,72 Z"/></svg></div>
 
+  <!-- Navigation -->
   <nav>
     <div class="nav-pill">
       <a href="index.html" class="active">Index</a>
@@ -290,12 +123,12 @@
     </div>
   </nav>
 
+  <!-- Hero Content -->
   <section class="hero">
     <div>
       <div class="eyebrow">Portfolio 2569</div>
       <h1>ยินดีต้อนรับสู่<br><span>เส้นทางวิศวกรรม<br>อุตสาหการ</span>ของฉัน</h1>
-      <p>พอร์ตโฟลิโอนี้รวบรวมตัวตน ผลงาน และความมุ่งมั่นของนักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
-       <p> ที่ใฝ่ฝันจะศึกษาต่อในคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ เชิญสำรวจทุกหน้าเพื่อทำความรู้จักฉันให้มากขึ้นค่ะ</p>
+      <p>พอร์ตโฟลิโอนี้รวบรวมตัวตน ผลงาน และความมุ่งมั่นของนักเรียนชั้นมัธยมศึกษาปีที่ 6 ที่ใฝ่ฝันจะศึกษาต่อในคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ เชิญสำรวจทุกหน้าเพื่อทำความรู้จักฉันให้มากขึ้นค่ะ</p>
       <div class="cta-row">
         <a href="profile.html" class="btn btn-primary">เริ่มดูโปรไฟล์</a>
         <a href="award.html" class="btn btn-ghost">ดูผลงาน &amp; รางวัล</a>
@@ -303,21 +136,9 @@
     </div>
 
     <div class="medallion-wrap">
-      <div class="med-ring">
-        <svg viewBox="0 0 200 200">
-          <defs><linearGradient id="ringGrad"><stop offset="0%" stop-color="#e9bcc7"/><stop offset="100%" stop-color="#9c93a4"/></linearGradient></defs>
-          <path d="M 174.00,100.00 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 170.38,77.13 Z"/>
-        </svg>
-      </div>
-      <div class="med-ring-inner">
-        <svg viewBox="0 0 200 200">
-          <path d="M 176.00,100.00 L 189.23,111.75 L 173.41,119.67 L 165.82,138.00 L 171.40,154.79 L 153.74,153.74 L 138.00,165.82 L 134.44,183.15 L 119.67,173.41 L 100.00,176.00 L 88.25,189.23 L 80.33,173.41 L 62.00,165.82 L 45.21,171.40 L 46.26,153.74 L 34.18,138.00 L 16.85,134.44 L 26.59,119.67 L 24.00,100.00 L 10.77,88.25 L 26.59,80.33 L 34.18,62.00 L 28.60,45.21 L 46.26,46.26 L 62.00,34.18 L 65.56,16.85 L 80.33,26.59 L 100.00,24.00 L 111.75,10.77 L 119.67,26.59 L 138.00,34.18 L 154.79,28.60 L 153.74,46.26 L 165.82,62.00 L 183.15,65.56 L 173.41,80.33 Z"/>
-        </svg>
-      </div>
       <div class="frame">
-  <img src="images/IMG_0733.jpeg" alt="รูปโปรไฟล์">
-</div>
-
+        <img src="images/IMG_0733.jpeg" alt="รูปโปรไฟล์">
+      </div>
       <div class="badge">ม.6 · สายวิทย์-คณิต</div>
     </div>
   </section>
