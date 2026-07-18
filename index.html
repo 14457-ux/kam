@@ -7,41 +7,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --graphite-deep: #201e26; --graphite: #2c2833; --blush: #e9bcc7; 
-    --rose-gold: #c98fa0; --mauve-gray: #9c93a4; --pearl: #f4ecee; 
-    --pearl-dim: #cfc4c9; --line: rgba(233,188,199,0.25);
+    --graphite-deep:#201e26; --graphite:#2c2833; --graphite-soft:#3a3541;
+    --blush:#e9bcc7; --rose-gold:#c98fa0; --rose-gold-light:#e3aebb;
+    --pearl:#f4ecee; --pearl-dim:#cfc4c9; --line:rgba(233,188,199,0.25);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{ font-family:'Prompt',sans-serif; background:linear-gradient(160deg, var(--graphite-deep) 0%, var(--graphite) 55%, #262330 100%); color:var(--pearl); min-height:100vh; overflow-x:hidden; }
+  
+  body{
+    font-family:'Prompt',sans-serif;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,143,160,0.14), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 85% 100%, rgba(156,147,164,0.16), transparent 60%),
+      linear-gradient(160deg, var(--graphite-deep) 0%, var(--graphite) 55%, #262330 100%);
+    color:var(--pearl); min-height:100vh; overflow-x:hidden; position:relative;
+  }
 
-  /* Navigation */
-  nav{ position:relative; z-index:10; display:flex; justify-content:center; padding:28px 16px 10px; }
-  .nav-pill{ display:flex; gap:6px; background:rgba(244,236,238,0.05); border:1px solid var(--line); border-radius:999px; padding:6px; }
+  /* --- พื้นหลังฟันเฟือง (Background Gears) --- */
+  .bg-gear{ position:fixed; opacity:0.10; z-index:0; pointer-events:none; }
+  .bg-gear svg{width:100%;height:100%;display:block;}
+  .bg-gear.g1{ width:520px; height:520px; top:-160px; left:-180px; animation:spin 60s linear infinite; }
+  .bg-gear.g2{ width:360px; height:360px; bottom:-120px; right:-100px; animation:spinReverse 46s linear infinite; }
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  @keyframes spinReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
+
+  /* --- Navigation --- */
+  nav{ position:relative; z-index:10; display:flex; justify-content:center; padding:28px 16px; }
+  .nav-pill{ display:flex; gap:6px; background:rgba(244,236,238,0.05); border:1px solid var(--line); backdrop-filter:blur(10px); border-radius:999px; padding:6px; }
   .nav-pill a{ text-decoration:none; color:var(--pearl-dim); font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; padding:10px 20px; border-radius:999px; transition:0.35s; }
   .nav-pill a:hover, .nav-pill a.active{ color:var(--graphite-deep); background:linear-gradient(135deg,var(--blush),var(--rose-gold)); }
 
-  /* Hero Section */
+  /* --- Hero Section --- */
   .hero{ position:relative; z-index:2; max-width:1000px; margin:40px auto; padding:64px 24px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-  .hero-text h1{ font-weight:600; font-size:clamp(40px, 5vw, 60px); line-height:1.2; margin-bottom: 30px; }
-  .hero-text h1 span{ color:transparent; background:linear-gradient(120deg,var(--blush),var(--rose-gold)); -webkit-background-clip:text; background-clip:text; }
+  .hero h1{ font-weight:600; font-size:clamp(40px,5vw,60px); line-height:1.2; margin-bottom:30px; }
+  .hero h1 span{ color:transparent; background:linear-gradient(120deg,var(--blush),var(--rose-gold)); -webkit-background-clip:text; background-clip:text; }
   
-  .btn-nav-style { display:inline-flex; align-items:center; color:var(--pearl); text-decoration:none; font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:2px; text-transform:uppercase; padding:15px 40px; border-radius:999px; background:rgba(244,236,238,0.05); border:1px solid var(--line); transition:0.4s; }
-  .btn-nav-style:hover { color:var(--graphite-deep); background:linear-gradient(135deg,var(--blush),var(--rose-gold)); border-color:transparent; }
+  .btn-nav{ display:inline-flex; align-items:center; gap:10px; padding:12px 30px; border-radius:999px; border:1px solid var(--line); color:var(--pearl); text-decoration:none; font-family:'Oswald',sans-serif; font-size:13px; text-transform:uppercase; transition:all 0.3s ease; background:rgba(244,236,238,0.05); }
+  .btn-nav:hover{ background:linear-gradient(135deg,var(--blush),var(--rose-gold)); color:var(--graphite-deep); border-color:transparent; transform:translateY(-2px); }
 
-  /* Medallion (กรอบเฟืองเดิม) */
+  /* --- กรอบฟันเฟือง (Medallion) --- */
   .medallion-wrap{ position:relative; width:350px; aspect-ratio:1/1; margin:0 auto; }
-  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-  @keyframes spinReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
-  
   .med-ring{ position:absolute; inset:0; animation:spin 90s linear infinite; }
   .med-ring path{ fill:none; stroke:#e9bcc7; stroke-width:2; }
   .frame{ position:absolute; inset:60px; border-radius:50%; background:var(--graphite-soft); border:1px solid var(--line); overflow:hidden; }
   .frame img{ width:100%; height:100%; object-fit:cover; }
 
-  @media (max-width:880px){ .hero{ grid-template-columns:1fr; text-align:center; } .hero-text { order: 2; } .medallion-wrap { order: 1; } }
+  @media (max-width:880px){ .hero{ grid-template-columns:1fr; text-align:center; } }
 </style>
 </head>
 <body>
+
+  <!-- Background Gears -->
+  <div class="bg-gear g1"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" d="M 174,100 L 188,114 L 170,122 L 159,143 L 163,163 L 143,159 L 122,170 L 114,188 L 100,174 L 77,170 L 59,180 L 56,159 L 40,143 L 19,140 L 29,122 L 26,100 L 11,85 L 29,77 L 40,56 L 36,36 L 56,40 L 77,29 L 85,11 L 100,26 L 122,29 L 140,19 L 143,40 L 159,56 L 180,59 L 170,77 Z"/></svg></div>
+  <div class="bg-gear g2"><svg viewBox="0 0 200 200"><path fill="#9c93a4" d="M 172,100 L 188,117 L 166,127 L 150,150 L 150,174 L 127,166 L 100,172 L 82,188 L 72,166 L 49,150 L 25,150 L 33,127 L 28,100 L 11,82 L 33,72 L 49,49 L 50,25 L 72,33 L 100,28 L 117,11 L 127,33 L 150,49 L 174,50 L 166,72 Z"/></svg></div>
 
   <nav>
     <div class="nav-pill">
@@ -56,17 +73,12 @@
   <section class="hero">
     <div class="hero-text">
       <h1>ยินดีต้อนรับสู่<br><span>เส้นทางวิศวกรรม<br>อุตสาหการ</span></h1>
-      <a href="profile.html" class="btn-nav-style">รู้จักฉัน</a>
+      <a href="profile.html" class="btn-nav">รู้จักฉัน</a>
     </div>
 
-    <!-- กรอบเฟืองกลับมาแล้ว -->
     <div class="medallion-wrap">
-      <div class="med-ring">
-        <svg viewBox="0 0 200 200"><path d="M 174.00,100.00 L 188.89,114.08 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 180.19,59.14 L 170.38,77.13 Z"/></svg>
-      </div>
-      <div class="frame">
-        <img src="images/IMG_0733.jpeg" alt="รูปโปรไฟล์">
-      </div>
+      <div class="med-ring"><svg viewBox="0 0 200 200"><path d="M 174,100 L 188,114 L 170,122 L 159,143 L 163,163 L 143,159 L 122,170 L 114,188 L 100,174 L 77,170 L 59,180 L 56,159 L 40,143 L 19,140 L 29,122 L 26,100 L 11,85 L 29,77 L 40,56 L 36,36 L 56,40 L 77,29 L 85,11 L 100,26 L 122,29 L 140,19 L 143,40 L 159,56 L 180,59 L 170,77 Z"/></svg></div>
+      <div class="frame"><img src="images/IMG_0733.jpeg" alt="รูปโปรไฟล์"></div>
     </div>
   </section>
 
