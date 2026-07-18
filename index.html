@@ -22,7 +22,7 @@
     color:var(--pearl); min-height:100vh; overflow-x:hidden; position:relative;
   }
 
-  /* --- พื้นหลังฟันเฟือง (Background Gears) --- */
+  /* --- Background Gears --- */
   .bg-gear{ position:fixed; opacity:0.10; z-index:0; pointer-events:none; }
   .bg-gear svg{width:100%;height:100%;display:block;}
   .bg-gear.g1{ width:520px; height:520px; top:-160px; left:-180px; animation:spin 60s linear infinite; }
@@ -44,26 +44,18 @@
   .btn-nav{ display:inline-flex; align-items:center; gap:10px; padding:12px 30px; border-radius:999px; border:1px solid var(--line); color:var(--pearl); text-decoration:none; font-family:'Oswald',sans-serif; font-size:13px; text-transform:uppercase; transition:all 0.3s ease; background:rgba(244,236,238,0.05); }
   .btn-nav:hover{ background:linear-gradient(135deg,var(--blush),var(--rose-gold)); color:var(--graphite-deep); border-color:transparent; transform:translateY(-2px); }
 
-  /* --- กรอบฟันเฟือง (Medallion) --- */<div class="medallion-wrap">
-  <div class="med-ring">
-    <svg viewBox="0 0 200 200">
-      <path d="M100 0L115 45H165L125 75L140 120L100 90L60 120L75 75L35 45H85L100 0Z" fill="none" stroke="#e9bcc7" stroke-width="2"/>
-      <!-- เพิ่มรายละเอียดตามแบบฉบับฟันเฟืองเหลี่ยม -->
-      <path d="M100 200L115 155H165L125 125L140 80L100 110L60 80L75 125L35 155H85L100 200Z" fill="none" stroke="#e9bcc7" stroke-width="2"/>
-    </svg>
-  </div>
-  <div class="frame">
-    <img src="images/IMG_0733.jpeg" alt="Profile">
-  </div>
-</div>
-
+  /* --- Gear Medallion Styling --- */
+  .medallion-wrap{ position:relative; width:350px; aspect-ratio:1/1; margin:0 auto; }
+  .med-ring{ position:absolute; inset:0; animation:spin 90s linear infinite; }
+  .med-ring svg{ width:100%; height:100%; stroke:#e9bcc7; fill:none; stroke-width:2; }
+  .frame{ position:absolute; inset:60px; border-radius:50%; background:var(--graphite-soft); border:1px solid var(--line); overflow:hidden; }
+  .frame img{ width:100%; height:100%; object-fit:cover; }
 
   @media (max-width:880px){ .hero{ grid-template-columns:1fr; text-align:center; } }
 </style>
 </head>
 <body>
 
-  <!-- Background Gears -->
   <div class="bg-gear g1"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" d="M 174,100 L 188,114 L 170,122 L 159,143 L 163,163 L 143,159 L 122,170 L 114,188 L 100,174 L 77,170 L 59,180 L 56,159 L 40,143 L 19,140 L 29,122 L 26,100 L 11,85 L 29,77 L 40,56 L 36,36 L 56,40 L 77,29 L 85,11 L 100,26 L 122,29 L 140,19 L 143,40 L 159,56 L 180,59 L 170,77 Z"/></svg></div>
   <div class="bg-gear g2"><svg viewBox="0 0 200 200"><path fill="#9c93a4" d="M 172,100 L 188,117 L 166,127 L 150,150 L 150,174 L 127,166 L 100,172 L 82,188 L 72,166 L 49,150 L 25,150 L 33,127 L 28,100 L 11,82 L 33,72 L 49,49 L 50,25 L 72,33 L 100,28 L 117,11 L 127,33 L 150,49 L 174,50 L 166,72 Z"/></svg></div>
 
@@ -84,8 +76,13 @@
     </div>
 
     <div class="medallion-wrap">
-      <div class="med-ring"><svg viewBox="0 0 200 200"><path d="M 174,100 L 188,114 L 170,122 L 159,143 L 163,163 L 143,159 L 122,170 L 114,188 L 100,174 L 77,170 L 59,180 L 56,159 L 40,143 L 19,140 L 29,122 L 26,100 L 11,85 L 29,77 L 40,56 L 36,36 L 56,40 L 77,29 L 85,11 L 100,26 L 122,29 L 140,19 L 143,40 L 159,56 L 180,59 L 170,77 Z"/></svg></div>
-      <div class="frame"><img src="images/IMG_0733.jpeg" alt="รูปโปรไฟล์"></div>
+      <div class="med-ring">
+        <svg viewBox="0 0 200 200">
+          <path d="M100 0L115 45H165L125 75L140 120L100 90L60 120L75 75L35 45H85L100 0Z"/>
+          <path d="M100 200L115 155H165L125 125L140 80L100 110L60 80L75 125L35 155H85L100 200Z"/>
+        </svg>
+      </div>
+      <div class="frame"><img src="images/IMG_0733.jpeg" alt="Profile"></div>
     </div>
   </section>
 
