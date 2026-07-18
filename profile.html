@@ -19,434 +19,62 @@
     --pearl-dim:       #cfc4c9;
     --line:            rgba(233,188,199,0.25);
   }
-
   *{margin:0;padding:0;box-sizing:border-box;}
-
-  html{scroll-behavior:smooth;}
-
   body{
     font-family:'Prompt',sans-serif;
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,143,160,0.14), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 85% 100%, rgba(156,147,164,0.16), transparent 60%),
-      linear-gradient(160deg, var(--graphite-deep) 0%, var(--graphite) 55%, #262330 100%);
+    background: linear-gradient(160deg, var(--graphite-deep) 0%, var(--graphite) 55%, #262330 100%);
     color:var(--pearl);
     min-height:100vh;
-    overflow-x:hidden;
-    position:relative;
   }
-
-  /* ---------- decorative background gears ---------- */
-  .bg-gear{
-    position:fixed;
-    opacity:0.10;
-    z-index:0;
-    pointer-events:none;
-  }
-  .bg-gear svg{width:100%;height:100%;display:block;}
-  .bg-gear.g1{ width:520px; height:520px; top:-160px; left:-180px; animation:spin 60s linear infinite; }
-  .bg-gear.g2{ width:360px; height:360px; bottom:-120px; right:-100px; animation:spinReverse 46s linear infinite; }
-
-  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-  @keyframes spinReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
-
-  /* ---------- top nav ---------- */
-  nav{
-    position:relative;
-    z-index:10;
-    display:flex;
-    justify-content:center;
-    padding:28px 16px 10px;
-  }
-  .nav-pill{
-    display:flex;
-    gap:6px;
-    background:rgba(244,236,238,0.05);
-    border:1px solid var(--line);
-    backdrop-filter:blur(10px);
-    border-radius:999px;
-    padding:6px;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-  .nav-pill a{
-    text-decoration:none;
-    color:var(--pearl-dim);
-    font-family:'Oswald',sans-serif;
-    font-size:13px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    padding:10px 20px;
-    border-radius:999px;
-    transition:all .35s ease;
-  }
-  .nav-pill a:hover{
-    color:var(--graphite-deep);
-    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
-  }
-  .nav-pill a.active{
-    color:var(--graphite-deep);
-    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
-  }
-
-  /* ---------- profile grid content ---------- */
-  .profile-container{
-    position:relative;
-    z-index:2;
-    max-width:1100px;
-    margin:0 auto;
-    padding:64px 24px 20px;
-    display:grid;
-    grid-template-columns:1fr 1.3fr; /* รูปภาพซ้าย 1 ส่วน : ข้อความขวา 1.3 ส่วน */
-    gap:56px;
-    align-items:start;
-  }
-
-  /* รูปภาพอยู่ฝั่งซ้าย (หน้าจอใหญ่) */
-  .profile-image-section{
-    order:1;
-    position:sticky;
-    top:40px;
-  }
-  
-  /* กล่องข้อความ/ข้อมูลอยู่ฝั่งขวา (หน้าจอใหญ่) */
-  .profile-info-section{
-    order:2;
-  }
-
-  /* ---------- gear-framed photo ---------- */
-  .medallion-wrap{
-    position:relative;
-    width:min(100%,380px);
-    aspect-ratio:1/1;
-    margin:0 auto;
-  }
-  .med-ring{
-    position:absolute;
-    inset:0;
-    animation:spin 90s linear infinite;
-  }
-  .med-ring svg{width:100%;height:100%;}
-  .med-ring path{ fill:none; stroke:url(#ringGrad); stroke-width:2.4; }
-  
+  /* การปรับแก้รูปภาพให้เป็นวงกลม */
+  .medallion-wrap{ position:relative; width:min(100%,380px); aspect-ratio:1/1; margin:0 auto; }
   .frame{
     position:absolute;
     inset:64px;
-    border-radius:50%;
+    border-radius:50%; /* ทำให้เป็นวงกลม */
     background:linear-gradient(160deg, var(--graphite-soft), var(--graphite-deep));
     border:1px solid var(--line);
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
-    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
   }
-  .frame img{ width:100%; height:100%; object-fit:cover; }
+  .frame img{ width:100%; height:100%; object-fit:cover; border-radius:50%; } /* ทำให้รูปข้างในเป็นวงกลม */
+
+  /* ส่วนอื่นๆ ของหน้าเว็บ */
+  .profile-container{ max-width:1100px; margin:0 auto; padding:64px 24px; display:grid; grid-template-columns:1fr 1.3fr; gap:56px; }
+  .info-card{ background:rgba(244,236,238,0.03); border:1px solid rgba(233,188,199,0.1); border-radius:16px; padding:32px; margin-bottom:32px; }
   
-  .placeholder{
-    text-align:center;
-    color:var(--pearl-dim);
-    font-size:12px;
-    padding:16px;
-    font-family:'Oswald',sans-serif;
-  }
-
-  /* ---------- info typography & card styling ---------- */
-  .eyebrow{
-    font-family:'Oswald',sans-serif;
-    font-size:13px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:var(--rose-gold-light);
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:16px;
-  }
-  .eyebrow::before{ content:""; width:34px; height:1px; background:var(--rose-gold-light); }
-
-  h1{
-    font-weight:600;
-    font-size:clamp(28px,3.8vw,44px);
-    color:var(--pearl);
-    margin-bottom:32px;
-  }
-  h1 span{
-    color:transparent;
-    background:linear-gradient(120deg,var(--blush),var(--rose-gold) 60%,var(--mauve-gray));
-    -webkit-background-clip:text;
-    background-clip:text;
-  }
-
-  .info-card{
-    background:rgba(244,236,238,0.03);
-    border:1px solid rgba(233,188,199,0.1);
-    border-radius:16px;
-    padding:32px;
-    backdrop-filter:blur(10px);
-    margin-bottom:32px;
-  }
-
-  .info-card h2{
-    font-size:20px;
-    font-weight:500;
-    color:var(--blush);
-    margin-bottom:20px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    border-bottom:1px solid rgba(233,188,199,0.15);
-    padding-bottom:8px;
-  }
-
-  .info-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-  }
-  .info-item label{
-    display:block;
-    font-size:12px;
-    color:var(--mauve-gray);
-    margin-bottom:4px;
-    text-transform:uppercase;
-    letter-spacing:0.5px;
-  }
-  .info-item p{
-    font-size:15px;
-    color:var(--pearl);
-    font-weight:400;
-  }
-
-  /* ---------- ความสามารถพิเศษ ---------- */
-  .special-talents{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-  .talent-box{
-    background:rgba(201,143,160,0.05);
-    border-left:4px solid var(--rose-gold);
-    padding:16px 20px;
-    border-radius:0 12px 12px 0;
-  }
-  .talent-title{
-    font-weight:500;
-    font-size:16px;
-    color:var(--pearl);
-    margin-bottom:6px;
-  }
-  .talent-desc{
-    font-size:14px;
-    color:var(--pearl-dim);
-    font-weight:300;
-    line-height:1.6;
-  }
-
-  /* บล็อกคำคม / เป้าหมาย */
-  .motivation-box {
-    font-style: italic;
-    color: var(--pearl-dim);
-    line-height: 1.8;
-    position: relative;
-    padding-left: 24px;
-  }
-  .motivation-box::before {
-    content: "“";
-    font-size: 50px;
-    color: rgba(233,188,199,0.3);
-    position: absolute;
-    left: 0;
-    top: -10px;
-    font-family: serif;
-  }
-
-  /* ---------- ปุ่มนำทาง ถัดไป-ย้อนกลับ (Page Navigation) ---------- */
-  .page-nav-wrapper {
-    max-width: 1100px;
-    margin: 20px auto 40px;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .btn-nav {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--pearl-dim);
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: 1px solid rgba(233,188,199,0.15);
-    background: rgba(244,236,238,0.02);
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .btn-nav:hover {
-    color: var(--graphite-deep);
-    background: linear-gradient(135deg, var(--blush), var(--rose-gold));
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(201,143,160,0.2);
-  }
-  
-  .btn-nav .arrow {
-    font-size: 16px;
-    line-height: 1;
-    transition: transform 0.3s ease;
-  }
-  .btn-nav.prev:hover .arrow { transform: translateX(-4px); }
-  .btn-nav.next:hover .arrow { transform: translateX(4px); }
-
-  footer{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    padding:40px 16px;
-    color:var(--mauve-gray);
-    font-size:12px;
-    letter-spacing:1px;
-    font-family:'Oswald',sans-serif;
-  }
-
-  /* ---------- responsive ---------- */
-  @media (max-width:880px){
-    .profile-container{
-      grid-template-columns:1fr;
-      gap:40px;
-      padding-top:20px;
-    }
-    .profile-image-section{
-      order:1; /* บนมือถือ รูปภาพอยู่บนสุด */
-      position:static;
-    }
-    .profile-info-section{
-      order:2; /* บนมือถือ เนื้อหาอยู่ด้านล่างรูป */
-    }
-    .info-grid{
-      grid-template-columns:1fr;
-    }
-  }
+  /* ปุ่มนำทาง */
+  .page-nav-wrapper { max-width: 1100px; margin: 40px auto; padding: 0 24px; display: flex; justify-content: space-between; }
+  .btn-nav { display: inline-flex; align-items: center; padding: 12px 24px; border-radius: 8px; border: 1px solid var(--line); color: var(--pearl-dim); text-decoration: none; font-family: 'Oswald', sans-serif; transition: 0.3s; }
+  .btn-nav:hover { background: var(--blush); color: var(--graphite-deep); }
 </style>
 </head>
 <body>
 
-  <!-- decorative background gears -->
-  <div class="bg-gear g1"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" fill-rule="evenodd" d="M 174.00,100.00 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 170.38,77.13 Z M 70.00,100.00 A 30.00,30.00 0 1,0 130.00,100.00 A 30.00,30.00 0 1,0 70.00,100.00 Z"/></svg></div>
-  <div class="bg-gear g2"><svg viewBox="0 0 200 200"><path fill="#9c93a4" fill-rule="evenodd" d="M 172.00,100.00 L 188.27,117.56 L 166.52,127.55 L 150.91,150.91 L 150.00,174.83 L 127.55,166.52 L 100.00,172.00 L 82.44,188.27 L 72.45,166.52 L 49.09,150.91 L 25.17,150.00 L 33.48,127.55 L 28.00,100.00 L 11.73,82.44 L 33.48,72.45 L 49.09,49.09 L 50.00,25.17 L 72.45,33.48 L 100.00,28.00 L 117.56,11.73 L 127.55,33.48 L 150.91,49.09 L 174.83,50.00 L 166.52,72.45 Z M 66.00,100.00 A 34.00,34.00 0 1,0 134.00,100.00 A 34.00,34.00 0 1,0 66.00,100.00 Z"/></svg></div>
-
-  <!-- ===== navigation ===== -->
-  <nav>
-    <div class="nav-pill">
-      <a href="index.html">Home</a>
-      <a href="profile.html" class="active">Profile</a>
-      <a href="education.html">Education</a>
-      <a href="award.html">Award</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-
-  <!-- ===== profile section ===== -->
-  <main>
-    <div class="profile-container">
-      
-      <!-- ฝั่งซ้าย: ส่วนรูปภาพเฟืองโปรไฟล์ -->
-      <section class="profile-image-section">
-        <div class="medallion-wrap">
-          <div class="med-ring">
-            <svg viewBox="0 0 200 200">
-              <defs>
-                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#e9bcc7"/>
-                  <stop offset="100%" stop-color="#9c93a4"/>
-                </linearGradient>
-              </defs>
-              <path d="M 174.00,100.00 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 170.38,77.13 Z"/>
-            </svg>
-          </div>
-          <div class="frame">
-            <img src="images/IMG_0733.jpeg" alt="รูปโปรไฟล์">
-          </div>
+  <div class="profile-container">
+    <section class="profile-image-section">
+      <div class="medallion-wrap">
+        <div class="frame">
+          <img src="images/IMG_0733.jpeg" alt="รูปโปรไฟล์">
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ฝั่งขวา: ส่วนเนื้อหาข้อมูลที่แยกเป็น 3 กล่องอย่างชัดเจน -->
-      <section class="profile-info-section">
-        
-        <h1>ประวัติส่วนตัว<span>และข้อมูลทั่วไป</span></h1>
+    <section class="profile-info-section">
+      <h1>ประวัติส่วนตัว<span>และข้อมูลทั่วไป</span></h1>
+      <div class="info-card">
+        <h2>ข้อมูลทั่วไป</h2>
+        <p>นางสาว จิราพัชร เเก้วหาญ</p>
+      </div>
+    </section>
+  </div>
 
-        <!-- กล่องที่ 1: ข้อมูลส่วนตัว/ข้อมูลทั่วไป -->
-        <div class="info-card">
-          <h2>ข้อมูลทั่วไป</h2>
-          <div class="info-grid">
-            <div class="info-item">
-              <label>ชื่อ-นามสกุล</label>
-              <p>นางสาว จิราพัชร เเก้วหาญ</p>
-            </div>
-            <div class="info-item">
-              <label>ชื่อเล่น</label>
-              <p>เเก้ม</p>
-            </div>
-            <div class="info-item">
-              <label>วันเกิด</label>
-              <p>25 พฤศจิกายน 2551</p>
-            </div>
-            <div class="info-item">
-              <label>แผนการเรียน</label>
-              <p>วิทยาศาสตร์ - คณิตศาสตร์</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- กล่องที่ 2: ความสามารถพิเศษ -->
-        <div class="info-card">
-          <h2>ความสามารถพิเศษ</h2>
-          <div class="special-talents">
-            
-            <div class="talent-box">
-             
-              <div class="talent-desc">ร้องเพลง</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- กล่องที่ 3: เป้าหมายและคติประจำใจ (Goals & Motivation) -->
-        <div class="info-card">
-          <h2>เป้าหมายและแรงบันดาลใจ</h2>
-          <div class="motivation-box">
-            มุ่งมั่นที่จะพัฒนาศักยภาพทางวิชาการอย่างต่อเนื่อง โดยเฉพาะการเพิ่มพูนทักษะการสื่อสารภาษาอังกฤษควบคู่ไปกับความรู้ด้านการคำนวณ เพื่อเตรียมความพร้อมสู่การเรียนรู้ระบบการจัดการและนวัตกรรมใหม่ๆ ในสาขาวิศวกรรมอุตสาหการอย่างมีประสิทธิภาพสูงสุด
-          </div>
-        </div>
-
-      </section>
-    </div>
-
- 
-           <!-- Navigation Buttons -->
-    <div class="page-nav-wrapper" style="max-width: 1100px; margin: 40px auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
-      <a href="index.html" class="btn-nav prev">
-        <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor; margin-right: 8px;"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg>
-        ย้อนกลับ
-      </a>
-      <a href="education.html" class="btn-nav next">
-        ถัดไป
-        <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor; margin-left: 8px;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
-      </a>
-    </div>
-
-
-  <footer>© 2569 PORTFOLIO — INDUSTRIAL ENGINEERING APPLICANT</footer>
+  <div class="page-nav-wrapper">
+    <a href="index.html" class="btn-nav">ย้อนกลับ</a>
+    <a href="education.html" class="btn-nav">ถัดไป</a>
+  </div>
 
 </body>
 </html>
