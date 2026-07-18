@@ -115,12 +115,19 @@
   }
 
   /* ---------- gear-framed photo ---------- */
-  .medallion-wrap{
-    position:relative;
-    width:min(100%,380px);
-    aspect-ratio:1/1;
-    margin:0 auto;
-  }
+  <div class="medallion-wrap">
+  <div class="med-ring">
+    <!-- SVG ฟันเฟืองเหลี่ยมที่เหมือนกับหน้า Index -->
+    <svg viewBox="0 0 200 200">
+      <path d="M100 0L115 45H165L125 75L140 120L100 90L60 120L75 75L35 45H85L100 0Z" fill="none" stroke="#e9bcc7" stroke-width="2"/>
+      <path d="M100 200L115 155H165L125 125L140 80L100 110L60 80L75 125L35 155H85L100 200Z" fill="none" stroke="#e9bcc7" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="frame">
+    <img src="images/IMG_0733.jpeg" alt="Profile">
+  </div>
+</div>
+
   .med-ring{
     position:absolute;
     inset:0;
