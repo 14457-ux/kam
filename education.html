@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education | Portfolio วิศวกรรมอุตสาหการ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite-deep:   #201e26;
+    --graphite:        #2c2833;
+    --graphite-soft:   #3a3541;
+    --mauve-gray:      #9c93a4;
+    --blush:           #e9bcc7;
+    --rose-gold:       #c98fa0;
+    --rose-gold-light: #e3aebb;
+    --pearl:           #f4ecee;
+    --pearl-dim:       #cfc4c9;
+    --line:            rgba(233,188,199,0.25);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Prompt',sans-serif;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,143,160,0.14), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 85% 100%, rgba(156,147,164,0.16), transparent 60%),
+      linear-gradient(160deg, var(--graphite-deep) 0%, var(--graphite) 55%, #262330 100%);
+    color:var(--pearl);
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  .bg-gear{ position:fixed; opacity:0.10; z-index:0; pointer-events:none; }
+  .bg-gear svg{width:100%;height:100%;display:block;}
+  .bg-gear.g1{ width:520px; height:520px; top:-160px; left:-180px; animation:spin 60s linear infinite; }
+  .bg-gear.g2{ width:360px; height:360px; bottom:-120px; right:-100px; animation:spinReverse 46s linear infinite; }
+  .bg-gear.g3{ width:220px; height:220px; top:38%; right:6%; animation:spin 30s linear infinite; opacity:0.07;}
+  .bg-gear.g4{ width:150px; height:150px; bottom:12%; left:6%; animation:spinReverse 24s linear infinite; opacity:0.08;}
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  @keyframes spinReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
+
+  nav{ position:relative; z-index:10; display:flex; justify-content:center; padding:28px 16px 10px; }
+  .nav-pill{
+    display:flex; gap:6px;
+    background:rgba(244,236,238,0.05);
+    border:1px solid var(--line);
+    backdrop-filter:blur(10px);
+    border-radius:999px; padding:6px;
+    flex-wrap:wrap; justify-content:center;
+  }
+  .nav-pill a{
+    text-decoration:none; color:var(--pearl-dim);
+    font-family:'Oswald',sans-serif; font-size:13px;
+    letter-spacing:1.5px; text-transform:uppercase;
+    padding:10px 20px; border-radius:999px;
+    transition:all .35s ease; position:relative;
+  }
+  .nav-pill a:hover, .nav-pill a:focus-visible{
+    color:var(--graphite-deep);
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+    outline:none;
+  }
+  .nav-pill a.active{
+    color:var(--graphite-deep);
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+  }
+  .nav-pill a:focus-visible{box-shadow:0 0 0 3px rgba(233,188,199,0.5);}
+
+  .page-hero{ max-width:760px; margin:0 auto; padding:50px 24px 10px; text-align:center; position:relative; z-index:2; }
+  .eyebrow{
+    font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:4px;
+    text-transform:uppercase; color:var(--rose-gold-light);
+    display:flex; align-items:center; gap:12px; margin-bottom:22px; justify-content:center;
+  }
+  .eyebrow::before, .eyebrow::after{ content:""; width:34px; height:1px; background:var(--rose-gold-light); }
+  .page-hero h1{
+    font-family:'Prompt',sans-serif; font-weight:600;
+    font-size:clamp(28px,3.6vw,42px); line-height:1.3; margin-bottom:14px; color:var(--pearl);
+  }
+  .page-hero h1 span{
+    color:transparent;
+    background:linear-gradient(120deg,var(--blush),var(--rose-gold) 60%,var(--mauve-gray));
+    -webkit-background-clip:text; background-clip:text;
+  }
+  .page-hero p{ font-size:15px; line-height:1.9; color:var(--pearl-dim); font-weight:300; max-width:56ch; margin:0 auto; }
+
+  .container{ max-width:900px; margin:0 auto; padding:20px 24px 100px; position:relative; z-index:2; }
+
+  .section-title{
+    font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:3px;
+    text-transform:uppercase; color:var(--rose-gold-light);
+    margin:50px 0 24px; display:flex; align-items:center; gap:12px;
+  }
+  .section-title::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  /* ---------- timeline ---------- */
+  .timeline{ position:relative; margin:10px 0; padding-left:30px; border-left:1px solid var(--line); }
+  .timeline-item{ position:relative; padding-bottom:38px; }
+  .timeline-item:last-child{ padding-bottom:0; }
+  .timeline-item::before{
+    content:""; position:absolute; left:-35px; top:5px;
+    width:11px; height:11px; border-radius:50%;
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+    box-shadow:0 0 0 5px rgba(233,188,199,0.14);
+  }
+  .timeline-item .t-year{
+    font-family:'Oswald',sans-serif; font-size:12px; color:var(--rose-gold-light);
+    letter-spacing:1.5px; margin-bottom:6px; display:block; text-transform:uppercase;
+  }
+  .timeline-item h3{ font-size:18px; font-weight:600; margin-bottom:8px; color:var(--pearl); }
+  .timeline-item p{ font-size:14px; color:var(--pearl-dim); font-weight:300; line-height:1.85; }
+  .timeline-item .gpa{
+    display:inline-block; margin-top:10px; font-family:'Oswald',sans-serif;
+    font-size:12px; letter-spacing:1px; color:var(--graphite-deep);
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+    padding:5px 14px; border-radius:999px;
+  }
+
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{
+    display:inline-flex; align-items:center; padding:9px 18px;
+    border:1px solid var(--line); border-radius:999px; font-size:13px;
+    color:var(--pearl-dim); background:rgba(244,236,238,0.04);
+    transition:border-color .3s ease, color .3s ease;
+  }
+  .chip:hover{ border-color:var(--rose-gold-light); color:var(--pearl); }
+
+  .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; }
+  .info-card{
+    background:rgba(244,236,238,0.04); border:1px solid var(--line);
+    border-radius:14px; padding:22px; transition:transform .3s ease, border-color .3s ease;
+  }
+  .info-card:hover{ transform:translateY(-6px); border-color:var(--rose-gold-light); }
+  .info-card h3{ font-size:15px; font-weight:500; margin-bottom:8px; color:var(--pearl); }
+  .info-card p{ font-size:13px; color:var(--pearl-dim); font-weight:300; line-height:1.8; }
+
+  footer{
+    position:relative; z-index:2; text-align:center; padding:26px 16px 40px;
+    color:var(--mauve-gray); font-size:12px; letter-spacing:1px; font-family:'Oswald',sans-serif;
+  }
+
+  @media (max-width:640px){
+    .timeline{ padding-left:24px; }
+    .timeline-item::before{ left:-29px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .bg-gear{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="bg-gear g1"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" fill-rule="evenodd" d="M 174.00,100.00 L 188.89,114.08 L 188.89,114.08 L 170.38,122.87 L 159.87,143.50 L 163.64,163.64 L 163.64,163.64 L 143.50,159.87 L 122.87,170.38 L 114.08,188.89 L 114.08,188.89 L 100.00,174.00 L 77.13,170.38 L 59.14,180.19 L 59.14,180.19 L 56.50,159.87 L 40.13,143.50 L 19.81,140.86 L 19.81,140.86 L 29.62,122.87 L 26.00,100.00 L 11.11,85.92 L 11.11,85.92 L 29.62,77.13 L 40.13,56.50 L 36.36,36.36 L 36.36,36.36 L 56.50,40.13 L 77.13,29.62 L 85.92,11.11 L 85.92,11.11 L 100.00,26.00 L 122.87,29.62 L 140.86,19.81 L 140.86,19.81 L 143.50,40.13 L 159.87,56.50 L 180.19,59.14 L 180.19,59.14 L 170.38,77.13 Z M 70.00,100.00 A 30.00,30.00 0 1,0 130.00,100.00 A 30.00,30.00 0 1,0 70.00,100.00 Z"/></svg></div>
+  <div class="bg-gear g2"><svg viewBox="0 0 200 200"><path fill="#9c93a4" fill-rule="evenodd" d="M 172.00,100.00 L 188.27,117.56 L 188.27,117.56 L 166.52,127.55 L 150.91,150.91 L 150.00,174.83 L 150.00,174.83 L 127.55,166.52 L 100.00,172.00 L 82.44,188.27 L 82.44,188.27 L 72.45,166.52 L 49.09,150.91 L 25.17,150.00 L 25.17,150.00 L 33.48,127.55 L 28.00,100.00 L 11.73,82.44 L 11.73,82.44 L 33.48,72.45 L 49.09,49.09 L 50.00,25.17 L 50.00,25.17 L 72.45,33.48 L 100.00,28.00 L 117.56,11.73 L 117.56,11.73 L 127.55,33.48 L 150.91,49.09 L 174.83,50.00 L 174.83,50.00 L 166.52,72.45 Z M 66.00,100.00 A 34.00,34.00 0 1,0 134.00,100.00 A 34.00,34.00 0 1,0 66.00,100.00 Z"/></svg></div>
+  <div class="bg-gear g3"><svg viewBox="0 0 200 200"><path fill="#c98fa0" fill-rule="evenodd" d="M 176.00,100.00 L 189.23,111.75 L 189.23,111.75 L 173.41,119.67 L 165.82,138.00 L 171.40,154.79 L 171.40,154.79 L 153.74,153.74 L 138.00,165.82 L 134.44,183.15 L 134.44,183.15 L 119.67,173.41 L 100.00,176.00 L 88.25,189.23 L 88.25,189.23 L 80.33,173.41 L 62.00,165.82 L 45.21,171.40 L 45.21,171.40 L 46.26,153.74 L 34.18,138.00 L 16.85,134.44 L 16.85,134.44 L 26.59,119.67 L 24.00,100.00 L 10.77,88.25 L 10.77,88.25 L 26.59,80.33 L 34.18,62.00 L 28.60,45.21 L 28.60,45.21 L 46.26,46.26 L 62.00,34.18 L 65.56,16.85 L 65.56,16.85 L 80.33,26.59 L 100.00,24.00 L 111.75,10.77 L 111.75,10.77 L 119.67,26.59 L 138.00,34.18 L 154.79,28.60 L 154.79,28.60 L 153.74,46.26 L 165.82,62.00 L 183.15,65.56 L 183.15,65.56 L 173.41,80.33 Z M 74.00,100.00 A 26.00,26.00 0 1,0 126.00,100.00 A 26.00,26.00 0 1,0 74.00,100.00 Z"/></svg></div>
+  <div class="bg-gear g4"><svg viewBox="0 0 200 200"><path fill="#e9bcc7" fill-rule="evenodd" d="M 172.00,100.00 L 188.27,117.56 L 188.27,117.56 L 166.52,127.55 L 150.91,150.91 L 150.00,174.83 L 150.00,174.83 L 127.55,166.52 L 100.00,172.00 L 82.44,188.27 L 82.44,188.27 L 72.45,166.52 L 49.09,150.91 L 25.17,150.00 L 25.17,150.00 L 33.48,127.55 L 28.00,100.00 L 11.73,82.44 L 11.73,82.44 L 33.48,72.45 L 49.09,49.09 L 50.00,25.17 L 50.00,25.17 L 72.45,33.48 L 100.00,28.00 L 117.56,11.73 L 117.56,11.73 L 127.55,33.48 L 150.91,49.09 L 174.83,50.00 L 174.83,50.00 L 166.52,72.45 Z M 66.00,100.00 A 34.00,34.00 0 1,0 134.00,100.00 A 34.00,34.00 0 1,0 66.00,100.00 Z"/></svg></div>
+
+  <nav>
+    <div class="nav-pill">
+      <a href="index.html">Index</a>
+      <a href="profile.html">Profile</a>
+      <a href="education.html" class="active">Education</a>
+      <a href="award.html">Award</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="eyebrow">Education</div>
+    <h1>เส้นทาง<span>การศึกษา</span>ของฉัน</h1>
+    <p>ผลการเรียน กิจกรรม และทักษะที่สั่งสมมาตลอดช่วงมัธยมศึกษา ซึ่งเป็นรากฐานสู่คณะวิศวกรรมอุตสาหการ</p>
+  </section>
+
+  <div class="container">
+
+    <h2 class="section-title">ประวัติการศึกษา</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="t-year">2566 – 2569</span>
+        <h3>มัธยมศึกษาตอนปลาย · แผนวิทยาศาสตร์-คณิตศาสตร์</h3>
+        <p>ชื่อโรงเรียนของคุณ — มุ่งเน้นวิชาคณิตศาสตร์ ฟิสิกส์ และการเขียนโปรแกรมเบื้องต้น
+        พร้อมเข้าร่วมกิจกรรมชมรมที่เกี่ยวข้องกับวิศวกรรมและการออกแบบระบบ</p>
+        <span class="gpa">GPAX 3.85</span>
+      </div>
+      <div class="timeline-item">
+        <span class="t-year">2563 – 2566</span>
+        <h3>มัธยมศึกษาตอนต้น</h3>
+        <p>ชื่อโรงเรียนของคุณ — เริ่มค้นพบความสนใจด้านคณิตศาสตร์และวิทยาศาสตร์
+        ผ่านการเข้าร่วมโครงงานวิทยาศาสตร์และการแข่งขันคณิตศาสตร์ระดับโรงเรียน</p>
+        <span class="gpa">GPAX 3.78</span>
+      </div>
+      <div class="timeline-item">
+        <span class="t-year">2557 – 2563</span>
+        <h3>ประถมศึกษา</h3>
+        <p>ชื่อโรงเรียนของคุณ — ปูพื้นฐานด้านการคิดวิเคราะห์และความอยากรู้อยากเห็น
+        ผ่านกิจกรรมประดิษฐ์และการแก้ปัญหาในชีวิตประจำวัน</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">รายวิชาที่ถนัด</h2>
+    <div class="chip-row">
+      <span class="chip">คณิตศาสตร์เพิ่มเติม</span>
+      <span class="chip">ฟิสิกส์</span>
+      <span class="chip">เคมี</span>
+      <span class="chip">การเขียนโปรแกรมเบื้องต้น</span>
+      <span class="chip">การออกแบบและเทคโนโลยี</span>
+      <span class="chip">สถิติ</span>
+    </div>
+
+    <h2 class="section-title">กิจกรรมเสริมหลักสูตร</h2>
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>ชมรมวิทยาศาสตร์</h3>
+        <p>เข้าร่วมโครงงานและการนำเสนอผลงานด้านวิทยาศาสตร์ประยุกต์ในระดับโรงเรียน</p>
+      </div>
+      <div class="info-card">
+        <h3>ค่ายวิศวกรรม</h3>
+        <p>เข้าร่วมค่ายแนะแนวและเวิร์กช็อปที่เกี่ยวข้องกับวิศวกรรมอุตสาหการและการจัดการระบบ</p>
+      </div>
+      <div class="info-card">
+        <h3>สภานักเรียน</h3>
+        <p>ฝึกทักษะการวางแผน การจัดการเวลา และการทำงานร่วมกับผู้อื่นเป็นทีม</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>© 2569 PORTFOLIO — INDUSTRIAL ENGINEERING APPLICANT</footer>
+
+</body>
+</html>
