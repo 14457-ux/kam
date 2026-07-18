@@ -692,3 +692,77 @@ transform:translateY(-120vh);
 }
 
 }
+/* ===========================
+   Engineering Grid Background
+=========================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+    z-index:-3;
+}
+
+/* ===========================
+   Cursor Glow
+=========================== */
+
+.cursor{
+    position:fixed;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:#ff4f9a;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    filter:blur(8px);
+    opacity:.55;
+    z-index:99999;
+}
+
+/* ===========================
+   Premium Button
+=========================== */
+
+.btn{
+    background:linear-gradient(135deg,#ff4f9a,#ff8fc7);
+    box-shadow:0 0 15px rgba(255,79,154,.45);
+}
+
+.btn:hover{
+    box-shadow:
+        0 0 20px #ff4f9a,
+        0 0 40px #ff8fc7;
+}
+
+/* ===========================
+   Premium Card
+=========================== */
+
+.card,
+.project,
+.certificate,
+.box{
+
+    transition:.35s;
+
+}
+
+.card:hover,
+.project:hover,
+.certificate:hover,
+.box:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 0 25px rgba(255,79,154,.25);
+
+}
