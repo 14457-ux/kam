@@ -1,58 +1,33 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Portfolio</title>
 
-<meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>Engineering Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- ========================= -->
-
-<!-- Loading Popup -->
-
-<!-- ========================= -->
+<!-- Loading -->
 
 <div id="loader">
 
-<div class="loader-content">
+    <img src="assets/images/gear.png" class="gear">
 
-<img src="assets/images/gear.png" class="gear">
-
-<h1>Engineering Portfolio</h1>
-
-<p>Loading...</p>
+    <h2>Engineering Portfolio</h2>
 
 </div>
-
-</div>
-
-<!-- Floating Gear -->
-
-<div class="floating-gear">
-
-<i class="fa-solid fa-gears"></i>
-
-</div>
-
-<!-- Navigation -->
 
 <header>
 
@@ -62,7 +37,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
 
 <i class="fa-solid fa-gears"></i>
 
-My Portfolio
+Portfolio
 
 </div>
 
@@ -82,7 +57,7 @@ My Portfolio
 
 </ul>
 
-<button id="darkMode">
+<button id="darkBtn">
 
 <i class="fa-solid fa-moon"></i>
 
@@ -92,15 +67,11 @@ My Portfolio
 
 </header>
 
-<!-- ========================= -->
-
-<!-- HOME -->
-
-<!-- ========================= -->
-
 <section id="home">
 
-<div class="hero-left">
+<div class="hero">
+
+<div class="hero-text">
 
 <h3>Hello I'm</h3>
 
@@ -110,36 +81,27 @@ My Portfolio
 
 <p>
 
-เว็บไซต์ Portfolio สำหรับยื่นเข้าศึกษาต่อ
-คณะวิศวกรรมศาสตร์
+Portfolio สำหรับยื่นเข้าคณะวิศวกรรมศาสตร์
 
 </p>
 
 <a href="#about" class="btn">
 
-เริ่มต้น
+ดูประวัติ
 
 </a>
 
 </div>
 
-<div class="hero-right">
+<div class="hero-img">
 
 <img src="assets/images/profile.jpg">
 
 </div>
 
+</div>
+
 </section>
-
-<!-- Wave -->
-
-<div class="wave"></div>
-
-<!-- ========================= -->
-
-<!-- ABOUT -->
-
-<!-- ========================= -->
 
 <section id="about">
 
@@ -149,109 +111,23 @@ My Portfolio
 
 </h2>
 
-<div class="about-box">
-
-<div class="about-image">
+<div class="card">
 
 <img src="assets/images/profile.jpg">
 
-</div>
+<div>
 
-<div class="about-info">
+<h3>ชื่อ-นามสกุล</h3>
 
-<h3>ชื่อ - นามสกุล</h3>
-
-<p>
-
-ใส่ข้อมูลของคุณ
-
-</p>
-
-<h3>วันเกิด</h3>
-
-<p>
-
-xx / xx / xxxx
-
-</p>
+<p>ใส่ข้อมูลของคุณ</p>
 
 <h3>โรงเรียน</h3>
 
-<p>
-
-....................
-
-</p>
-
-<h3>แผนการเรียน</h3>
-
-<p>
-
-วิทย์ - คณิต
-
-</p>
+<p>....................</p>
 
 <h3>คณะที่สนใจ</h3>
 
-<p>
-
-วิศวกรรมศาสตร์
-
-</p>
-
-<div class="skills">
-
-<h4>Skills</h4>
-
-<div class="skill">
-
-<span>HTML</span>
-
-<div class="progress">
-
-<div class="html"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>CSS</span>
-
-<div class="progress">
-
-<div class="css"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>JavaScript</span>
-
-<div class="progress">
-
-<div class="js"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Python</span>
-
-<div class="progress">
-
-<div class="python"></div>
-
-</div>
-
-</div>
-
-</div>
+<p>วิศวกรรมศาสตร์</p>
 
 </div>
 
@@ -263,58 +139,26 @@ xx / xx / xxxx
 
 <section id="education">
 
-    <h2 class="section-title">
-        ประวัติการศึกษา
-    </h2>
+    <h2>ประวัติการศึกษา</h2>
 
     <div class="timeline">
 
-        <div class="timeline-item left">
-
-            <div class="timeline-content">
-
-                <img src="assets/images/school1.jpg">
-
-                <h3>ระดับประถมศึกษา</h3>
-
-                <p>โรงเรียน................................</p>
-
-                <span>ปี .... - ....</span>
-
-            </div>
-
+        <div class="timeline-box">
+            <h3>🎓 ประถมศึกษา</h3>
+            <p>โรงเรียน...........................</p>
+            <span>พ.ศ. .... - ....</span>
         </div>
 
-        <div class="timeline-item right">
-
-            <div class="timeline-content">
-
-                <img src="assets/images/school2.jpg">
-
-                <h3>ระดับมัธยมศึกษาตอนต้น</h3>
-
-                <p>โรงเรียน................................</p>
-
-                <span>ปี .... - ....</span>
-
-            </div>
-
+        <div class="timeline-box">
+            <h3>🎓 มัธยมศึกษาตอนต้น</h3>
+            <p>โรงเรียน...........................</p>
+            <span>พ.ศ. .... - ....</span>
         </div>
 
-        <div class="timeline-item left">
-
-            <div class="timeline-content">
-
-                <img src="assets/images/school3.jpg">
-
-                <h3>ระดับมัธยมศึกษาตอนปลาย</h3>
-
-                <p>โรงเรียน................................</p>
-
-                <span>ปี .... - ปัจจุบัน</span>
-
-            </div>
-
+        <div class="timeline-box">
+            <h3>🎓 มัธยมศึกษาตอนปลาย</h3>
+            <p>โรงเรียน...........................</p>
+            <span>พ.ศ. .... - ปัจจุบัน</span>
         </div>
 
     </div>
@@ -327,63 +171,37 @@ xx / xx / xxxx
 
 <section id="project">
 
-    <h2 class="section-title">
-        ผลงาน
-    </h2>
+    <h2>ผลงาน</h2>
 
     <div class="project-grid">
 
         <div class="project-card">
 
-            <img src="assets/images/project1.jpg">
+            <img src="assets/images/project1.jpg" alt="Project 1">
 
-            <div class="project-info">
+            <h3>Portfolio Website</h3>
 
-                <h3>Project 01</h3>
-
-                <p>เว็บไซต์ Portfolio</p>
-
-                <button class="projectBtn">
-                    ดูรายละเอียด
-                </button>
-
-            </div>
+            <p>เว็บไซต์ Portfolio สำหรับการศึกษาต่อ</p>
 
         </div>
 
         <div class="project-card">
 
-            <img src="assets/images/project2.jpg">
+            <img src="assets/images/project2.jpg" alt="Project 2">
 
-            <div class="project-info">
+            <h3>Arduino Project</h3>
 
-                <h3>Project 02</h3>
-
-                <p>Arduino Smart Farm</p>
-
-                <button class="projectBtn">
-                    ดูรายละเอียด
-                </button>
-
-            </div>
+            <p>ระบบควบคุมอัตโนมัติด้วย Arduino</p>
 
         </div>
 
         <div class="project-card">
 
-            <img src="assets/images/project3.jpg">
+            <img src="assets/images/project3.jpg" alt="Project 3">
 
-            <div class="project-info">
+            <h3>Robot Competition</h3>
 
-                <h3>Project 03</h3>
-
-                <p>Robot แข่งขัน</p>
-
-                <button class="projectBtn">
-                    ดูรายละเอียด
-                </button>
-
-            </div>
+            <p>ผลงานการแข่งขันหุ่นยนต์</p>
 
         </div>
 
@@ -397,47 +215,17 @@ xx / xx / xxxx
 
 <section id="certificate">
 
-    <h2 class="section-title">
-        เกียรติบัตร
-    </h2>
+    <h2>เกียรติบัตร</h2>
 
-    <div class="certificate-grid">
+    <div class="gallery">
 
-        <img src="assets/images/certificate1.jpg">
+        <img src="assets/images/certificate1.jpg" alt="Certificate 1">
 
-        <img src="assets/images/certificate2.jpg">
+        <img src="assets/images/certificate2.jpg" alt="Certificate 2">
 
-        <img src="assets/images/certificate3.jpg">
+        <img src="assets/images/certificate3.jpg" alt="Certificate 3">
 
-        <img src="assets/images/certificate4.jpg">
-
-        <img src="assets/images/certificate5.jpg">
-
-        <img src="assets/images/certificate6.jpg">
-
-    </div>
-
-</section>
-
-<!-- ========================= -->
-<!-- GALLERY -->
-<!-- ========================= -->
-
-<section id="gallery">
-
-    <h2 class="section-title">
-        กิจกรรม
-    </h2>
-
-    <div class="gallery-slider">
-
-        <img src="assets/images/activity1.jpg">
-
-        <img src="assets/images/activity2.jpg">
-
-        <img src="assets/images/activity3.jpg">
-
-        <img src="assets/images/activity4.jpg">
+        <img src="assets/images/certificate4.jpg" alt="Certificate 4">
 
     </div>
 
@@ -449,171 +237,47 @@ xx / xx / xxxx
 
 <section id="contact">
 
-    <h2 class="section-title">
+    <h2>ช่องทางการติดต่อ</h2>
 
-        ติดต่อ
-
-    </h2>
-
-    <div class="contact-box">
+    <div class="contact-list">
 
         <a href="#">
-
             <i class="fab fa-facebook"></i>
-
             Facebook
-
         </a>
 
         <a href="#">
-
             <i class="fab fa-instagram"></i>
-
             Instagram
-
         </a>
 
         <a href="#">
-
             <i class="fab fa-github"></i>
-
             GitHub
-
         </a>
 
-        <a href="#">
-
+        <a href="mailto:example@gmail.com">
             <i class="fa-solid fa-envelope"></i>
-
-            Gmail
-
-        </a>
-
-        <a href="#">
-
-            <i class="fa-solid fa-phone"></i>
-
-            โทรศัพท์
-
+            example@gmail.com
         </a>
 
     </div>
 
-</section><!-- ========================= -->
-<!-- PROJECT POPUP -->
-<!-- ========================= -->
-
-<div id="projectModal" class="modal">
-
-    <div class="modal-content">
-
-        <span class="close">&times;</span>
-
-        <img id="modalImage" src="">
-
-        <h2 id="modalTitle">
-
-            Project Title
-
-        </h2>
-
-        <p id="modalText">
-
-            รายละเอียดของผลงาน
-
-        </p>
-
-        <a id="modalLink" href="#" target="_blank">
-
-            ดูบน GitHub
-
-        </a>
-
-    </div>
-
-</div>
-
-<!-- ========================= -->
-<!-- IMAGE LIGHTBOX -->
-<!-- ========================= -->
-
-<div id="lightbox">
-
-    <span id="closeLightbox">
-
-        ×
-
-    </span>
-
-    <img id="lightboxImage">
-
-</div>
-
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+</section>
 
 <footer>
 
-    <div class="footer-box">
-
-        <h2>
-
-            Engineering Portfolio
-
-        </h2>
-
-        <p>
-
-            Designed with ❤️ HTML CSS JavaScript
-
-        </p>
-
-        <div class="social">
-
-            <a href="#">
-
-                <i class="fab fa-facebook"></i>
-
-            </a>
-
-            <a href="#">
-
-                <i class="fab fa-instagram"></i>
-
-            </a>
-
-            <a href="#">
-
-                <i class="fab fa-github"></i>
-
-            </a>
-
-            <a href="#">
-
-                <i class="fab fa-youtube"></i>
-
-            </a>
-
-        </div>
-
-    </div>
+    <p>
+        © 2026 Engineering Portfolio | Designed by YOUR NAME
+    </p>
 
 </footer>
 
-<!-- ========================= -->
-<!-- SCROLL TO TOP -->
-<!-- ========================= -->
-
 <button id="topBtn">
 
-<i class="fa-solid fa-arrow-up"></i>
+    ↑
 
 </button>
-
-<!-- ========================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================= -->
 
 <script src="script.js"></script>
 
