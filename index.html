@@ -5,26 +5,20 @@
 
 <meta charset="UTF-8">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Engineering Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<link rel="stylesheet"
-href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-
-<link rel="stylesheet"
-href="style.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
 </head>
 
@@ -32,41 +26,47 @@ href="style.css">
 
 <!-- ========================= -->
 
-<!-- Loading -->
+<!-- Loading Popup -->
 
 <!-- ========================= -->
 
 <div id="loader">
 
-<div class="gear">
+<div class="loader-content">
 
-<i class="fa-solid fa-gear"></i>
+<img src="assets/images/gear.png" class="gear">
+
+<h1>Engineering Portfolio</h1>
+
+<p>Loading...</p>
 
 </div>
 
-<h2>Loading Portfolio...</h2>
+</div>
+
+<!-- Floating Gear -->
+
+<div class="floating-gear">
+
+<i class="fa-solid fa-gears"></i>
 
 </div>
 
-<!-- ========================= -->
-
-<!-- Navbar -->
-
-<!-- ========================= -->
+<!-- Navigation -->
 
 <header>
 
-<nav class="navbar">
+<nav>
 
 <div class="logo">
 
 <i class="fa-solid fa-gears"></i>
 
-<span>Portfolio</span>
+My Portfolio
 
 </div>
 
-<ul class="nav-menu">
+<ul>
 
 <li><a href="#home">หน้าแรก</a></li>
 
@@ -74,9 +74,7 @@ href="style.css">
 
 <li><a href="#education">การศึกษา</a></li>
 
-<li><a href="#skills">Skills</a></li>
-
-<li><a href="#projects">ผลงาน</a></li>
+<li><a href="#project">ผลงาน</a></li>
 
 <li><a href="#certificate">เกียรติบัตร</a></li>
 
@@ -84,11 +82,11 @@ href="style.css">
 
 </ul>
 
-<div class="menu-btn">
+<button id="darkMode">
 
-<i class="fa-solid fa-bars"></i>
+<i class="fa-solid fa-moon"></i>
 
-</div>
+</button>
 
 </nav>
 
@@ -96,383 +94,158 @@ href="style.css">
 
 <!-- ========================= -->
 
-<!-- Hero -->
+<!-- HOME -->
 
 <!-- ========================= -->
 
-<section id="home" class="hero">
+<section id="home">
 
-<div class="hero-overlay"></div>
+<div class="hero-left">
 
-<div class="hero-content" data-aos="fade-up">
+<h3>Hello I'm</h3>
 
-<img src="images/profile.jpg" class="profile-img">
+<h1>YOUR NAME</h1>
 
-<h1>
-
-น.ส.ชื่อ นามสกุล
-
-</h1>
-
-<h2>
-
-<span class="typing"></span>
-
-</h2>
+<h2 id="typing"></h2>
 
 <p>
 
-เว็บไซต์พอร์ตฟอลิโอสำหรับศึกษาต่อคณะวิศวกรรมศาสตร์
-
-รวบรวมประวัติ ผลงาน เกียรติบัตร และกิจกรรม
+เว็บไซต์ Portfolio สำหรับยื่นเข้าศึกษาต่อ
+คณะวิศวกรรมศาสตร์
 
 </p>
 
-<div class="hero-button">
-
 <a href="#about" class="btn">
 
-<i class="fa-solid fa-user"></i>
-
-เกี่ยวกับฉัน
-
-</a>
-
-<a href="#projects" class="btn btn-outline">
-
-<i class="fa-solid fa-code"></i>
-
-ผลงาน
+เริ่มต้น
 
 </a>
 
 </div>
 
-</div>
+<div class="hero-right">
 
-<div class="scroll-down">
-
-<i class="fa-solid fa-angle-down"></i>
+<img src="assets/images/profile.jpg">
 
 </div>
 
 </section>
 
+<!-- Wave -->
+
+<div class="wave"></div>
+
 <!-- ========================= -->
 
-<!-- About -->
+<!-- ABOUT -->
 
 <!-- ========================= -->
 
 <section id="about">
 
-<div class="container">
+<h2>
 
-<h2 class="title">
-
-เกี่ยวกับฉัน
+ประวัติส่วนตัว
 
 </h2>
 
-<div class="about-grid">
+<div class="about-box">
 
-<div class="about-image" data-aos="fade-right">
+<div class="about-image">
 
-<img src="images/profile.jpg">
+<img src="assets/images/profile.jpg">
 
 </div>
 
-<div class="about-content" data-aos="fade-left">
+<div class="about-info">
 
-<h3>
-
-ข้อมูลส่วนตัว
-
-</h3>
+<h3>ชื่อ - นามสกุล</h3>
 
 <p>
 
-ชื่อ : ....................................
+ใส่ข้อมูลของคุณ
 
 </p>
+
+<h3>วันเกิด</h3>
 
 <p>
 
-ชื่อเล่น : ..................................
+xx / xx / xxxx
 
 </p>
+
+<h3>โรงเรียน</h3>
 
 <p>
 
-วันเกิด : ..................................
+....................
 
 </p>
+
+<h3>แผนการเรียน</h3>
 
 <p>
 
-อายุ : ..................................
+วิทย์ - คณิต
 
 </p>
+
+<h3>คณะที่สนใจ</h3>
 
 <p>
 
-โรงเรียน : ............................
+วิศวกรรมศาสตร์
 
 </p>
 
-<p>
+<div class="skills">
 
-แผนการเรียน : วิทยาศาสตร์-คณิตศาสตร์
+<h4>Skills</h4>
 
-</p>
+<div class="skill">
 
-<p>
-
-ความสนใจ :
-
-วิศวกรรมคอมพิวเตอร์
-
-ระบบอัตโนมัติ
-
-AI
-
-Robotics
-
-Web Development
-
-</p>
-
-<p>
-
-เป้าหมาย
-
-ศึกษาต่อคณะวิศวกรรมศาสตร์
-
-สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
-
-</p>
-
-<div class="about-card">
-
-<div>
-
-<h4>กิจกรรม</h4>
-
-<span>15+</span>
-
-</div>
-
-<div>
-
-<h4>ผลงาน</h4>
-
-<span>20+</span>
-
-</div>
-
-<div>
-
-<h4>เกียรติบัตร</h4>
-
-<span>30+</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section><!-- ========================= -->
-<!-- Education -->
-<!-- ========================= -->
-
-<section id="education">
-
-<div class="container">
-
-<h2 class="title">ประวัติการศึกษา</h2>
-
-<div class="timeline">
-
-<div class="timeline-item" data-aos="fade-right">
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-content">
-
-<h3>ระดับประถมศึกษา</h3>
-
-<h4>โรงเรียน....................................</h4>
-
-<p>
-ปี พ.ศ. .... - ....
-</p>
-
-<p>
-สำเร็จการศึกษาระดับประถมศึกษา
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item" data-aos="fade-left">
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-content">
-
-<h3>ระดับมัธยมศึกษาตอนต้น</h3>
-
-<h4>โรงเรียน....................................</h4>
-
-<p>
-ปี พ.ศ. .... - ....
-</p>
-
-<p>
-แผนการเรียนทั่วไป
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item" data-aos="fade-right">
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-content">
-
-<h3>ระดับมัธยมศึกษาตอนปลาย</h3>
-
-<h4>โรงเรียน....................................</h4>
-
-<p>
-ปี พ.ศ. .... - ปัจจุบัน
-</p>
-
-<p>
-แผนการเรียนวิทยาศาสตร์–คณิตศาสตร์
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Skills -->
-<!-- ========================= -->
-
-<section id="skills">
-
-<div class="container">
-
-<h2 class="title">
-Skills
-</h2>
-
-<div class="skill-grid">
-
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>HTML</h3>
+<span>HTML</span>
 
 <div class="progress">
 
-<div class="progress-bar html">
-
-<span>90%</span>
+<div class="html"></div>
 
 </div>
 
 </div>
 
-</div>
+<div class="skill">
 
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>CSS</h3>
+<span>CSS</span>
 
 <div class="progress">
 
-<div class="progress-bar css">
-
-<span>85%</span>
+<div class="css"></div>
 
 </div>
 
 </div>
 
-</div>
+<div class="skill">
 
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>JavaScript</h3>
+<span>JavaScript</span>
 
 <div class="progress">
 
-<div class="progress-bar js">
-
-<span>75%</span>
+<div class="js"></div>
 
 </div>
 
 </div>
 
-</div>
+<div class="skill">
 
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>Python</h3>
+<span>Python</span>
 
 <div class="progress">
 
-<div class="progress-bar py">
-
-<span>80%</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>C Language</h3>
-
-<div class="progress">
-
-<div class="progress-bar c">
-
-<span>70%</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="skill-card" data-aos="zoom-in">
-
-<h3>Arduino</h3>
-
-<div class="progress">
-
-<div class="progress-bar arduino">
-
-<span>75%</span>
+<div class="python"></div>
 
 </div>
 
@@ -485,287 +258,3 @@ Skills
 </div>
 
 </section>
-
-<!-- ========================= -->
-<!-- Counter -->
-<!-- ========================= -->
-
-<section class="counter-section">
-
-<div class="container">
-
-<div class="counter-grid">
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="30">0</h2>
-
-<p>Certificates</p>
-
-</div>
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="20">0</h2>
-
-<p>Projects</p>
-
-</div>
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="15">0</h2>
-
-<p>Activities</p>
-
-</div>
-
-<div class="counter-box">
-
-<h2 class="counter" data-target="5">0</h2>
-
-<p>Programming Languages</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Projects -->
-<!-- ========================= -->
-
-<section id="projects">
-
-<div class="container">
-
-<h2 class="title">
-
-ผลงาน
-
-</h2>
-
-<div class="project-grid">
-
-<div class="project-card" data-aos="fade-up">
-
-<img src="images/project1.jpg">
-
-<div class="project-content">
-
-<h3>Engineering Portfolio Website</h3>
-
-<p>
-
-เว็บไซต์ Portfolio ด้วย HTML CSS JavaScript
-
-</p>
-
-<button class="detail-btn">
-
-ดูรายละเอียด
-
-</button>
-
-</div>
-
-</div>
-
-<div class="project-card" data-aos="fade-up">
-
-<img src="images/project2.jpg">
-
-<div class="project-content">
-
-<h3>Arduino Smart Home</h3>
-
-<p>
-
-ระบบควบคุมบ้านอัจฉริยะ
-
-</p>
-
-<button class="detail-btn">
-
-ดูรายละเอียด
-
-</button>
-
-</div>
-
-</div>
-
-<div class="project-card" data-aos="fade-up">
-
-<img src="images/project3.jpg">
-
-<div class="project-content">
-
-<h3>Robot Line Follower</h3>
-
-<p>
-
-หุ่นยนต์เดินตามเส้น
-
-</p>
-
-<button class="detail-btn">
-
-ดูรายละเอียด
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Certificates -->
-<!-- ========================= -->
-
-<section id="certificate">
-
-<div class="container">
-
-<h2 class="title">
-
-เกียรติบัตร
-
-</h2>
-
-<div class="gallery">
-
-<img src="images/certificate1.jpg">
-
-<img src="images/certificate2.jpg">
-
-<img src="images/certificate3.jpg">
-
-<img src="images/certificate4.jpg">
-
-<img src="images/certificate5.jpg">
-
-<img src="images/certificate6.jpg">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Contact -->
-<!-- ========================= -->
-
-<section id="contact">
-
-<div class="container">
-
-<h2 class="title">
-
-ช่องทางการติดต่อ
-
-</h2>
-
-<div class="contact-grid">
-
-<div class="contact-info">
-
-<h3>Contact</h3>
-
-<p>
-
-<i class="fa-solid fa-envelope"></i>
-
-example@gmail.com
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-facebook"></i>
-
-Facebook
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-instagram"></i>
-
-Instagram
-
-</p>
-
-<p>
-
-<i class="fa-brands fa-github"></i>
-
-GitHub
-
-</p>
-
-</div>
-
-<div class="contact-form">
-
-<form>
-
-<input type="text" placeholder="ชื่อ">
-
-<input type="email" placeholder="Email">
-
-<textarea placeholder="ข้อความ"></textarea>
-
-<button type="submit">
-
-ส่งข้อความ
-
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Footer -->
-<!-- ========================= -->
-
-<footer>
-
-<p>
-
-© 2026 Engineering Portfolio
-
-</p>
-
-</footer>
-
-<button id="topBtn">
-
-<i class="fa-solid fa-arrow-up"></i>
-
-</button>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
